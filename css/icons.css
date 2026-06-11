@@ -1,4 +1,4 @@
-/* Star inside lime circle — bigger & vertically centered */
+/* Star inside accent circle — bigger & vertically centered */
 .icon-star-circle,
 .about__icon--stat,
 .cta__deco {
@@ -15,4 +15,29 @@
   height: 62%;
   flex-shrink: 0;
   transform: translateY(-3%);
+}
+
+/* White foreground on accent (#cda15b) backgrounds */
+.about__icon--chip,
+.about__icon--stat,
+.about__shield,
+.message__stat-icon,
+.portfolio__nav--next,
+.blog__cta-icon,
+.cta__deco {
+  color: #fff;
+}
+
+.about__icon--chip svg [stroke],
+.about__shield svg [stroke],
+.message__stat-icon svg [stroke],
+.portfolio__nav--next svg [stroke],
+.blog__cta-icon svg [stroke] {
+  stroke: #fff;
+}
+
+.about__icon--chip svg [fill="#000"],
+.about__icon--stat svg [fill="#000"],
+.cta__deco svg [fill="#000"] {
+  fill: #fff;
 }

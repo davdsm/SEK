@@ -272,14 +272,15 @@
   transform: scale(1.04);
 }
 
-/* Right arrow — top area, lime green */
+/* Right arrow — top area, accent */
 .portfolio__nav--next {
   left: calc(50% + var(--slide-w) / 2 - 68px);
   top: 32px;
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #e2ff31;
+  background: #cda15b;
+  color: #fff;
   box-shadow: none;
 }
 

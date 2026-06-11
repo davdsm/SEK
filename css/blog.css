@@ -1,4 +1,4 @@
-/* ── Blog section (testimonials layout) ───────────────────── */
+/* ── Blog section ─────────────────────────────────────────── */
 .blog {
   background: #fff;
   padding: 80px 48px 100px;
@@ -63,7 +63,7 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: #e2ff31;
+  background: #cda15b;
   border-radius: 50%;
   flex-shrink: 0;
 }

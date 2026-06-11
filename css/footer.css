@@ -5,17 +5,75 @@
 }
 
 .footer__card {
+  position: relative;
+  isolation: isolate;
   max-width: 1280px;
   margin: 0 auto;
   border-radius: 48px;
   padding: 64px 72px 36px;
   color: #000;
-  background:
-    radial-gradient(ellipse 85% 65% at 88% 12%, rgba(226, 255, 49, 0.55) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 55% at 8% 88%, rgba(226, 255, 49, 0.35) 0%, transparent 48%),
-    radial-gradient(ellipse 90% 80% at 50% 40%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
-    linear-gradient(155deg, #f7f6f2 0%, #f0f0f0 45%, #ececec 100%);
+  background: linear-gradient(155deg, #f7f6f2 0%, #f0f0f0 45%, #ececec 100%);
   overflow: hidden;
+}
+
+.footer__card::before,
+.footer__card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer__card::before {
+  inset: -45%;
+  width: 190%;
+  height: 190%;
+  background:
+    radial-gradient(ellipse 42% 38% at 72% 18%, rgba(205, 161, 91, 0.62) 0%, transparent 72%),
+    radial-gradient(ellipse 38% 34% at 18% 82%, rgba(205, 161, 91, 0.42) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 44% at 48% 52%, rgba(255, 255, 255, 0.88) 0%, transparent 68%);
+  animation: footer-gradient-drift 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.footer__card::after {
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  background:
+    radial-gradient(ellipse 36% 32% at 85% 75%, rgba(205, 161, 91, 0.28) 0%, transparent 72%),
+    radial-gradient(ellipse 30% 28% at 12% 28%, rgba(247, 246, 242, 0.95) 0%, transparent 68%);
+  animation: footer-gradient-drift-alt 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.footer__card > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes footer-gradient-drift {
+  0% {
+    transform: translate(0%, 0%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-6%, 4%) rotate(2deg) scale(1.04);
+  }
+  100% {
+    transform: translate(5%, -5%) rotate(-1.5deg) scale(1.02);
+  }
+}
+
+@keyframes footer-gradient-drift-alt {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  50% {
+    transform: translate(7%, -3%) scale(1.06);
+  }
+  100% {
+    transform: translate(-5%, 6%) scale(1.03);
+  }
 }
 
 /* ── CTA top ──────────────────────────────────────────────── */
@@ -199,6 +257,13 @@
   font-weight: 400;
   color: #aaa;
   padding-top: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__card::before,
+  .footer__card::after {
+    animation: none;
+  }
 }
 
 /* ── Responsive ───────────────────────────────────────────── */

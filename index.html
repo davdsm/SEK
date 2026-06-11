@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURALINK — Smart Home</title>
+  <title>SEK Construction &amp; Development</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,13 +20,12 @@
   <main class="page">
     <section class="hero" aria-label="Hero">
       <div class="hero__bg" aria-hidden="true">
-        <!-- <img
-          src="sections/sample.jpg"
+        <img
+          src="sections/herp-image.png"
           alt=""
           class="hero__bg-img"
-        /> -->
+        />
       </div>
-      <div class="hero__overlay" aria-hidden="true"></div>
 
       <!-- Navigation -->
       <header class="hero__nav">
@@ -35,16 +34,22 @@
             <span class="hero__nav-num">01</span> HOME
           </a>
           <a href="#" class="hero__nav-link">
-            <span class="hero__nav-num">02</span> DEVICE
+            <span class="hero__nav-num">02</span> VISION
+          </a>
+          <a href="#" class="hero__nav-link">
+            <span class="hero__nav-num">03</span> PORTFOLIO
           </a>
         </nav>
 
-        <a href="#" class="hero__logo" aria-label="AURALINK home">AURALINK</a>
+        <a href="#" class="hero__logo" aria-label="SEK home">
+          <img src="logo/SEK-WH.svg" alt="SEK" class="hero__logo-img" width="96" height="26" />
+        </a>
 
         <div class="hero__nav-right">
-          <div class="hero__lang" role="group" aria-label="Language">
-            <button type="button" class="hero__lang-btn">ID</button>
-            <button type="button" class="hero__lang-btn hero__lang-btn--active" aria-pressed="true">EN</button>
+          <div class="hero__lang" role="group" aria-label="Language" data-active="en">
+            <span class="hero__lang-indicator" aria-hidden="true"></span>
+            <button type="button" class="hero__lang-btn" data-lang="fr">FR</button>
+            <button type="button" class="hero__lang-btn hero__lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
           </div>
           <button type="button" class="hero__menu" aria-label="Open menu">
             <span></span>
@@ -58,15 +63,14 @@
       <div class="hero__body">
         <div class="hero__content">
           <h1 class="hero__title">
-            Your Smart Home<br />
-            Safe&nbsp;&ndash;&nbsp;Seamless<br />
-            and Secure
+            Spaces Shaped by<br />
+            Precision, Vision and Craft
           </h1>
           <p class="hero__subtitle">
-            Discover the latest smart home devices designed to simplify your life, and optimize energy efficiency.
+            SEK builds enduring architecture and refined interiors for those who expect nothing less than excellence.
           </p>
           <a href="#" class="hero__cta">
-            <span class="hero__cta-text">Get started</span>
+            <span class="hero__cta-text">Discuss your project</span>
             <span class="hero__cta-icon" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 1.5L7 5L3 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -78,24 +82,24 @@
 
       <!-- Tags -->
       <div class="hero__tags" aria-label="Features">
-        <span class="hero__tag">Smart</span>
-        <span class="hero__tag">Safe</span>
-        <span class="hero__tag">Secure</span>
+        <span class="hero__tag">Precision</span>
+        <span class="hero__tag">Craft</span>
+        <span class="hero__tag">Integrity</span>
       </div>
     </section>
 
     <section class="about" aria-label="About">
       <header class="about__header">
-        <h2 class="about__title">Welcome to a Smarter<br />Way of Living</h2>
-        <p class="about__subtitle">Transforming everyday living</p>
+        <h2 class="about__title">Where Vision<br />Takes Form</h2>
+        <p class="about__subtitle">Building landmarks that endure</p>
       </header>
 
       <div class="about__grid">
         <!-- Left: AI feature card -->
         <article class="about__card about__card--feature">
           <img
-            src="sections/sample.jpg"
-            alt="Hands holding a smart home device"
+            src="sections/images/detail.jpg"
+            alt="Craftsman reviewing architectural plans on site"
             class="about__card-img about__card-img--feature"
           />
           <div class="about__glass-wrap">
@@ -107,7 +111,7 @@
               </svg>
             </span>
             <div class="about__glass">
-              <p class="about__glass-text">AI devices learn your habits and adjust automatically.</p>
+              <p class="about__glass-text">Every detail is considered, <br/ > from foundation to final finish.</p>
             </div>
           </div>
         </article>
@@ -115,11 +119,11 @@
         <!-- Top middle: Connected ecosystem -->
         <article class="about__card about__card--ecosystem">
           <img
-            src="sections/sample.jpg"
-            alt="Woman using smart home technology"
+            src="sections/images/master.jpg"
+            alt="Modern residence under construction"
             class="about__card-img about__card-img--ecosystem"
           />
-          <span class="about__pill">Connected Ecosystem</span>
+          <span class="about__pill">Master Craftsmanship</span>
         </article>
 
         <!-- Bottom middle: Smart Safe Secure -->
@@ -131,14 +135,14 @@
                 <path d="M26 20v10M21 25h10" stroke="#000" stroke-width="2.2" stroke-linecap="round"/>
               </svg>
             </span>
-            <p class="about__secure-text">Smart, Safe,<br />and Secure</p>
+            <p class="about__secure-text">Built to Last,<br />Built to Inspire</p>
           </div>
         </article>
 
         <!-- Right: 99% stat -->
         <article class="about__card about__card--stat">
           <img
-            src="sections/sample.jpg"
+            src="sections/images/time.jpg"
             alt=""
             class="about__card-img"
             aria-hidden="true"
@@ -149,32 +153,32 @@
                 <path d="M12 2.5l2.4 7.1H21.5l-6 4.4 2.3 7.1L12 17.2 6.2 21.1l2.3-7.1-6-4.4h7.1L12 2.5z" fill="#000"/>
               </svg>
             </span>
-            <p class="about__stat-value">99%</p>
-            <p class="about__stat-label">Seamless Integration<br />with Your Life</p>
+            <p class="about__stat-value">98%</p>
+            <p class="about__stat-label">On Time Project<br />Delivery Rate</p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="message" aria-label="CEO message">
+    <section class="message" aria-label="Leadership message">
       <div class="message__container">
         <blockquote class="message__quote">
           <footer class="message__profile">
             <img
               src="sections/sample.jpg"
-              alt="Dr. Dayat Santoso"
+              alt="Marcus Ellington"
               class="message__avatar"
               width="72"
               height="72"
             />
             <div>
-              <cite class="message__author">Dr. Dayat Santoso</cite>
-              <p class="message__role">CEO of NexaTech Innovations</p>
+              <cite class="message__author">Marcus Ellington</cite>
+              <p class="message__role">Founding Principal, SEK</p>
             </div>
           </footer>
           <div class="message__divider-v" aria-hidden="true"></div>
           <p class="message__text">
-            &ldquo;The integration of AI into smart home devices is revolutionizing how we interact with our living spaces. These technologies not only bring unprecedented convenience but also optimize energy use.&rdquo;
+            &ldquo;Great construction is invisible. You feel it in the silence of a perfectly hung door, the warmth of natural stone, the way light moves through a room. At SEK, we build spaces that honor both the architect&rsquo;s vision and the life that will unfold within them.&rdquo;
           </p>
         </blockquote>
 
@@ -191,8 +195,8 @@
               </span>
             </div>
             <div>
-              <p class="message__stat-value">80M+</p>
-              <p class="message__stat-label">Product Launched over worldwide</p>
+              <p class="message__stat-value">250+</p>
+              <p class="message__stat-label">Projects delivered worldwide</p>
             </div>
           </div>
 
@@ -206,8 +210,8 @@
               </span>
             </div>
             <div>
-              <p class="message__stat-value">50+</p>
-              <p class="message__stat-label">Countries connected to our ecosystem</p>
+              <p class="message__stat-value">35+</p>
+              <p class="message__stat-label">Years of combined expertise</p>
             </div>
           </div>
 
@@ -222,36 +226,36 @@
               </span>
             </div>
             <div>
-              <p class="message__stat-value">$120M+</p>
-              <p class="message__stat-label">raised in Series B funding</p>
+              <p class="message__stat-value">2.4M+</p>
+              <p class="message__stat-label">Square feet of refined space completed</p>
             </div>
           </div>
         </div>
 
-        <div class="message__logos" aria-label="Partner logos">
+        <div class="message__logos" aria-label="Industry partners">
           <div class="message__logo-card">
-            <img src="sections/logos/yeswehack.png" alt="YesWeHack" class="message__logo-img" width="217" height="73" />
+            <img src="sections/logos/yeswehack.png" alt="Foster + Partners" class="message__logo-img" width="217" height="73" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/genasys.png" alt="genasys" class="message__logo-img" width="217" height="74" />
+            <img src="sections/logos/genasys.png" alt="Gensler" class="message__logo-img" width="217" height="74" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/demostack.png" alt="demostack" class="message__logo-img" width="217" height="72" />
+            <img src="sections/logos/demostack.png" alt="HKS Architects" class="message__logo-img" width="217" height="72" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/paymongo.png" alt="paymongo" class="message__logo-img" width="218" height="74" />
+            <img src="sections/logos/paymongo.png" alt="Perkins&amp;Will" class="message__logo-img" width="218" height="74" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/label.png" alt="LABEL" class="message__logo-img" width="217" height="74" />
+            <img src="sections/logos/label.png" alt="SOM" class="message__logo-img" width="217" height="74" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/medatus.png" alt="medatus" class="message__logo-img" width="217" height="72" />
+            <img src="sections/logos/medatus.png" alt="Zaha Hadid Architects" class="message__logo-img" width="217" height="72" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/renee.png" alt="Renee" class="message__logo-img" width="215" height="70" />
+            <img src="sections/logos/renee.png" alt="Studio Gang" class="message__logo-img" width="215" height="70" />
           </div>
           <div class="message__logo-card">
-            <img src="sections/logos/sprinter-health.png" alt="sprinter health" class="message__logo-img" width="217" height="71" />
+            <img src="sections/logos/sprinter-health.png" alt="Bjarke Ingels Group" class="message__logo-img" width="217" height="71" />
           </div>
         </div>
       </div>
@@ -260,20 +264,20 @@
     <section class="portfolio" aria-label="Portfolio">
       <div class="portfolio__inner">
         <header class="portfolio__header">
-          <h2 class="portfolio__title">Discover the latest<br />smart home devices</h2>
-          <p class="portfolio__desc">Transform your home with intelligent devices that learn, adapt, and respond</p>
+          <h2 class="portfolio__title">Selected<br />Works</h2>
+          <p class="portfolio__desc">A curated portfolio of residences, estates, and landmark developments</p>
         </header>
 
       </div>
 
       <div class="portfolio__carousel" data-portfolio-carousel>
-        <button type="button" class="portfolio__nav portfolio__nav--prev" aria-label="Previous product">
+        <button type="button" class="portfolio__nav portfolio__nav--prev" aria-label="Previous project">
           <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 1L1 7L7 13" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
-        <button type="button" class="portfolio__nav portfolio__nav--next" aria-label="Next product">
+        <button type="button" class="portfolio__nav portfolio__nav--next" aria-label="Next project">
           <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 1L8 8L2 15" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -283,20 +287,20 @@
             <div class="portfolio__track">
               <article class="portfolio__slide is-active" aria-hidden="false">
                 <div class="portfolio__card">
-                  <img src="sections/sample.jpg" alt="" class="portfolio__card-bg" aria-hidden="true" />
+                  <img src="sections/images/portfolio1.jpg" alt="The Meridian Residence exterior" class="portfolio__card-bg" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">01</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
-                      <span class="portfolio__code">A02</span>
-                      <h3 class="portfolio__name">Lumi Glow</h3>
+                      <span class="portfolio__code">R01</span>
+                      <h3 class="portfolio__name">The Meridian Residence</h3>
                     </div>
                     <div class="portfolio__info-center">
-                      <span class="portfolio__badge">Smart Lights</span>
-                      <p class="portfolio__card-desc">These AI-powered lights automatically adjust brightness and color temperature based on the time of day.</p>
+                      <span class="portfolio__badge">Private Estate</span>
+                      <p class="portfolio__card-desc">A 12,000 sq ft hillside estate in Beverly Hills with limestone cladding, floor to ceiling glass, and a cantilevered pool overlooking the canyon.</p>
                     </div>
                     <a href="#" class="portfolio__cta">
-                      <span class="portfolio__cta-text">View Product</span>
+                      <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3 1.5L7 5L3 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -309,20 +313,20 @@
 
               <article class="portfolio__slide" aria-hidden="true">
                 <div class="portfolio__card">
-                  <img src="sections/sample.jpg" alt="" class="portfolio__card-bg portfolio__card-bg--left" aria-hidden="true" />
+                  <img src="sections/images/portfolio2.jpg" alt="Arcadia Tower facade" class="portfolio__card-bg portfolio__card-bg--left" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">02</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
-                      <span class="portfolio__code">B14</span>
-                      <h3 class="portfolio__name">Aura Thermo</h3>
+                      <span class="portfolio__code">C08</span>
+                      <h3 class="portfolio__name">Arcadia Tower</h3>
                     </div>
                     <div class="portfolio__info-center">
-                      <span class="portfolio__badge">Climate Control</span>
-                      <p class="portfolio__card-desc">Intelligent temperature management that learns your schedule and optimizes energy usage throughout the day.</p>
+                      <span class="portfolio__badge">Commercial</span>
+                      <p class="portfolio__card-desc">A 32 story mixed use tower in downtown Miami with brushed bronze facade, double height lobby, and LEED Platinum certification.</p>
                     </div>
                     <a href="#" class="portfolio__cta">
-                      <span class="portfolio__cta-text">View Product</span>
+                      <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3 1.5L7 5L3 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -335,20 +339,46 @@
 
               <article class="portfolio__slide" aria-hidden="true">
                 <div class="portfolio__card">
-                  <img src="sections/sample.jpg" alt="" class="portfolio__card-bg portfolio__card-bg--right" aria-hidden="true" />
+                  <img src="sections/images/portfolio3.jpg" alt="Vale House interior" class="portfolio__card-bg portfolio__card-bg--right" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">03</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
-                      <span class="portfolio__code">C07</span>
-                      <h3 class="portfolio__name">Pulse Guard</h3>
+                      <span class="portfolio__code">R14</span>
+                      <h3 class="portfolio__name">Vale House</h3>
                     </div>
                     <div class="portfolio__info-center">
-                      <span class="portfolio__badge">Security</span>
-                      <p class="portfolio__card-desc">Advanced motion and entry sensors that keep your home protected with real-time alerts and smart automation.</p>
+                      <span class="portfolio__badge">Interior Build</span>
+                      <p class="portfolio__card-desc">A mountain retreat in Aspen with hand hewn timber beams, Italian marble baths, and a wine cellar carved into native stone.</p>
                     </div>
                     <a href="#" class="portfolio__cta">
-                      <span class="portfolio__cta-text">View Product</span>
+                      <span class="portfolio__cta-text">View Project</span>
+                      <span class="portfolio__cta-icon" aria-hidden="true">
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 1.5L7 5L3 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="portfolio__slide" aria-hidden="true">
+                <div class="portfolio__card">
+                  <img src="sections/images/portfolio4.jpg" alt="The Sterling Pavilion exterior" class="portfolio__card-bg" />
+                  <div class="portfolio__card-overlay" aria-hidden="true"></div>
+                  <span class="portfolio__index" aria-hidden="true">04</span>
+                  <div class="portfolio__footer">
+                    <div class="portfolio__info-left">
+                      <span class="portfolio__code">C12</span>
+                      <h3 class="portfolio__name">The Sterling Pavilion</h3>
+                    </div>
+                    <div class="portfolio__info-center">
+                      <span class="portfolio__badge">Cultural</span>
+                      <p class="portfolio__card-desc">A waterfront pavilion in Copenhagen with cast concrete volumes, bronze detailing, and a glass atrium framing the harbor beyond.</p>
+                    </div>
+                    <a href="#" class="portfolio__cta">
+                      <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M3 1.5L7 5L3 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -366,10 +396,10 @@
     <section class="blog" aria-label="Blog">
       <div class="blog__inner">
         <div class="blog__intro">
-          <h2 class="blog__title">Here&rsquo;s what people says</h2>
-          <p class="blog__desc">Real stories from real homes—discover how our AI-powered devices are making everyday life smarter, safer, and more effortless.</p>
+          <h2 class="blog__title">From the Journal</h2>
+          <p class="blog__desc">Perspectives on materials, process, and the craft of building from the team behind SEK&rsquo;s most ambitious projects.</p>
           <a href="#" class="blog__cta">
-            <span class="blog__cta-text">Case study</span>
+            <span class="blog__cta-text">View all articles</span>
             <span class="blog__cta-icon" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 1.5L7 5L3 8.5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -384,20 +414,20 @@
               <article class="blog__slide is-active" aria-hidden="false">
                 <div class="blog__card">
                   <div class="blog__card-top">
-                    <h3 class="blog__card-title">Security and comfort finally work together.</h3>
-                    <p class="blog__card-excerpt">With facial recognition and smart locks, I never worry about lost keys or unknown visitors. Plus, the whole system works with my voice assistant—it&rsquo;s seamless and secure.</p>
+                    <h3 class="blog__card-title">The Art of Selecting Stone for Lasting Interiors</h3>
+                    <p class="blog__card-excerpt">Natural stone carries weight beyond aesthetics. We explore how quarries, climate, and joinery methods influence the character of a space before a single slab is specified.</p>
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
                     <img src="sections/sample.jpg" alt="" class="blog__avatar" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
-                      <cite class="blog__author-name">Torik Handoko</cite>
-                      <p class="blog__author-role">IT Consultant &amp; Father of Two</p>
+                      <cite class="blog__author-name">Elena Vasquez</cite>
+                      <p class="blog__author-role">March 12, 2025 · Materials</p>
                     </div>
                     <div class="blog__tags">
-                      <span class="blog__tag">Secure</span>
-                      <span class="blog__tag">Comfort</span>
+                      <span class="blog__tag">Materials</span>
+                      <span class="blog__tag">Interiors</span>
                     </div>
                   </div>
                 </div>
@@ -406,20 +436,20 @@
               <article class="blog__slide" aria-hidden="true">
                 <div class="blog__card">
                   <div class="blog__card-top">
-                    <h3 class="blog__card-title">How AI lighting changed our evening routine.</h3>
-                    <p class="blog__card-excerpt">Automated scenes now adjust as the sun sets, creating the perfect mood for dinner and bedtime without touching a single switch. Our energy bill dropped noticeably in the first month.</p>
+                    <h3 class="blog__card-title">Why Pre Construction Planning Defines Every Great Build</h3>
+                    <p class="blog__card-excerpt">The most seamless projects share one trait: decisions made early. From soil reports to MEP coordination, we break down what happens before ground breaks.</p>
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
                     <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--2" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
-                      <cite class="blog__author-name">Sarah Mitchell</cite>
-                      <p class="blog__author-role">Interior Designer</p>
+                      <cite class="blog__author-name">Marcus Ellington</cite>
+                      <p class="blog__author-role">February 28, 2025 · Process</p>
                     </div>
                     <div class="blog__tags">
-                      <span class="blog__tag">Smart</span>
-                      <span class="blog__tag">Energy</span>
+                      <span class="blog__tag">Planning</span>
+                      <span class="blog__tag">Process</span>
                     </div>
                   </div>
                 </div>
@@ -428,20 +458,20 @@
               <article class="blog__slide" aria-hidden="true">
                 <div class="blog__card">
                   <div class="blog__card-top">
-                    <h3 class="blog__card-title">Building a connected home that actually listens.</h3>
-                    <p class="blog__card-excerpt">From thermostats to security cameras, every device now talks to each other. The result is a home that anticipates what we need before we even ask for it.</p>
+                    <h3 class="blog__card-title">Building at Altitude: Lessons from the Rockies</h3>
+                    <p class="blog__card-excerpt">High elevation introduces challenges most builders never face. Logistics, curing times, and thermal expansion all demand a different playbook.</p>
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
                     <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--3" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
-                      <cite class="blog__author-name">James Chen</cite>
-                      <p class="blog__author-role">Tech Entrepreneur</p>
+                      <cite class="blog__author-name">James Whitfield</cite>
+                      <p class="blog__author-role">January 15, 2025 · Residential</p>
                     </div>
                     <div class="blog__tags">
-                      <span class="blog__tag">Ecosystem</span>
-                      <span class="blog__tag">AI</span>
+                      <span class="blog__tag">Residential</span>
+                      <span class="blog__tag">Expertise</span>
                     </div>
                   </div>
                 </div>
@@ -450,20 +480,20 @@
               <article class="blog__slide" aria-hidden="true">
                 <div class="blog__card">
                   <div class="blog__card-top">
-                    <h3 class="blog__card-title">Peace of mind while traveling abroad.</h3>
-                    <p class="blog__card-excerpt">Real-time alerts and remote access mean I can check on my home from anywhere. Smart sensors detected a water leak while we were away and notified us instantly.</p>
+                    <h3 class="blog__card-title">Sustainable Timber in Modern Estate Construction</h3>
+                    <p class="blog__card-excerpt">Reclaimed oak and responsibly sourced cedar are reshaping how estates feel and perform. A look at specification, sourcing, and long term durability.</p>
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
                     <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--4" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
-                      <cite class="blog__author-name">Elena Rodriguez</cite>
-                      <p class="blog__author-role">Travel Blogger</p>
+                      <cite class="blog__author-name">SEK Editorial</cite>
+                      <p class="blog__author-role">December 3, 2024 · Sustainability</p>
                     </div>
                     <div class="blog__tags">
-                      <span class="blog__tag">Security</span>
-                      <span class="blog__tag">Remote</span>
+                      <span class="blog__tag">Sustainability</span>
+                      <span class="blog__tag">Craft</span>
                     </div>
                   </div>
                 </div>
@@ -471,7 +501,7 @@
             </div>
           </div>
 
-          <div class="blog__dots" role="tablist" aria-label="Blog posts">
+          <div class="blog__dots" role="tablist" aria-label="Blog articles">
             <button type="button" class="blog__dot is-active" aria-label="Slide 1" aria-selected="true"></button>
             <button type="button" class="blog__dot" aria-label="Slide 2" aria-selected="false"></button>
             <button type="button" class="blog__dot" aria-label="Slide 3" aria-selected="false"></button>
@@ -485,17 +515,17 @@
       <div class="cta__inner">
         <div class="cta__visual">
           <img
-            src="sections/sample.jpg"
-            alt="Smart home lifestyle"
+            src="sections/images/cta.jpg"
+            alt="SEK construction project"
             class="cta__visual-img"
           />
         </div>
 
         <div class="cta__content">
-          <h2 class="cta__title">Your Journey to Smarter Living Starts with One Click.</h2>
-          <p class="cta__desc">Discover AI-powered devices that adapt to your lifestyle—bringing comfort, security, and efficiency to every corner of your home.</p>
+          <h2 class="cta__title">Your Vision Deserves a Builder Who Listens.</h2>
+          <p class="cta__desc">From concept to keys, SEK partners with you at every stage with transparent timelines, master craftsmanship, and spaces that exceed expectation.</p>
           <a href="#" class="cta__btn">
-            <span class="cta__btn-text">Get started</span>
+            <span class="cta__btn-text">Begin your project</span>
             <span class="cta__btn-icon" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 1.5L7 5L3 8.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -515,14 +545,14 @@
   <footer class="footer" aria-label="Footer">
     <div class="footer__card">
       <div class="footer__cta">
-        <h2 class="footer__cta-title">Ready to start your smart home journey?</h2>
+        <h2 class="footer__cta-title">Ready to build something extraordinary?</h2>
         <a href="#" class="footer__contact-btn">Contact us</a>
       </div>
 
       <div class="footer__body">
         <div class="footer__newsletter">
           <h3 class="footer__newsletter-title">Newsletter</h3>
-          <p class="footer__newsletter-desc">We&rsquo;d love to share our love for product with you in our monthly newsletter.</p>
+          <p class="footer__newsletter-desc">Insights on craftsmanship, materials, and the projects shaping the built environment, delivered monthly.</p>
           <form class="footer__form" action="#" method="post">
             <input type="email" class="footer__input" placeholder="Enter your email" aria-label="Email address" required />
             <button type="submit" class="footer__subscribe">Subscribe</button>
@@ -531,26 +561,26 @@
 
         <div class="footer__nav">
           <div class="footer__col">
-            <h4 class="footer__col-title">Home</h4>
+            <h4 class="footer__col-title">Company</h4>
             <ul class="footer__col-list">
-              <li><a href="#" class="footer__col-link">Benefits</a></li>
-              <li><a href="#" class="footer__col-link">Features</a></li>
+              <li><a href="#" class="footer__col-link">Our Story</a></li>
+              <li><a href="#" class="footer__col-link">Leadership</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">Platform</h4>
+            <h4 class="footer__col-title">Projects</h4>
             <ul class="footer__col-list">
-              <li><a href="#" class="footer__col-link">Solution</a></li>
-              <li><a href="#" class="footer__col-link">Overview</a></li>
-              <li><a href="#" class="footer__col-link">Portfolio</a></li>
+              <li><a href="#" class="footer__col-link">Residential</a></li>
+              <li><a href="#" class="footer__col-link">Commercial</a></li>
+              <li><a href="#" class="footer__col-link">Interiors</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">About us</h4>
+            <h4 class="footer__col-title">Contact</h4>
             <ul class="footer__col-list">
-              <li><a href="#" class="footer__col-link">Connectors</a></li>
-              <li><a href="#" class="footer__col-link">Security</a></li>
-              <li><a href="#" class="footer__col-link">Contact Us</a></li>
+              <li><a href="#" class="footer__col-link">Locations</a></li>
+              <li><a href="#" class="footer__col-link">Careers</a></li>
+              <li><a href="#" class="footer__col-link">Get in Touch</a></li>
             </ul>
             <div class="footer__social">
               <a href="#" class="footer__social-btn" aria-label="Email">
@@ -570,10 +600,11 @@
         </div>
       </div>
 
-      <p class="footer__copy">&copy; 2025 AURALINK.</p>
+      <p class="footer__copy">&copy; 2025 SEK.</p>
     </div>
   </footer>
 
+  <script src="js/hero.js"></script>
   <script src="js/portfolio.js"></script>
   <script src="js/blog.js"></script>
 </body>

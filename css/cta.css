@@ -8,14 +8,14 @@
   display: grid;
   grid-template-columns: 0.92fr 1.68fr;
   gap: 14px;
-  max-width: 1120px;
+  max-width: 1280px;
   margin: 0 auto;
   align-items: stretch;
 }
 
 /* ── Left visual ──────────────────────────────────────────── */
 .cta__visual {
-  background: #e2ff31;
+  background: #cda15b;
   border-radius: 36px;
   overflow: hidden;
   min-height: 320px;
@@ -104,7 +104,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #e2ff31;
+  background: #cda15b;
 }
 
 /* ── Responsive ───────────────────────────────────────────── */
@@ -116,7 +116,7 @@
   .cta__inner {
     grid-template-columns: 1fr;
     gap: 12px;
-    max-width: 560px;
+    max-width: 1280px;
   }
 
   .cta__visual {
