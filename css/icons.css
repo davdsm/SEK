@@ -1,0 +1,18 @@
+/* Star inside lime circle — bigger & vertically centered */
+.icon-star-circle,
+.about__icon--stat,
+.cta__deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-star-circle svg,
+.about__icon--stat svg,
+.cta__deco svg {
+  display: block;
+  width: 62%;
+  height: 62%;
+  flex-shrink: 0;
+  transform: translateY(-3%);
+}

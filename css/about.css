@@ -1,0 +1,317 @@
+/* ── About section ────────────────────────────────────────── */
+.about {
+  background: #fff;
+  padding: 100px 48px 120px;
+}
+
+.about__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+
+.about__title {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.about__subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #888;
+}
+
+/* ── Grid ─────────────────────────────────────────────────── */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 520px;
+}
+
+.about__card {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.about__card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Card: AI feature (left tall) ─────────────────────────── */
+.about__card--feature {
+  grid-row: 1 / 3;
+  grid-column: 1;
+}
+
+.about__card-img--feature {
+  object-position: 60% center;
+}
+
+.about__glass-wrap {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+}
+
+.about__glass {
+  padding: 40px 28px 26px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.about__glass-text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #fff;
+  text-align: center;
+}
+
+/* Chip icon — centered on top edge of glass bar */
+.about__icon--chip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e2ff31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card: Connected ecosystem (top middle) ───────────────── */
+.about__card--ecosystem {
+  grid-row: 1;
+  grid-column: 2;
+  min-height: 0;
+}
+
+.about__card-img--ecosystem {
+  object-position: center 30%;
+}
+
+.about__pill {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+
+/* ── Card: Smart Safe Secure (bottom middle) ──────────────── */
+.about__card--secure {
+  grid-row: 2;
+  grid-column: 2;
+  background: #e2ff31;
+}
+
+.about__secure-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  gap: 24px;
+}
+
+.about__shield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about__secure-text {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* ── Card: 99% stat (right tall) ──────────────────────────── */
+.about__card--stat {
+  grid-row: 1 / 3;
+  grid-column: 3;
+}
+
+.about__card--stat .about__card-img {
+  position: absolute;
+  inset: 0;
+  filter: blur(2px) brightness(0.85);
+  transform: scale(1.08);
+}
+
+.about__stat-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  padding: 36px 24px 40px;
+}
+
+.about__icon--stat {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e2ff31;
+  align-self: start;
+}
+
+.about__stat-value {
+  font-size: clamp(72px, 9vw, 108px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  align-self: center;
+}
+
+.about__stat-label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  max-width: 200px;
+  align-self: end;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .about {
+    padding: 80px 32px 100px;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    min-height: auto;
+  }
+
+  .about__card--feature {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    min-height: 400px;
+  }
+
+  .about__card--ecosystem {
+    grid-row: 2;
+    grid-column: 1;
+    min-height: 280px;
+  }
+
+  .about__card--secure {
+    grid-row: 2;
+    grid-column: 2;
+    min-height: 280px;
+  }
+
+  .about__card--stat {
+    grid-row: 3;
+    grid-column: 1 / -1;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 64px 20px 80px;
+  }
+
+  .about__header {
+    margin-bottom: 40px;
+  }
+
+  .about__title {
+    font-size: 32px;
+  }
+
+  .about__subtitle {
+    font-size: 16px;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about__card--feature,
+  .about__card--ecosystem,
+  .about__card--secure,
+  .about__card--stat {
+    grid-row: auto;
+    grid-column: 1;
+    min-height: 280px;
+  }
+
+  .about__card--feature {
+    min-height: 360px;
+  }
+
+  .about__glass-wrap {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .about__glass {
+    border-radius: 24px;
+    padding: 36px 20px 20px;
+  }
+
+  .about__icon--chip,
+  .about__icon--stat {
+    width: 56px;
+    height: 56px;
+  }
+
+  .about__glass-text {
+    font-size: 14px;
+  }
+
+  .about__secure-text {
+    font-size: 20px;
+  }
+
+  .about__shield svg {
+    width: 44px;
+    height: 44px;
+  }
+}
