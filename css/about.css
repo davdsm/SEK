@@ -39,7 +39,7 @@
 
 .about__card {
   position: relative;
-  border-radius: 32px;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -70,7 +70,7 @@
 
 .about__glass {
   padding: 40px 28px 26px;
-  border-radius: 28px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -94,7 +94,7 @@
   z-index: 2;
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: 0;
   background: #cda15b;
   display: flex;
   align-items: center;
@@ -121,7 +121,7 @@
   font-weight: 500;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 100px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -189,7 +189,7 @@
 .about__icon--stat {
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: 0;
   background: #cda15b;
   align-self: start;
 }
@@ -292,7 +292,7 @@
   }
 
   .about__glass {
-    border-radius: 24px;
+    border-radius: 0;
     padding: 36px 20px 20px;
   }
 

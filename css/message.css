@@ -8,7 +8,7 @@
   max-width: 1280px;
   margin: 0 auto;
   background: #f7f6f2;
-  border-radius: 40px;
+  border-radius: 0;
   padding: 64px 72px 56px;
 }
 
@@ -30,7 +30,7 @@
 .message__avatar {
   width: 72px;
   height: 72px;
-  border-radius: 12px;
+  border-radius: 0;
   object-fit: cover;
   object-position: center 20%;
   display: block;
@@ -94,7 +94,7 @@
   flex-shrink: 0;
   width: 72px;
   height: 72px;
-  border-radius: 16px;
+  border-radius: 0;
   background: #fff;
   display: flex;
   align-items: center;
@@ -104,7 +104,7 @@
 .message__stat-icon {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0;
   background: #cda15b;
   display: flex;
   align-items: center;
@@ -141,7 +141,7 @@
 
 .message__logo-card {
   display: block;
-  border-radius: 14px;
+  border-radius: 0;
   overflow: hidden;
   line-height: 0;
 }
@@ -161,7 +161,7 @@
 
   .message__container {
     padding: 48px 40px 44px;
-    border-radius: 32px;
+    border-radius: 0;
   }
 
   .message__quote {
@@ -192,7 +192,7 @@
 
   .message__container {
     padding: 36px 24px 32px;
-    border-radius: 28px;
+    border-radius: 0;
   }
 
   .message__text {

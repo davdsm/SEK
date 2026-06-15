@@ -41,7 +41,7 @@
   display: inline-flex;
   align-items: center;
   background: #f3f3f3;
-  border-radius: 100px;
+  border-radius: 0;
   padding: 6px 6px 6px 24px;
   transition: transform 0.15s;
 }
@@ -64,7 +64,7 @@
   width: 36px;
   height: 36px;
   background: #cda15b;
-  border-radius: 50%;
+  border-radius: 0;
   flex-shrink: 0;
 }
 
@@ -101,7 +101,7 @@
 /* ── Card ─────────────────────────────────────────────────── */
 .blog__card {
   background: #f5f4f0;
-  border-radius: 28px;
+  border-radius: 0;
   overflow: hidden;
   min-height: 340px;
   display: flex;
@@ -148,7 +148,7 @@
 .blog__avatar {
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  border-radius: 0;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -212,7 +212,7 @@
   font-weight: 500;
   color: #888;
   padding: 8px 16px;
-  border-radius: 100px;
+  border-radius: 0;
   border: 1px solid #e0ded8;
   background: #fff;
   white-space: nowrap;
@@ -230,7 +230,7 @@
 .blog__dot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: 0;
   border: none;
   padding: 0;
   background: #ddd;
@@ -294,7 +294,7 @@
   }
 
   .blog__card {
-    border-radius: 24px;
+    border-radius: 0;
     min-height: auto;
   }
 

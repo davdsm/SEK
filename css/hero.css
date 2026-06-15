@@ -127,7 +127,7 @@ button {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   background: #fff;
-  border-radius: 100px;
+  border-radius: 0;
   padding: 4px;
   isolation: isolate;
 }
@@ -138,7 +138,7 @@ button {
   left: 4px;
   width: calc(50% - 4px);
   height: calc(100% - 8px);
-  border-radius: 100px;
+  border-radius: 0;
   background: #cda15b;
   box-shadow: 0 2px 14px rgba(205, 161, 91, 0.4);
   transform: translateX(0);
@@ -166,7 +166,7 @@ button {
   letter-spacing: 0.04em;
   color: #999;
   padding: 8px 14px;
-  border-radius: 100px;
+  border-radius: 0;
   background: transparent;
   transition: color 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.45, 0.64, 1);
 }
@@ -185,7 +185,7 @@ button {
   display: none;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(255, 255, 255, 0.12);
   flex-direction: column;
@@ -204,7 +204,7 @@ button {
   width: 14px;
   height: 1.5px;
   background: #fff;
-  border-radius: 1px;
+  border-radius: 0;
 }
 
 /* ── Body layout ──────────────────────────────────────────── */
@@ -247,7 +247,7 @@ button {
   gap: 0;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 100px;
+  border-radius: 0;
   padding: 8px 8px 8px 32px;
   transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
@@ -272,7 +272,7 @@ button {
   width: 42px;
   height: 42px;
   background: #cda15b;
-  border-radius: 50%;
+  border-radius: 0;
   flex-shrink: 0;
 }
 
@@ -293,7 +293,7 @@ button {
   letter-spacing: 0.01em;
   color: #fff;
   padding: 10px 22px;
-  border-radius: 100px;
+  border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: rgba(255, 255, 255, 0.12);
 }
