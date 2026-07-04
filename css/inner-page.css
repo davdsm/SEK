@@ -1,0 +1,240 @@
+/* ── Page header shell (all pages) ────────────────────────── */
+.page-header {
+  position: relative;
+  z-index: 100;
+  padding: 36px 48px;
+  background: transparent;
+}
+
+.page-header .hero__nav {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+body:has(.hero) .page-header,
+body:has(.culture-hero) .page-header,
+body:has(.project-banner) .page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+body:has(.projects-intro) .page-header,
+body:has(.contact-intro) .page-header {
+  position: sticky;
+  top: 0;
+}
+
+body:has(.hero):not(:has(.hero.is-intro-complete)) .page-header {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body:has(.hero.is-intro-complete) .page-header {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.55s ease;
+}
+
+.page-header .hero__nav-link,
+.page-header .hero__nav-num,
+.page-header .hero__logo-img,
+.page-header .hero__menu,
+.page-header .hero__menu span {
+  transition:
+    color 0.35s ease,
+    opacity 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    filter 0.35s ease;
+}
+
+.page-header--tone-dark .hero__nav-link {
+  color: #fff;
+}
+
+.page-header--tone-dark .hero__nav-link:hover {
+  opacity: 0.6;
+}
+
+.page-header--tone-dark .hero__nav-link--active {
+  color: #cda15b;
+  opacity: 1;
+}
+
+.page-header--tone-dark .hero__nav-num {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.page-header--tone-dark .hero__logo-img {
+  filter: none;
+}
+
+.page-header--tone-dark .hero__menu {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.page-header--tone-dark .hero__menu span {
+  background: #fff;
+}
+
+.page-header--tone-light .hero__nav-link {
+  color: #000;
+}
+
+.page-header--tone-light .hero__nav-link:hover {
+  opacity: 0.55;
+}
+
+.page-header--tone-light .hero__nav-link--active {
+  color: #cda15b;
+  opacity: 1;
+}
+
+.page-header--tone-light .hero__nav-num {
+  color: #999;
+}
+
+.page-header--tone-light .hero__logo-img {
+  filter: invert(1);
+}
+
+.page-header--tone-light .hero__menu {
+  border-color: #ddd;
+  background: transparent;
+}
+
+.page-header--tone-light .hero__menu span {
+  background: #000;
+}
+
+.inner-main {
+  width: 100%;
+}
+
+.inner-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.inner-wrap--narrow {
+  max-width: 960px;
+}
+
+.page-intro {
+  padding: 100px 0 64px;
+}
+
+.page-intro__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #cda15b;
+  margin-bottom: 20px;
+}
+
+.page-intro__title {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #000;
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.page-intro__desc {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #666;
+  max-width: 560px;
+}
+
+.inner-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0;
+  padding: 6px 6px 6px 24px;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.inner-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.inner-btn--light {
+  background: #fff;
+}
+
+.inner-btn--dark {
+  background: #000;
+}
+
+.inner-btn__text {
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 18px;
+}
+
+.inner-btn--light .inner-btn__text {
+  color: #000;
+}
+
+.inner-btn--dark .inner-btn__text {
+  color: #fff;
+}
+
+.inner-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.inner-btn--light .inner-btn__icon {
+  background: #000;
+}
+
+.inner-btn--dark .inner-btn__icon {
+  background: #cda15b;
+}
+
+.inner-divider {
+  height: 1px;
+  background: #e0ded8;
+  border: none;
+}
+
+@media (max-width: 1024px) {
+  .page-header {
+    padding: 28px 32px;
+  }
+
+  .inner-wrap {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-header {
+    padding: 24px 20px;
+  }
+
+  .inner-wrap {
+    padding: 0 20px;
+  }
+
+  .page-intro {
+    padding: 80px 0 48px;
+  }
+}
