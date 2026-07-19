@@ -47,10 +47,9 @@
     const lift = easeInOut(seg(p, 0.6, 0.88));
     ocean.style.transform = `translateY(${-lift * 100}vh)`;
 
-    // Phrase fades in under the gold logo (.86 → .97)
-    const ph = seg(p, 0.86, 0.97);
-    phrase.style.opacity = ph;
-    phrase.style.transform = `translate(-50%, ${(1 - ph) * 2}vh)`;
+    // Phrase sweeps in under the gold logo once the ocean has cleared it
+    if (p >= 0.86) phrase.classList.add('in');
+    else if (p < 0.7) phrase.classList.remove('in');
   }
 
   // Horizontal carousel — vertical scroll drives translateX

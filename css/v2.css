@@ -102,8 +102,50 @@ body {
 .phrase {
   font-size: clamp(1rem, 1.6vw, 1.4rem);
   font-weight: 700;
+}
+
+/* ── Text entry animation (char blur-smear reveal) ───────── */
+[data-reveal] .w {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-reveal] .c {
+  display: inline-block;
   opacity: 0;
-  will-change: transform, opacity;
+  transform-origin: left center;
+}
+
+[data-reveal].in .c {
+  animation: char-in 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i) * 26ms);
+}
+
+@keyframes char-in {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateX(0.35em) scaleX(1.7);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] .c {
+    opacity: 1;
+  }
+
+  [data-reveal].in .c {
+    animation: none;
+  }
 }
 
 /* Layer 4 · room */
