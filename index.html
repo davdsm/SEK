@@ -9,7 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/v2.css">
 </head>
-<body>
+<body class="is-loading">
+
+  <!-- ══ Preloader ═════════════════════════════════════════ -->
+  <div class="preloader" id="preloader" role="status" aria-live="polite">
+    <svg class="preloader-icon" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line class="pl-ground" x1="8" y1="128" x2="152" y2="128"/>
+      <g class="pl-columns">
+        <line x1="34" y1="122" x2="34" y2="70"/>
+        <line x1="64" y1="122" x2="64" y2="70"/>
+        <line x1="96" y1="122" x2="96" y2="70"/>
+        <line x1="126" y1="122" x2="126" y2="70"/>
+      </g>
+      <path class="pl-arch" d="M28,70 L28,50 C28,28 52,12 80,12 C108,12 132,28 132,50 L132,70"/>
+      <line class="pl-roof" x1="18" y1="70" x2="142" y2="70"/>
+    </svg>
+    <div class="preloader-word" aria-hidden="true">
+      <span data-reveal="manual" class="preloader-label">SEK</span>
+    </div>
+    <div class="preloader-bar"><span class="preloader-bar-fill" id="preloaderFill"></span></div>
+  </div>
 
   <!-- ══ Scroll intro ══════════════════════════════════════ -->
   <div class="scrolly" id="scrolly">
@@ -79,6 +98,7 @@
 
   <script src="js/vendor/locomotive-scroll.min.js"></script>
   <script src="js/text-reveal.js"></script>
+  <script src="js/preloader.js"></script>
   <script src="js/v2.js"></script>
 </body>
 </html>

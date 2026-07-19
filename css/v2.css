@@ -26,6 +26,152 @@ body {
   overflow-x: hidden;
 }
 
+body.is-loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ── Preloader ─────────────────────────────────────────────
+   "The palace under construction" — a colonnade + arch that
+   draws itself in like a blueprint, while the hero video and
+   image finish loading behind it. ─────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.6rem;
+  background: var(--cream);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-icon {
+  width: min(30vw, 180px);
+  height: auto;
+  overflow: visible;
+}
+
+.preloader-icon line,
+.preloader-icon path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pl-ground {
+  stroke: var(--ink);
+  opacity: 0.18;
+}
+
+.pl-arch {
+  stroke-dasharray: 210;
+  stroke-dashoffset: 210;
+  animation: pl-draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.pl-roof {
+  stroke-dasharray: 124;
+  stroke-dashoffset: 124;
+  animation: pl-draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  animation-delay: 0.15s;
+}
+
+.pl-columns line {
+  stroke-dasharray: 52;
+  stroke-dashoffset: 52;
+  animation: pl-rise 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.pl-columns line:nth-child(1) { animation-delay: 0.3s; }
+.pl-columns line:nth-child(2) { animation-delay: 0.42s; }
+.pl-columns line:nth-child(3) { animation-delay: 0.54s; }
+.pl-columns line:nth-child(4) { animation-delay: 0.66s; }
+
+@keyframes pl-draw {
+  0% {
+    stroke-dashoffset: 210;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  55%,
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes pl-rise {
+  0% {
+    stroke-dashoffset: 52;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  55%,
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.preloader-label {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.4em;
+  color: var(--ink);
+  padding-left: 0.4em; /* optically re-center after tracking */
+}
+
+.preloader-bar {
+  width: min(46vw, 220px);
+  height: 2px;
+  background: rgba(10, 10, 10, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-arch,
+  .pl-roof,
+  .pl-columns line {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
 /* ── Scroll intro ─────────────────────────────────────────── */
 .scrolly {
   height: 800vh;
