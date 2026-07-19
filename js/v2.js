@@ -1,5 +1,16 @@
 /* SEK v2 — scroll-driven intro + horizontal projects carousel */
 (() => {
+  // Locomotive Scroll v5 (Lenis-based) — smooths native scrolling,
+  // so position: sticky and window scroll events keep working.
+  if (window.LocomotiveScroll) {
+    new LocomotiveScroll({
+      lenisOptions: {
+        lerp: 0.09,
+        smoothWheel: true,
+      },
+    });
+  }
+
   const scrolly = document.getElementById('scrolly');
   const room = document.querySelector('.room');
   const ocean = document.querySelector('.ocean');
@@ -17,11 +28,11 @@
     const total = scrolly.offsetHeight - innerHeight;
     const p = clamp01(-scrolly.getBoundingClientRect().top / total);
 
-    // Phase 1 · zoom into the arch (0 → .25), fade out (.20 → .27)
+    // Phase 1 · zoom into the arch (0 → .25), opacity decreasing while scrolling
     const zoom = easeInOut(seg(p, 0, 0.25));
     const scale = 1 + zoom * 5.2;
     room.style.transform = `scale(${scale})`;
-    room.style.opacity = 1 - seg(p, 0.2, 0.27);
+    room.style.opacity = 1 - easeInOut(seg(p, 0.04, 0.26));
     room.style.visibility = p > 0.28 ? 'hidden' : 'visible';
 
     // Phase 2 · ocean alone (.25 → .35)
