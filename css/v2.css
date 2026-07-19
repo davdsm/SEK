@@ -1,0 +1,200 @@
+/* ══ SEK v2 ═══════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #f6f4ee;
+  --gold: #cda15a;
+  --ink: #0a0a0a;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── Scroll intro ─────────────────────────────────────────── */
+.scrolly {
+  height: 800vh;
+  position: relative;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stage > * {
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer 1 · cream base */
+.base {
+  background: var(--cream);
+}
+
+.logo-gold {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Layer 2 · ocean video */
+.ocean {
+  will-change: transform;
+}
+
+.sea {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Logos */
+.logo {
+  width: min(52vw, 680px);
+  height: auto;
+  display: block;
+}
+
+.logo-gold {
+  fill: var(--gold);
+}
+
+.phrase {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + min(7vw, 92px) + 5vh);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.logo-dark {
+  position: absolute;
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  fill: #12304a;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  will-change: transform, opacity;
+}
+
+.phrase {
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Layer 4 · room */
+.room {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 48.4% 38.4%;
+  will-change: transform, opacity;
+}
+
+/* ── O que fazemos ───────────────────────────────────────── */
+.whatwedo {
+  position: relative;
+  background: var(--cream);
+}
+
+.whatwedo-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.whatwedo-head {
+  position: absolute;
+  top: 12vh;
+  left: 8vw;
+  max-width: 34rem;
+  z-index: 2;
+}
+
+.whatwedo-head h2 {
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.whatwedo-head p {
+  margin-top: 3.5rem;
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  line-height: 1.5;
+  max-width: 28rem;
+}
+
+.track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 1vw;
+  padding-left: 45vw;
+  will-change: transform;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 17vw;
+  min-width: 220px;
+  height: var(--h, 40vh);
+  background: #e3e1dc;
+  border-radius: 22px 22px 0 0;
+  transition: background 0.3s ease;
+}
+
+.card:nth-child(even) {
+  background: #d8d6d1;
+}
+
+.card:hover {
+  background: #cfcdc7;
+}
+
+@media (max-width: 720px) {
+  .logo {
+    width: 78vw;
+  }
+
+  .whatwedo-head {
+    left: 6vw;
+    right: 6vw;
+  }
+
+  .card {
+    width: 56vw;
+    min-width: 0;
+  }
+
+  .track {
+    padding-left: 20vw;
+  }
+}
