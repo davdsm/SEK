@@ -16,6 +16,7 @@
   const ocean = document.querySelector('.ocean');
   const logoDark = document.querySelector('.logo-dark');
   const phrase = document.querySelector('.phrase');
+  const scrollHint = document.querySelector('.scroll-hint');
   const whatwedo = document.getElementById('whatwedo');
   const track = document.querySelector('.track');
 
@@ -34,6 +35,9 @@
     room.style.transform = `scale(${scale})`;
     room.style.opacity = 1 - easeInOut(seg(p, 0.04, 0.26));
     room.style.visibility = p > 0.28 ? 'hidden' : 'visible';
+
+    // Scroll hint fades out as soon as scrolling starts
+    scrollHint.style.opacity = 1 - seg(p, 0.01, 0.06);
 
     // Phase 2 · ocean alone (.25 → .35)
 

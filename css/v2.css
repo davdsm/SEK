@@ -157,6 +157,59 @@ body {
   will-change: transform, opacity;
 }
 
+/* ── Scroll hint ─────────────────────────────────────────── */
+.scroll-hint {
+  position: absolute;
+  inset: auto;
+  right: 3.2vw;
+  bottom: 4.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+  will-change: opacity;
+}
+
+.scroll-hint-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.scroll-hint-line {
+  width: 1px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-hint-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 45%;
+  background: #fff;
+  animation: scroll-hint-sweep 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scroll-hint-sweep {
+  0% {
+    transform: translateY(-110%);
+  }
+  55% {
+    transform: translateY(120%);
+  }
+  100% {
+    transform: translateY(120%);
+  }
+}
+
 /* ── O que fazemos ───────────────────────────────────────── */
 .whatwedo {
   position: relative;
