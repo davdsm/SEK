@@ -4,6 +4,7 @@
   z-index: 100;
   padding: 36px 48px;
   background: transparent;
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .page-header .hero__nav {
@@ -14,28 +15,46 @@
 
 body:has(.hero) .page-header,
 body:has(.culture-hero) .page-header,
-body:has(.project-banner) .page-header {
+body:has(.project-banner) .page-header,
+body:has(.contact-hero) .page-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
 }
 
-body:has(.projects-intro) .page-header,
-body:has(.contact-intro) .page-header {
+body:has(.projects-intro) .page-header {
   position: sticky;
   top: 0;
 }
 
-body:has(.hero):not(:has(.hero.is-intro-complete)) .page-header {
+body:has(.hero) .page-header {
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+body:has(.hero):not(.is-past-hero):not(.is-header-visible) .page-header {
   opacity: 0;
   pointer-events: none;
 }
 
-body:has(.hero.is-intro-complete) .page-header {
+body:has(.hero):not(.is-past-hero).is-header-visible .page-header {
   opacity: 1;
   pointer-events: auto;
-  transition: opacity 0.55s ease;
+  transform: none;
+}
+
+body:not(:has(.hero)):not(.is-header-visible) .page-header,
+body:has(.hero).is-past-hero:not(.is-header-visible) .page-header {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-18px);
+}
+
+body:not(:has(.hero)).is-header-visible .page-header,
+body:has(.hero).is-past-hero.is-header-visible .page-header {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .page-header .hero__nav-link,

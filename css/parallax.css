@@ -1,0 +1,10 @@
+.js-parallax {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-parallax {
+    transform: none !important;
+  }
+}

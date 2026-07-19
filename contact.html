@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — SEK Construction &amp; Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/smooth-scroll.css" />
+  <link rel="stylesheet" href="css/parallax.css" />
+  <link rel="stylesheet" href="css/section-reveal.css" />
+  <link rel="stylesheet" href="css/inner-page.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+<body>
+  <div class="page-header">
+    <header class="hero__nav">
+      <nav class="hero__nav-left" aria-label="Primary">
+        <a href="index.html" class="hero__nav-link" data-nav="home"><span class="hero__nav-num">01</span> HOME</a>
+        <a href="culture.html" class="hero__nav-link" data-nav="vision"><span class="hero__nav-num">02</span> VISION</a>
+        <a href="projects.html" class="hero__nav-link" data-nav="portfolio"><span class="hero__nav-num">03</span> PORTFOLIO</a>
+        <a href="contact.html" class="hero__nav-link" data-nav="contact"><span class="hero__nav-num">04</span> CONTACT</a>
+      </nav>
+      <a href="index.html" class="hero__logo" aria-label="SEK home">
+        <img src="logo/SEK-WH.svg" alt="SEK" class="hero__logo-img" width="96" height="26" />
+      </a>
+      <div class="hero__nav-right">
+        <div class="hero__lang" role="group" aria-label="Language" data-active="en">
+          <span class="hero__lang-indicator" aria-hidden="true"></span>
+          <button type="button" class="hero__lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="hero__lang-btn hero__lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
+        </div>
+        <button type="button" class="hero__menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+  </div>
+
+  <main class="inner-main">
+    <section class="contact-hero" aria-label="Contact">
+      <img src="sections/images/cta.jpg" alt="" class="contact-hero__img js-parallax" data-parallax="0.1" />
+      <div class="contact-hero__overlay" aria-hidden="true"></div>
+      <div class="contact-hero__content">
+        <p class="contact-hero__label">Contact</p>
+        <h1 class="contact-hero__title">Let's discuss<br />your project</h1>
+        <p class="contact-hero__desc">Whether you are planning a private residence, a commercial development, or an interior build, our team is ready to listen and advise.</p>
+      </div>
+    </section>
+
+    <section class="contact-main" data-section-reveal>
+      <div class="inner-wrap">
+        <div class="contact-main__grid">
+          <div class="contact-form-wrap section-reveal">
+            <div class="contact-form__header">
+              <h2 class="contact-form__title">Send us a message</h2>
+              <p class="contact-form__desc">Share a few details and we will respond within two business days.</p>
+            </div>
+            <form class="contact-form" action="#" method="post">
+              <div class="contact-field__row">
+                <div class="contact-field">
+                  <label class="contact-field__label" for="first-name">First name</label>
+                  <input type="text" id="first-name" name="first-name" class="contact-field__input" required autocomplete="given-name" />
+                </div>
+                <div class="contact-field">
+                  <label class="contact-field__label" for="last-name">Last name</label>
+                  <input type="text" id="last-name" name="last-name" class="contact-field__input" required autocomplete="family-name" />
+                </div>
+              </div>
+              <div class="contact-field">
+                <label class="contact-field__label" for="email">Email</label>
+                <input type="email" id="email" name="email" class="contact-field__input" required autocomplete="email" />
+              </div>
+              <div class="contact-field">
+                <label class="contact-field__label" for="project-type">Project type</label>
+                <select id="project-type" name="project-type" class="contact-field__select">
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="interiors">Interiors</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="contact-field">
+                <label class="contact-field__label" for="message">Tell us about your project</label>
+                <textarea id="message" name="message" class="contact-field__textarea" required></textarea>
+              </div>
+              <button type="submit" class="contact-submit">
+                <span class="contact-submit__text">Send message</span>
+                <span class="contact-submit__icon" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 1.5L7 5L3 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+            </form>
+          </div>
+
+          <aside class="contact-aside">
+            <div class="contact-aside__visual section-reveal">
+              <img src="sections/images/master.jpg" alt="SEK team on site" class="contact-aside__img js-parallax" data-parallax="0.12" />
+            </div>
+            <div class="contact-aside__panel section-reveal">
+              <h2 class="contact-aside__title">Our offices</h2>
+              <ul class="contact-offices">
+                <li class="contact-office">
+                  <span class="contact-office__num">01</span>
+                  <div class="contact-office__body">
+                    <h3 class="contact-office__city">Los Angeles</h3>
+                    <p class="contact-office__address">1200 Wilshire Boulevard, Suite 400<br />Los Angeles, CA 90017</p>
+                    <a href="tel:+13105550142" class="contact-office__link">+1 310 555 0142</a>
+                  </div>
+                </li>
+                <li class="contact-office">
+                  <span class="contact-office__num">02</span>
+                  <div class="contact-office__body">
+                    <h3 class="contact-office__city">Miami</h3>
+                    <p class="contact-office__address">1001 Brickell Bay Drive, Suite 2700<br />Miami, FL 33131</p>
+                    <a href="tel:+13055550187" class="contact-office__link">+1 305 555 0187</a>
+                  </div>
+                </li>
+                <li class="contact-office">
+                  <span class="contact-office__num">03</span>
+                  <div class="contact-office__body">
+                    <h3 class="contact-office__city">New York</h3>
+                    <p class="contact-office__address">450 Park Avenue, 28th Floor<br />New York, NY 10022</p>
+                    <a href="tel:+12125550203" class="contact-office__link">+1 212 555 0203</a>
+                  </div>
+                </li>
+              </ul>
+              <div class="contact-direct">
+                <p class="contact-direct__label">General inquiries</p>
+                <a href="mailto:hello@sek.build" class="contact-direct__email">hello@sek.build</a>
+                <a href="tel:+18005557351" class="contact-direct__phone">+1 800 555 SEK1</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Footer" data-section-reveal>
+    <div class="footer__card">
+      <div class="footer__cta section-reveal">
+        <h2 class="footer__cta-title">Ready to build something extraordinary?</h2>
+        <a href="contact.html" class="footer__contact-btn">Contact us</a>
+      </div>
+      <div class="footer__body">
+        <div class="footer__newsletter section-reveal">
+          <h3 class="footer__newsletter-title">Newsletter</h3>
+          <p class="footer__newsletter-desc">Insights on craftsmanship, materials, and the projects shaping the built environment, delivered monthly.</p>
+          <form class="footer__form" action="#" method="post">
+            <input type="email" class="footer__input" placeholder="Enter your email" aria-label="Email address" required />
+            <button type="submit" class="footer__subscribe">Subscribe</button>
+          </form>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__col section-reveal">
+            <h4 class="footer__col-title">Company</h4>
+            <ul class="footer__col-list">
+              <li><a href="culture.html" class="footer__col-link">Our Story</a></li>
+              <li><a href="culture.html" class="footer__col-link">Culture</a></li>
+            </ul>
+          </div>
+          <div class="footer__col section-reveal">
+            <h4 class="footer__col-title">Projects</h4>
+            <ul class="footer__col-list">
+              <li><a href="projects.html" class="footer__col-link">All Projects</a></li>
+              <li><a href="projects.html" class="footer__col-link">Residential</a></li>
+              <li><a href="projects.html" class="footer__col-link">Commercial</a></li>
+            </ul>
+          </div>
+          <div class="footer__col section-reveal">
+            <h4 class="footer__col-title">Contact</h4>
+            <ul class="footer__col-list">
+              <li><a href="contact.html" class="footer__col-link">Get in Touch</a></li>
+              <li><a href="contact.html" class="footer__col-link">Locations</a></li>
+            </ul>
+            <div class="footer__social">
+              <a href="mailto:hello@sek.build" class="footer__social-btn" aria-label="Email">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M1.5 5l6.5 4.5L14.5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </a>
+              <a href="#" class="footer__social-btn" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="1.5" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M4.5 7v4.5M4.5 5.5h.01M7 11.5V9.2c0-1 .8-1.8 1.8-1.8s1.7.8 1.7 1.8V11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="footer__copy section-reveal">&copy; 2025 SEK.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/site-header.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/section-reveal.js"></script>
+</body>
+</html>

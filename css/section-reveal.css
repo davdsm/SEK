@@ -1,0 +1,21 @@
+/* ── Section reveal — fade-in-up stagger on viewport entry ── */
+[data-section-reveal] .section-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.65s ease var(--reveal-delay, 0s),
+    transform 0.65s ease var(--reveal-delay, 0s);
+}
+
+[data-section-reveal].is-inview .section-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-section-reveal] .section-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,19 +1,22 @@
-/* ── Message section ──────────────────────────────────────── */
-.message {
-  background: #fff;
-  padding: 0 48px 120px;
+/* ── A Informação — CEO card, stats, logos ────────────────── */
+.informacao {
+  background-color: transparent;
+  padding: 100px 0 120px;
+  overflow-x: hidden;
 }
 
-.message__container {
+.informacao__wrap {
   max-width: 1280px;
   margin: 0 auto;
-  background: #f7f6f2;
+  padding: 0 48px;
+}
+
+.informacao__container {
   border-radius: 0;
   padding: 64px 72px 56px;
 }
 
-/* ── CEO quote ────────────────────────────────────────────── */
-.message__quote {
+.informacao__quote {
   display: grid;
   grid-template-columns: 220px 1px 1fr;
   gap: 48px;
@@ -21,13 +24,13 @@
   padding-bottom: 48px;
 }
 
-.message__profile {
+.informacao__profile {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.message__avatar {
+.informacao__avatar {
   width: 72px;
   height: 72px;
   border-radius: 0;
@@ -36,7 +39,7 @@
   display: block;
 }
 
-.message__author {
+.informacao__author {
   display: block;
   font-size: 15px;
   font-weight: 700;
@@ -46,21 +49,21 @@
   margin-bottom: 4px;
 }
 
-.message__role {
+.informacao__role {
   font-size: 13px;
   font-weight: 400;
   line-height: 1.45;
   color: #888;
 }
 
-.message__divider-v {
+.informacao__divider-v {
   width: 1px;
   background: #e0ded8;
   align-self: stretch;
   min-height: 120px;
 }
 
-.message__text {
+.informacao__text {
   font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 500;
   line-height: 1.45;
@@ -68,29 +71,30 @@
   color: #000;
   padding-top: 4px;
   max-width: 820px;
+  text-align: left;
+  margin: 0;
 }
 
-.message__divider-h {
+.informacao__divider-h {
   height: 1px;
   background: #e0ded8;
   margin-bottom: 48px;
 }
 
-/* ── Statistics ───────────────────────────────────────────── */
-.message__stats {
+.informacao__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   padding-bottom: 56px;
 }
 
-.message__stat {
+.informacao__stat {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.message__stat-icon-wrap {
+.informacao__stat-icon-wrap {
   flex-shrink: 0;
   width: 72px;
   height: 72px;
@@ -101,7 +105,7 @@
   justify-content: center;
 }
 
-.message__stat-icon {
+.informacao__stat-icon {
   width: 40px;
   height: 40px;
   border-radius: 0;
@@ -111,20 +115,31 @@
   justify-content: center;
 }
 
-.message__stat-icon svg {
+.informacao__stat-icon svg {
   display: block;
 }
 
-.message__stat-value {
+.informacao__stat-value {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: #000;
   margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
 }
 
-.message__stat-label {
+html,
+body {
+  transition: background-color 0.65s ease;
+}
+
+html.is-informacao-bg,
+body.is-informacao-bg {
+  background-color: #f7f6f2;
+}
+
+.informacao__stat-label {
   font-size: 13px;
   font-weight: 400;
   line-height: 1.45;
@@ -132,80 +147,79 @@
   max-width: 200px;
 }
 
-/* ── Logo grid ────────────────────────────────────────────── */
-.message__logos {
+.informacao__logos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
-.message__logo-card {
+.informacao__logo-card {
   display: block;
   border-radius: 0;
   overflow: hidden;
   line-height: 0;
 }
 
-.message__logo-img {
+.informacao__logo-img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-/* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .message {
-    padding: 0 32px 100px;
+  .informacao__wrap {
+    padding: 0 32px;
   }
 
-  .message__container {
+  .informacao__container {
     padding: 48px 40px 44px;
-    border-radius: 0;
   }
 
-  .message__quote {
+  .informacao__quote {
     grid-template-columns: 1fr;
     gap: 32px;
     padding-bottom: 40px;
   }
 
-  .message__divider-v {
+  .informacao__divider-v {
     display: none;
   }
 
-  .message__stats {
+  .informacao__stats {
     grid-template-columns: 1fr;
     gap: 28px;
     padding-bottom: 44px;
   }
 
-  .message__logos {
+  .informacao__logos {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .message {
-    padding: 0 20px 80px;
+  .informacao {
+    padding-top: 80px;
   }
 
-  .message__container {
+  .informacao__wrap {
+    padding: 0 20px;
+  }
+
+  .informacao__container {
     padding: 36px 24px 32px;
-    border-radius: 0;
   }
 
-  .message__text {
+  .informacao__text {
     font-size: 20px;
   }
 
-  .message__stat-value {
+  .informacao__stat-value {
     font-size: 28px;
   }
 
-  .message__logos {
+  .informacao__logos {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
-
 }

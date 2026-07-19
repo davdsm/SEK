@@ -27,7 +27,7 @@
       el.dataset.headerTone = "light";
     });
 
-    [".hero", ".culture-hero", ".project-banner", ".portfolio__carousel"].forEach((selector) => {
+    [".hero", ".culture-hero", ".project-banner", ".contact-hero", ".portfolio__carousel"].forEach((selector) => {
       document.querySelectorAll(selector).forEach((el) => {
         el.dataset.headerTone = "dark";
       });
@@ -48,7 +48,7 @@
 
   function updateHeaderTone() {
     if (!pageHeader) return;
-    if (document.querySelector(".hero") && !document.querySelector(".hero.is-intro-complete")) {
+    if (!document.body.classList.contains("is-header-visible")) {
       return;
     }
 
@@ -59,6 +59,52 @@
 
     pageHeader.classList.toggle("page-header--tone-dark", tone === "dark");
     pageHeader.classList.toggle("page-header--tone-light", tone === "light");
+  }
+
+  function initHeaderScroll() {
+    const hasHero = document.querySelector(".hero");
+
+    if (!hasHero) {
+      document.body.classList.add("is-header-visible");
+    }
+
+    function getScrollY() {
+      return window.lenis?.scroll ?? window.scrollY;
+    }
+
+    let lastScrollY = getScrollY();
+    let ticking = false;
+
+    function update() {
+      const currentScrollY = getScrollY();
+
+      if (hasHero && !document.body.classList.contains("is-past-hero")) {
+        lastScrollY = currentScrollY;
+        ticking = false;
+        return;
+      }
+
+      if (currentScrollY < lastScrollY) {
+        document.body.classList.add("is-header-visible");
+      } else if (currentScrollY > lastScrollY) {
+        document.body.classList.remove("is-header-visible");
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    if (window.lenis) {
+      window.lenis.on("scroll", onScroll);
+    }
   }
 
   function initHeaderTone() {
@@ -72,16 +118,13 @@
       window.lenis.on("scroll", updateHeaderTone);
     }
 
-    const heroEl = document.getElementById("hero");
-    const introObserver = new MutationObserver(() => {
-      if (heroEl?.classList.contains("is-intro-complete")) {
+    const headerObserver = new MutationObserver(() => {
+      if (document.body.classList.contains("is-header-visible")) {
         updateHeaderTone();
       }
     });
 
-    if (heroEl) {
-      introObserver.observe(heroEl, { attributes: true, attributeFilter: ["class"] });
-    }
+    headerObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
   }
 
   const langGroup = document.querySelector(".hero__lang");
@@ -116,6 +159,7 @@
     });
   }
 
+  initHeaderScroll();
   initHeaderTone();
   initLang();
 })();

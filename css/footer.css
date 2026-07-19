@@ -1,7 +1,6 @@
 /* ── Footer ───────────────────────────────────────────────── */
 .footer {
-  background: #fff;
-  padding: 0 48px 48px;
+  padding: 100px 48px 48px;
 }
 
 .footer__card {
@@ -269,7 +268,7 @@
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .footer {
-    padding: 0 32px 32px;
+    padding: 100px 32px 32px;
   }
 
   .footer__card {
@@ -299,7 +298,7 @@
 
 @media (max-width: 640px) {
   .footer {
-    padding: 0 20px 24px;
+    padding: 100px 20px 24px;
   }
 
   .footer__card {

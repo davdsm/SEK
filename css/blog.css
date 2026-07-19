@@ -1,7 +1,6 @@
 /* ── Blog section ─────────────────────────────────────────── */
 .blog {
-  background: #fff;
-  padding: 80px 48px 100px;
+  padding: 100px 48px 100px;
 }
 
 .blog__inner {
@@ -249,7 +248,7 @@
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .blog {
-    padding: 80px 32px 100px;
+    padding: 100px 32px 100px;
   }
 
   .blog__inner {
@@ -286,7 +285,7 @@
 
 @media (max-width: 640px) {
   .blog {
-    padding: 64px 20px 80px;
+    padding: 100px 20px 100px;
   }
 
   .blog__title {

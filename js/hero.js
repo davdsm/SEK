@@ -12,6 +12,7 @@
   const TARGET_MASK_SIZE = 30;
   const EASING = 0.15;
   const COMPLETE_THRESHOLD = 0.99;
+  const HEADER_SHOW_SCROLL = 0.06;
 
   const REVEAL_START = 0.1;
   const REVEAL_STAGGER = 0.038;
@@ -107,6 +108,17 @@
     hero.style.setProperty("--intro-progress", progress);
 
     const complete = progress >= COMPLETE_THRESHOLD;
+
+    if (complete) {
+      if (!document.body.classList.contains("is-past-hero")) {
+        document.body.classList.add("is-past-hero");
+        document.body.classList.remove("is-header-visible");
+      }
+    } else {
+      document.body.classList.remove("is-past-hero");
+      document.body.classList.toggle("is-header-visible", progress >= HEADER_SHOW_SCROLL);
+    }
+
     hero.classList.toggle("is-intro-complete", complete);
     if (maskWindow) {
       maskWindow.setAttribute("aria-hidden", complete ? "true" : "false");
@@ -122,6 +134,7 @@
       hero.classList.add("is-intro-skip", "is-intro-complete");
       hero.style.setProperty("--intro-progress", "1");
       hero.style.setProperty("--logo-enter", "1");
+      document.body.classList.add("is-header-visible");
       hero.classList.add("is-logo-entered");
       setMaskSize(1);
       updateHeroParallax(1);

@@ -1,7 +1,6 @@
 /* ── Portfolio section ────────────────────────────────────── */
 .portfolio {
-  background: #fff;
-  padding: 88px 0 104px;
+  padding: 100px 0 104px;
   overflow: hidden;
 }
 
@@ -175,6 +174,15 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: #fff;
+}
+
+.portfolio__name a {
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.portfolio__name a:hover {
+  opacity: 0.75;
 }
 
 .portfolio__info-center {
@@ -364,7 +372,7 @@
 
 @media (max-width: 640px) {
   .portfolio {
-    padding: 64px 0 80px;
+    padding: 100px 0 100px;
   }
 
   .portfolio__inner {

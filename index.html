@@ -8,68 +8,67 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/smooth-scroll.css" />
+  <link rel="stylesheet" href="css/parallax.css" />
   <link rel="stylesheet" href="css/icons.css" />
+  <link rel="stylesheet" href="css/section-reveal.css" />
+  <link rel="stylesheet" href="css/inner-page.css" />
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/portfolio.css" />
-  <link rel="stylesheet" href="css/message.css" />
+  <link rel="stylesheet" href="css/informacao.css" />
   <link rel="stylesheet" href="css/blog.css" />
   <link rel="stylesheet" href="css/cta.css" />
   <link rel="stylesheet" href="css/footer.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="hero" aria-label="Hero">
-      <div class="hero__bg" aria-hidden="true">
-        <img
-          src="sections/herp-image.png"
-          alt=""
-          class="hero__bg-img"
-        />
-      </div>
-
-      <!-- Navigation -->
-      <header class="hero__nav">
-        <nav class="hero__nav-left" aria-label="Primary">
-          <a href="#" class="hero__nav-link">
-            <span class="hero__nav-num">01</span> HOME
-          </a>
-          <a href="#" class="hero__nav-link">
-            <span class="hero__nav-num">02</span> VISION
-          </a>
-          <a href="#" class="hero__nav-link">
-            <span class="hero__nav-num">03</span> PORTFOLIO
-          </a>
-        </nav>
-
-        <a href="#" class="hero__logo" aria-label="SEK home">
-          <img src="logo/SEK-WH.svg" alt="SEK" class="hero__logo-img" width="96" height="26" />
-        </a>
-
-        <div class="hero__nav-right">
-          <div class="hero__lang" role="group" aria-label="Language" data-active="en">
-            <span class="hero__lang-indicator" aria-hidden="true"></span>
-            <button type="button" class="hero__lang-btn" data-lang="fr">FR</button>
-            <button type="button" class="hero__lang-btn hero__lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
-          </div>
-          <button type="button" class="hero__menu" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+  <div class="page-header">
+    <header class="hero__nav">
+      <nav class="hero__nav-left" aria-label="Primary">
+        <a href="index.html" class="hero__nav-link" data-nav="home"><span class="hero__nav-num">01</span> HOME</a>
+        <a href="culture.html" class="hero__nav-link" data-nav="vision"><span class="hero__nav-num">02</span> VISION</a>
+        <a href="projects.html" class="hero__nav-link" data-nav="portfolio"><span class="hero__nav-num">03</span> PORTFOLIO</a>
+        <a href="contact.html" class="hero__nav-link" data-nav="contact"><span class="hero__nav-num">04</span> CONTACT</a>
+      </nav>
+      <a href="index.html" class="hero__logo" aria-label="SEK home">
+        <img src="logo/SEK-WH.svg" alt="SEK" class="hero__logo-img" width="96" height="26" />
+      </a>
+      <div class="hero__nav-right">
+        <div class="hero__lang" role="group" aria-label="Language" data-active="en">
+          <span class="hero__lang-indicator" aria-hidden="true"></span>
+          <button type="button" class="hero__lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="hero__lang-btn hero__lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
         </div>
-      </header>
+        <button type="button" class="hero__menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+  </div>
+
+  <main class="page">
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero__scroll">
+        <div class="hero__mask">
+          <div class="hero__mask-window" aria-hidden="true">
+            <img
+              src="sections/herp-image.png"
+              alt=""
+              class="hero__mask-img"
+              id="hero-mask-img"
+            />
+          </div>
+
+          <p class="hero__intro-hint">Scroll</p>
 
       <!-- Content -->
       <div class="hero__body">
         <div class="hero__content">
-          <h1 class="hero__title">
+          <h1 class="hero__title hero__reveal">
             Spaces Shaped by<br />
             Precision, Vision and Craft
           </h1>
-          <p class="hero__subtitle">
+          <p class="hero__subtitle hero__reveal">
             SEK builds enduring architecture and refined interiors for those who expect nothing less than excellence.
           </p>
-          <a href="#" class="hero__cta">
+          <a href="contact.html" class="hero__cta hero__reveal">
             <span class="hero__cta-text">Discuss your project</span>
             <span class="hero__cta-icon" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,25 +81,31 @@
 
       <!-- Tags -->
       <div class="hero__tags" aria-label="Features">
-        <span class="hero__tag">Precision</span>
-        <span class="hero__tag">Craft</span>
-        <span class="hero__tag">Integrity</span>
+        <span class="hero__tag hero__reveal">Precision</span>
+        <span class="hero__tag hero__reveal">Craft</span>
+        <span class="hero__tag hero__reveal">Integrity</span>
+      </div>
+        </div>
       </div>
     </section>
 
-    <section class="about" aria-label="About">
+    <section class="about" id="about" aria-label="About" data-section-reveal>
+      <div class="about__track">
+        <div class="about__sticky">
+        <div class="about__stage">
       <header class="about__header">
-        <h2 class="about__title">Where Vision<br />Takes Form</h2>
-        <p class="about__subtitle">Building landmarks that endure</p>
+        <h2 class="about__title section-reveal">Where Vision<br />Takes Form</h2>
+        <p class="about__subtitle section-reveal">Building landmarks that endure</p>
       </header>
 
       <div class="about__grid">
         <!-- Left: AI feature card -->
-        <article class="about__card about__card--feature">
+        <article class="about__card about__card--feature section-reveal">
           <img
             src="sections/images/detail.jpg"
             alt="Craftsman reviewing architectural plans on site"
-            class="about__card-img about__card-img--feature"
+            class="about__card-img about__card-img--feature js-parallax"
+            data-parallax="0.14"
           />
           <div class="about__glass-wrap">
             <span class="about__icon about__icon--chip" aria-hidden="true">
@@ -117,17 +122,18 @@
         </article>
 
         <!-- Top middle: Connected ecosystem -->
-        <article class="about__card about__card--ecosystem">
+        <article class="about__card about__card--ecosystem section-reveal">
           <img
             src="sections/images/master.jpg"
             alt="Modern residence under construction"
-            class="about__card-img about__card-img--ecosystem"
+            class="about__card-img about__card-img--ecosystem js-parallax"
+            data-parallax="0.22"
           />
           <span class="about__pill">Master Craftsmanship</span>
         </article>
 
         <!-- Bottom middle: Smart Safe Secure -->
-        <article class="about__card about__card--secure">
+        <article class="about__card about__card--secure section-reveal">
           <div class="about__secure-inner">
             <span class="about__shield" aria-hidden="true">
               <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -140,11 +146,13 @@
         </article>
 
         <!-- Right: 99% stat -->
-        <article class="about__card about__card--stat">
+        <article class="about__card about__card--stat section-reveal">
           <img
             src="sections/images/time.jpg"
             alt=""
-            class="about__card-img"
+            class="about__card-img js-parallax"
+            data-parallax="0.09"
+            data-base-scale="1.08"
             aria-hidden="true"
           />
           <div class="about__stat-content">
@@ -158,36 +166,41 @@
           </div>
         </article>
       </div>
+        </div>
+        </div>
+      </div>
     </section>
 
-    <section class="message" aria-label="Leadership message">
-      <div class="message__container">
-        <blockquote class="message__quote">
-          <footer class="message__profile">
+    <section class="informacao" id="informacao" aria-label="A Informação" data-section-reveal>
+      <div class="informacao__wrap">
+        <div class="informacao__container">
+        <blockquote class="informacao__quote">
+          <footer class="informacao__profile section-reveal">
             <img
               src="sections/sample.jpg"
               alt="Marcus Ellington"
-              class="message__avatar"
+              class="informacao__avatar js-parallax"
+              data-parallax="0.11"
               width="72"
               height="72"
             />
             <div>
-              <cite class="message__author">Marcus Ellington</cite>
-              <p class="message__role">Founding Principal, SEK</p>
+              <cite class="informacao__author">Marcus Ellington</cite>
+              <p class="informacao__role">Founding Principal, SEK</p>
             </div>
           </footer>
-          <div class="message__divider-v" aria-hidden="true"></div>
-          <p class="message__text">
+          <div class="informacao__divider-v" aria-hidden="true"></div>
+          <p class="informacao__text section-reveal">
             &ldquo;Great construction is invisible. You feel it in the silence of a perfectly hung door, the warmth of natural stone, the way light moves through a room. At SEK, we build spaces that honor both the architect&rsquo;s vision and the life that will unfold within them.&rdquo;
           </p>
         </blockquote>
 
-        <div class="message__divider-h" aria-hidden="true"></div>
+        <div class="informacao__divider-h" aria-hidden="true"></div>
 
-        <div class="message__stats">
-          <div class="message__stat">
-            <div class="message__stat-icon-wrap">
-              <span class="message__stat-icon" aria-hidden="true">
+        <div class="informacao__stats">
+          <div class="informacao__stat section-reveal">
+            <div class="informacao__stat-icon-wrap">
+              <span class="informacao__stat-icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 2L15 5.5V11.5L9 15L3 11.5V5.5L9 2Z" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
                   <path d="M9 9L15 5.5M9 9V15M9 9L3 5.5" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
@@ -195,14 +208,14 @@
               </span>
             </div>
             <div>
-              <p class="message__stat-value">250+</p>
-              <p class="message__stat-label">Projects delivered worldwide</p>
+              <p class="informacao__stat-value" data-count="250" data-suffix="+">0+</p>
+              <p class="informacao__stat-label">Projects delivered worldwide</p>
             </div>
           </div>
 
-          <div class="message__stat">
-            <div class="message__stat-icon-wrap">
-              <span class="message__stat-icon" aria-hidden="true">
+          <div class="informacao__stat section-reveal">
+            <div class="informacao__stat-icon-wrap">
+              <span class="informacao__stat-icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="9" cy="9" r="6.5" stroke="#000" stroke-width="1.4"/>
                   <path d="M2.5 9H15.5M9 2.5C7 5 6 7 6 9C6 11 7 13 9 15.5C11 13 12 11 12 9C12 7 11 5 9 2.5Z" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/>
@@ -210,14 +223,14 @@
               </span>
             </div>
             <div>
-              <p class="message__stat-value">35+</p>
-              <p class="message__stat-label">Years of combined expertise</p>
+              <p class="informacao__stat-value" data-count="35" data-suffix="+">0+</p>
+              <p class="informacao__stat-label">Years of combined expertise</p>
             </div>
           </div>
 
-          <div class="message__stat">
-            <div class="message__stat-icon-wrap">
-              <span class="message__stat-icon" aria-hidden="true">
+          <div class="informacao__stat section-reveal">
+            <div class="informacao__stat-icon-wrap">
+              <span class="informacao__stat-icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <ellipse cx="9" cy="6" rx="5" ry="2" stroke="#000" stroke-width="1.4"/>
                   <path d="M4 6V10C4 11.1 6.2 12 9 12C11.8 12 14 11.1 14 10V6" stroke="#000" stroke-width="1.4"/>
@@ -226,51 +239,52 @@
               </span>
             </div>
             <div>
-              <p class="message__stat-value">2.4M+</p>
-              <p class="message__stat-label">Square feet of refined space completed</p>
+              <p class="informacao__stat-value" data-count="2.4" data-suffix="M+" data-decimals="1">0.0M+</p>
+              <p class="informacao__stat-label">Square feet of refined space completed</p>
             </div>
           </div>
         </div>
 
-        <div class="message__logos" aria-label="Industry partners">
-          <div class="message__logo-card">
-            <img src="sections/logos/yeswehack.png" alt="Foster + Partners" class="message__logo-img" width="217" height="73" />
+        <div class="informacao__logos" aria-label="Industry partners">
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/yeswehack.png" alt="Foster + Partners" class="informacao__logo-img js-parallax" data-parallax="0.05" width="217" height="73" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/genasys.png" alt="Gensler" class="message__logo-img" width="217" height="74" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/genasys.png" alt="Gensler" class="informacao__logo-img js-parallax" data-parallax="0.07" width="217" height="74" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/demostack.png" alt="HKS Architects" class="message__logo-img" width="217" height="72" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/demostack.png" alt="HKS Architects" class="informacao__logo-img js-parallax" data-parallax="0.04" width="217" height="72" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/paymongo.png" alt="Perkins&amp;Will" class="message__logo-img" width="218" height="74" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/paymongo.png" alt="Perkins&amp;Will" class="informacao__logo-img js-parallax" data-parallax="0.06" width="218" height="74" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/label.png" alt="SOM" class="message__logo-img" width="217" height="74" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/label.png" alt="SOM" class="informacao__logo-img js-parallax" data-parallax="0.08" width="217" height="74" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/medatus.png" alt="Zaha Hadid Architects" class="message__logo-img" width="217" height="72" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/medatus.png" alt="Zaha Hadid Architects" class="informacao__logo-img js-parallax" data-parallax="0.05" width="217" height="72" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/renee.png" alt="Studio Gang" class="message__logo-img" width="215" height="70" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/renee.png" alt="Studio Gang" class="informacao__logo-img js-parallax" data-parallax="0.07" width="215" height="70" />
           </div>
-          <div class="message__logo-card">
-            <img src="sections/logos/sprinter-health.png" alt="Bjarke Ingels Group" class="message__logo-img" width="217" height="71" />
+          <div class="informacao__logo-card section-reveal">
+            <img src="sections/logos/sprinter-health.png" alt="Bjarke Ingels Group" class="informacao__logo-img js-parallax" data-parallax="0.06" width="217" height="71" />
           </div>
+        </div>
         </div>
       </div>
     </section>
 
-    <section class="portfolio" aria-label="Portfolio">
+    <section class="portfolio" aria-label="Portfolio" data-section-reveal>
       <div class="portfolio__inner">
         <header class="portfolio__header">
-          <h2 class="portfolio__title">Selected<br />Works</h2>
-          <p class="portfolio__desc">A curated portfolio of residences, estates, and landmark developments</p>
+          <h2 class="portfolio__title section-reveal">Selected<br />Works</h2>
+          <p class="portfolio__desc section-reveal">A curated portfolio of residences, estates, and landmark developments</p>
         </header>
 
       </div>
 
-      <div class="portfolio__carousel" data-portfolio-carousel>
+      <div class="portfolio__carousel section-reveal" data-portfolio-carousel>
         <button type="button" class="portfolio__nav portfolio__nav--prev" aria-label="Previous project">
           <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 1L1 7L7 13" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -287,19 +301,19 @@
             <div class="portfolio__track">
               <article class="portfolio__slide is-active" aria-hidden="false">
                 <div class="portfolio__card">
-                  <img src="sections/images/portfolio1.jpg" alt="The Meridian Residence exterior" class="portfolio__card-bg" />
+                  <img src="sections/images/portfolio1.jpg" alt="The Meridian Residence exterior" class="portfolio__card-bg js-parallax" data-parallax="0.16" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">01</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
                       <span class="portfolio__code">R01</span>
-                      <h3 class="portfolio__name">The Meridian Residence</h3>
+                      <h3 class="portfolio__name"><a href="project.html">The Meridian Residence</a></h3>
                     </div>
                     <div class="portfolio__info-center">
                       <span class="portfolio__badge">Private Estate</span>
                       <p class="portfolio__card-desc">A 12,000 sq ft hillside estate in Beverly Hills with limestone cladding, floor to ceiling glass, and a cantilevered pool overlooking the canyon.</p>
                     </div>
-                    <a href="#" class="portfolio__cta">
+                    <a href="project.html" class="portfolio__cta">
                       <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -313,19 +327,19 @@
 
               <article class="portfolio__slide" aria-hidden="true">
                 <div class="portfolio__card">
-                  <img src="sections/images/portfolio2.jpg" alt="Arcadia Tower facade" class="portfolio__card-bg portfolio__card-bg--left" />
+                  <img src="sections/images/portfolio2.jpg" alt="Arcadia Tower facade" class="portfolio__card-bg portfolio__card-bg--left js-parallax" data-parallax="0.24" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">02</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
                       <span class="portfolio__code">C08</span>
-                      <h3 class="portfolio__name">Arcadia Tower</h3>
+                      <h3 class="portfolio__name"><a href="project.html">Arcadia Tower</a></h3>
                     </div>
                     <div class="portfolio__info-center">
                       <span class="portfolio__badge">Commercial</span>
                       <p class="portfolio__card-desc">A 32 story mixed use tower in downtown Miami with brushed bronze facade, double height lobby, and LEED Platinum certification.</p>
                     </div>
-                    <a href="#" class="portfolio__cta">
+                    <a href="project.html" class="portfolio__cta">
                       <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -339,19 +353,19 @@
 
               <article class="portfolio__slide" aria-hidden="true">
                 <div class="portfolio__card">
-                  <img src="sections/images/portfolio3.jpg" alt="Vale House interior" class="portfolio__card-bg portfolio__card-bg--right" />
+                  <img src="sections/images/portfolio3.jpg" alt="Vale House interior" class="portfolio__card-bg portfolio__card-bg--right js-parallax" data-parallax="0.19" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">03</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
                       <span class="portfolio__code">R14</span>
-                      <h3 class="portfolio__name">Vale House</h3>
+                      <h3 class="portfolio__name"><a href="project.html">Vale House</a></h3>
                     </div>
                     <div class="portfolio__info-center">
                       <span class="portfolio__badge">Interior Build</span>
                       <p class="portfolio__card-desc">A mountain retreat in Aspen with hand hewn timber beams, Italian marble baths, and a wine cellar carved into native stone.</p>
                     </div>
-                    <a href="#" class="portfolio__cta">
+                    <a href="project.html" class="portfolio__cta">
                       <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -365,19 +379,19 @@
 
               <article class="portfolio__slide" aria-hidden="true">
                 <div class="portfolio__card">
-                  <img src="sections/images/portfolio4.jpg" alt="The Sterling Pavilion exterior" class="portfolio__card-bg" />
+                  <img src="sections/images/portfolio4.jpg" alt="The Sterling Pavilion exterior" class="portfolio__card-bg js-parallax" data-parallax="0.27" />
                   <div class="portfolio__card-overlay" aria-hidden="true"></div>
                   <span class="portfolio__index" aria-hidden="true">04</span>
                   <div class="portfolio__footer">
                     <div class="portfolio__info-left">
                       <span class="portfolio__code">C12</span>
-                      <h3 class="portfolio__name">The Sterling Pavilion</h3>
+                      <h3 class="portfolio__name"><a href="project.html">The Sterling Pavilion</a></h3>
                     </div>
                     <div class="portfolio__info-center">
                       <span class="portfolio__badge">Cultural</span>
                       <p class="portfolio__card-desc">A waterfront pavilion in Copenhagen with cast concrete volumes, bronze detailing, and a glass atrium framing the harbor beyond.</p>
                     </div>
-                    <a href="#" class="portfolio__cta">
+                    <a href="project.html" class="portfolio__cta">
                       <span class="portfolio__cta-text">View Project</span>
                       <span class="portfolio__cta-icon" aria-hidden="true">
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,12 +407,12 @@
       </div>
     </section>
 
-    <section class="blog" aria-label="Blog">
+    <section class="blog" aria-label="Blog" data-section-reveal>
       <div class="blog__inner">
         <div class="blog__intro">
-          <h2 class="blog__title">From the Journal</h2>
-          <p class="blog__desc">Perspectives on materials, process, and the craft of building from the team behind SEK&rsquo;s most ambitious projects.</p>
-          <a href="#" class="blog__cta">
+          <h2 class="blog__title section-reveal">From the Journal</h2>
+          <p class="blog__desc section-reveal">Perspectives on materials, process, and the craft of building from the team behind SEK&rsquo;s most ambitious projects.</p>
+          <a href="#" class="blog__cta section-reveal">
             <span class="blog__cta-text">View all articles</span>
             <span class="blog__cta-icon" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +422,7 @@
           </a>
         </div>
 
-        <div class="blog__carousel" data-blog-carousel>
+        <div class="blog__carousel section-reveal" data-blog-carousel>
           <div class="blog__viewport">
             <div class="blog__track">
               <article class="blog__slide is-active" aria-hidden="false">
@@ -419,7 +433,7 @@
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
-                    <img src="sections/sample.jpg" alt="" class="blog__avatar" width="56" height="56" />
+                    <img src="sections/sample.jpg" alt="" class="blog__avatar js-parallax" data-parallax="0.08" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
                       <cite class="blog__author-name">Elena Vasquez</cite>
@@ -441,7 +455,7 @@
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
-                    <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--2" width="56" height="56" />
+                    <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--2 js-parallax" data-parallax="0.12" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
                       <cite class="blog__author-name">Marcus Ellington</cite>
@@ -463,7 +477,7 @@
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
-                    <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--3" width="56" height="56" />
+                    <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--3 js-parallax" data-parallax="0.06" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
                       <cite class="blog__author-name">James Whitfield</cite>
@@ -485,7 +499,7 @@
                   </div>
                   <div class="blog__card-divider" aria-hidden="true"></div>
                   <div class="blog__card-bottom">
-                    <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--4" width="56" height="56" />
+                    <img src="sections/sample.jpg" alt="" class="blog__avatar blog__avatar--4 js-parallax" data-parallax="0.10" width="56" height="56" />
                     <div class="blog__author">
                       <span class="blog__quote-mark" aria-hidden="true">&ldquo;</span>
                       <cite class="blog__author-name">SEK Editorial</cite>
@@ -511,20 +525,21 @@
       </div>
     </section>
 
-    <section class="cta" aria-label="Call to action">
+    <section class="cta" aria-label="Call to action" data-section-reveal>
       <div class="cta__inner">
-        <div class="cta__visual">
+        <div class="cta__visual section-reveal">
           <img
             src="sections/images/cta.jpg"
             alt="SEK construction project"
-            class="cta__visual-img"
+            class="cta__visual-img js-parallax"
+            data-parallax="0.18"
           />
         </div>
 
         <div class="cta__content">
-          <h2 class="cta__title">Your Vision Deserves a Builder Who Listens.</h2>
-          <p class="cta__desc">From concept to keys, SEK partners with you at every stage with transparent timelines, master craftsmanship, and spaces that exceed expectation.</p>
-          <a href="#" class="cta__btn">
+          <h2 class="cta__title section-reveal">Your Vision Deserves a Builder Who Listens.</h2>
+          <p class="cta__desc section-reveal">From concept to keys, SEK partners with you at every stage with transparent timelines, master craftsmanship, and spaces that exceed expectation.</p>
+          <a href="contact.html" class="cta__btn section-reveal">
             <span class="cta__btn-text">Begin your project</span>
             <span class="cta__btn-icon" aria-hidden="true">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -532,7 +547,7 @@
               </svg>
             </span>
           </a>
-          <span class="cta__deco icon-star-circle" aria-hidden="true">
+          <span class="cta__deco icon-star-circle section-reveal" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M12 2.5l2.4 7.1H21.5l-6 4.4 2.3 7.1L12 17.2 6.2 21.1l2.3-7.1-6-4.4h7.1L12 2.5z" fill="#000"/>
             </svg>
@@ -542,15 +557,15 @@
     </section>
   </main>
 
-  <footer class="footer" aria-label="Footer">
+  <footer class="footer" aria-label="Footer" data-section-reveal>
     <div class="footer__card">
-      <div class="footer__cta">
+      <div class="footer__cta section-reveal">
         <h2 class="footer__cta-title">Ready to build something extraordinary?</h2>
-        <a href="#" class="footer__contact-btn">Contact us</a>
+        <a href="contact.html" class="footer__contact-btn">Contact us</a>
       </div>
 
       <div class="footer__body">
-        <div class="footer__newsletter">
+        <div class="footer__newsletter section-reveal">
           <h3 class="footer__newsletter-title">Newsletter</h3>
           <p class="footer__newsletter-desc">Insights on craftsmanship, materials, and the projects shaping the built environment, delivered monthly.</p>
           <form class="footer__form" action="#" method="post">
@@ -560,27 +575,27 @@
         </div>
 
         <div class="footer__nav">
-          <div class="footer__col">
+          <div class="footer__col section-reveal">
             <h4 class="footer__col-title">Company</h4>
             <ul class="footer__col-list">
-              <li><a href="#" class="footer__col-link">Our Story</a></li>
-              <li><a href="#" class="footer__col-link">Leadership</a></li>
+              <li><a href="culture.html" class="footer__col-link">Our Story</a></li>
+              <li><a href="culture.html" class="footer__col-link">Culture</a></li>
             </ul>
           </div>
-          <div class="footer__col">
+          <div class="footer__col section-reveal">
             <h4 class="footer__col-title">Projects</h4>
             <ul class="footer__col-list">
-              <li><a href="#" class="footer__col-link">Residential</a></li>
-              <li><a href="#" class="footer__col-link">Commercial</a></li>
-              <li><a href="#" class="footer__col-link">Interiors</a></li>
+              <li><a href="projects.html" class="footer__col-link">All Projects</a></li>
+              <li><a href="projects.html" class="footer__col-link">Residential</a></li>
+              <li><a href="projects.html" class="footer__col-link">Commercial</a></li>
             </ul>
           </div>
-          <div class="footer__col">
+          <div class="footer__col section-reveal">
             <h4 class="footer__col-title">Contact</h4>
             <ul class="footer__col-list">
-              <li><a href="#" class="footer__col-link">Locations</a></li>
-              <li><a href="#" class="footer__col-link">Careers</a></li>
-              <li><a href="#" class="footer__col-link">Get in Touch</a></li>
+              <li><a href="contact.html" class="footer__col-link">Get in Touch</a></li>
+              <li><a href="contact.html" class="footer__col-link">Locations</a></li>
+              <li><a href="contact.html" class="footer__col-link">Careers</a></li>
             </ul>
             <div class="footer__social">
               <a href="#" class="footer__social-btn" aria-label="Email">
@@ -600,11 +615,17 @@
         </div>
       </div>
 
-      <p class="footer__copy">&copy; 2025 SEK.</p>
+      <p class="footer__copy section-reveal">&copy; 2025 SEK.</p>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/site-header.js"></script>
+  <script src="js/parallax.js"></script>
   <script src="js/hero.js"></script>
+  <script src="js/section-reveal.js"></script>
+  <script src="js/informacao.js"></script>
   <script src="js/portfolio.js"></script>
   <script src="js/blog.js"></script>
 </body>
