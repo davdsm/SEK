@@ -138,30 +138,6 @@ body.is-loading {
   }
 }
 
-.preloader-label {
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.4em;
-  color: var(--ink);
-  padding-left: 0.4em; /* optically re-center after tracking */
-}
-
-.preloader-bar {
-  width: min(46vw, 220px);
-  height: 2px;
-  background: rgba(10, 10, 10, 0.12);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.preloader-bar-fill {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: var(--gold);
-  transition: width 0.25s ease-out;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .pl-arch,
   .pl-roof,
