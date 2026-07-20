@@ -76,6 +76,14 @@
     updateCarousel();
   }
 
+  // Page background: beige everywhere, gold while the (transparent)
+  // "o que fazemos" section is on screen.
+  const bgObserver = new IntersectionObserver(
+    ([entry]) => document.body.classList.toggle('bg-gold', entry.isIntersecting),
+    { threshold: 0 }
+  );
+  bgObserver.observe(whatwedo);
+
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => {
     sizeCarousel();

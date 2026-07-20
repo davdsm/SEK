@@ -24,10 +24,17 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* Beige is the real page background; the intro's opaque layers
      (ocean video, room photo) hide it until the logo section
-     (.base) arrives transparent and lets it show through. */
+     (.base) arrives transparent and lets it show through. It
+     switches to gold while the "o que fazemos" section — also
+     transparent — is on screen (see js/v2.js). */
   background: var(--beige);
   color: var(--ink);
   overflow-x: hidden;
+  transition: background-color 0.6s ease;
+}
+
+body.bg-gold {
+  background: var(--gold);
 }
 
 body.is-loading {
@@ -300,7 +307,7 @@ body.is-loading {
 /* ── O que fazemos ───────────────────────────────────────── */
 .whatwedo {
   position: relative;
-  background: var(--gold);
+  background: transparent; /* lets the body's gold show through */
 }
 
 .whatwedo-stage {
