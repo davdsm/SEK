@@ -73,13 +73,13 @@
 
   // Horizontal carousel — vertical scroll drives translateX
   function sizeCarousel() {
-    const overflow = Math.max(0, track.scrollWidth - innerWidth * 0.4);
+    const overflow = Math.max(0, track.scrollWidth - innerWidth);
     whatwedo.style.height = `${innerHeight + overflow}px`;
     return overflow;
   }
 
   function updateCarousel() {
-    const overflow = track.scrollWidth - innerWidth * 0.4;
+    const overflow = track.scrollWidth - innerWidth;
     if (overflow <= 0) return;
     const total = whatwedo.offsetHeight - innerHeight;
     const p = clamp01(-whatwedo.getBoundingClientRect().top / total);
