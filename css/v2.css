@@ -358,10 +358,10 @@ body.is-loading {
 
 .card {
   flex: 0 0 auto;
-  width: 17vw;
-  min-width: 220px;
+  width: 26vw;
+  min-width: 320px;
   height: var(--h, 40vh);
-  border-radius: 22px 22px 0 0;
+  border-radius: 8px 8px 0 0;
   overflow: hidden;
   background: #e3e1dc;
 }
