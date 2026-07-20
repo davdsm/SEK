@@ -421,7 +421,7 @@ body.is-home.is-loading {
 }
 
 .manifesto-text .mword {
-  opacity: 0.5;
+  opacity: 0.2;
   will-change: opacity;
 }
 

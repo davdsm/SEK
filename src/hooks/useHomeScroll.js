@@ -107,13 +107,13 @@ export default function useHomeScroll(refs) {
       track.style.transform = `translateX(${-p * overflow}px)`;
     }
 
-    // Manifesto — words fill from 0.5 to full opacity as you scroll
+    // Manifesto — words fill from 0.2 to full opacity as you scroll
     function updateManifesto() {
       const total = manifesto.offsetHeight - innerHeight;
       const p = clamp01(-manifesto.getBoundingClientRect().top / total);
       const fill = seg(p, 0.08, 0.92) * mwords.length;
       for (let i = 0; i < mwords.length; i++) {
-        mwords[i].style.opacity = 0.5 + 0.5 * clamp01(fill - i);
+        mwords[i].style.opacity = 0.2 + 0.8 * clamp01(fill - i);
       }
     }
 
