@@ -9,6 +9,7 @@
 
 :root {
   --cream: #f6f4ee;
+  --beige: #e9e1d2;
   --gold: #cda15a;
   --ink: #0a0a0a;
 }
@@ -21,10 +22,10 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  /* Cream is only ever seen through the intro's own opaque layers
-     (see .base); past the intro the real page background is gold,
-     revealed the moment .whatwedo's transparent section arrives. */
-  background: var(--gold);
+  /* Beige is the real page background; the intro's opaque layers
+     (ocean video, room photo) hide it until the logo section
+     (.base) arrives transparent and lets it show through. */
+  background: var(--beige);
   color: var(--ink);
   overflow-x: hidden;
 }
@@ -169,9 +170,9 @@ body.is-loading {
   inset: 0;
 }
 
-/* Layer 1 · cream base */
+/* Layer 1 · logo base — transparent, lets the beige body show through */
 .base {
-  background: var(--cream);
+  background: transparent;
 }
 
 .logo-gold {
@@ -299,7 +300,7 @@ body.is-loading {
 /* ── O que fazemos ───────────────────────────────────────── */
 .whatwedo {
   position: relative;
-  background: transparent; /* lets the gold body background show through */
+  background: var(--gold);
 }
 
 .whatwedo-stage {
