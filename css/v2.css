@@ -30,11 +30,17 @@ body {
   background: var(--beige);
   color: var(--ink);
   overflow-x: hidden;
-  transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 body.bg-gold {
   background: var(--gold);
+  color: #fff;
+}
+
+body.bg-gold .logo {
+  fill: #fff;
+  transition: fill 0.6s ease;
 }
 
 body.is-loading {
