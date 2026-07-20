@@ -73,8 +73,8 @@ button {
   overflow: hidden;
   opacity: var(--logo-enter);
   translate: 0 calc((1 - var(--logo-enter)) * 36px);
-  -webkit-mask-image: url(../logo/SEK-WH.svg);
-  mask-image: url(../logo/SEK-WH.svg);
+  -webkit-mask-image: url(/logo/SEK-WH.svg);
+  mask-image: url(/logo/SEK-WH.svg);
   -webkit-mask-position: center center;
   mask-position: center center;
   -webkit-mask-repeat: no-repeat;

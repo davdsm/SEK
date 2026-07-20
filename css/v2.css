@@ -20,30 +20,34 @@ html {
   scroll-behavior: auto;
 }
 
-body {
+/* Scoped to body.is-home (not a bare `body` selector) so this never
+   fights the other pages' own body rules now that every route's CSS
+   lives in the same bundle — see src/pages/Home.jsx, which adds the
+   class on mount and removes it on unmount. */
+body.is-home {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* Beige is the real page background; the intro's opaque layers
      (ocean video, room photo) hide it until the logo section
      (.base) arrives transparent and lets it show through. It
      switches to gold while the "o que fazemos" section — also
-     transparent — is on screen (see js/v2.js). */
+     transparent — is on screen (see src/hooks/useHomeScroll.js). */
   background: var(--beige);
   color: var(--ink);
   overflow-x: hidden;
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 
-body.bg-gold {
+body.is-home.bg-gold {
   background: var(--gold);
   color: #fff;
 }
 
-body.bg-gold .logo {
+body.is-home.bg-gold .logo {
   fill: #fff;
   transition: fill 0.6s ease;
 }
 
-body.is-loading {
+body.is-home.is-loading {
   overflow: hidden;
   height: 100vh;
 }
