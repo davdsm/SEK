@@ -21,7 +21,10 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--cream);
+  /* Cream is only ever seen through the intro's own opaque layers
+     (see .base); past the intro the real page background is gold,
+     revealed the moment .whatwedo's transparent section arrives. */
+  background: var(--gold);
   color: var(--ink);
   overflow-x: hidden;
 }
@@ -296,7 +299,7 @@ body.is-loading {
 /* ── O que fazemos ───────────────────────────────────────── */
 .whatwedo {
   position: relative;
-  background: var(--cream);
+  background: transparent; /* lets the gold body background show through */
 }
 
 .whatwedo-stage {
