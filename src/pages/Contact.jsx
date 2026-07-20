@@ -10,7 +10,7 @@ import '../../css/footer.css';
 
 export default function Contact() {
   useEffect(() => {
-    document.title = 'Contact — SEK Construction & Development';
+    document.title = 'Contact · SEK Construction & Development';
   }, []);
 
   return (

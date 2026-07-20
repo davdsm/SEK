@@ -34,7 +34,7 @@ export default function Projects() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    document.title = 'Projects — SEK Construction & Development';
+    document.title = 'Projects · SEK Construction & Development';
   }, []);
 
   return (

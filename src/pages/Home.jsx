@@ -21,7 +21,7 @@ export default function Home() {
   const { hidden, removed } = usePreloader({ videoRef: seaVideoRef, imageRef: roomRef });
 
   useEffect(() => {
-    document.title = 'SEK — Construction & Development';
+    document.title = 'SEK · Construction & Development';
     document.body.classList.add('is-home');
     return () => document.body.classList.remove('is-home', 'is-loading', 'bg-gold');
   }, []);
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="whatwedo-stage">
           <header className="whatwedo-head">
             <h2 data-reveal>Selected<br />Works</h2>
-            <p data-reveal>A curated portfolio of residences, estates and landmark developments — enduring architecture and refined interiors, built to last and built to inspire.</p>
+            <p data-reveal>A curated portfolio of residences, estates and landmark developments, with enduring architecture and refined interiors built to last and built to inspire.</p>
           </header>
           <div className="track" ref={trackRef}>
             <div className="card" style={{ '--h': '40vh' }}><img src="/assets/projects/01-facade-windows.jpg" alt="Residential façade detail" loading="lazy" /></div>

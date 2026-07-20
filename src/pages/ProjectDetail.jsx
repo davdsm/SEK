@@ -11,7 +11,7 @@ import '../../css/footer.css';
 
 export default function ProjectDetail() {
   useEffect(() => {
-    document.title = 'The Meridian Residence — SEK Construction & Development';
+    document.title = 'The Meridian Residence · SEK Construction & Development';
   }, []);
 
   return (

@@ -11,7 +11,7 @@ import '../../css/footer.css';
 
 export default function Culture() {
   useEffect(() => {
-    document.title = 'Culture — SEK Construction & Development';
+    document.title = 'Culture · SEK Construction & Development';
   }, []);
 
   return (
