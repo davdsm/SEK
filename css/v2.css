@@ -374,6 +374,48 @@ body.is-loading {
   background: #cfcdc7;
 }
 
+/* ── Manifesto · scroll-fill message ─────────────────────── */
+.manifesto {
+  position: relative;
+  height: 280vh;
+  background: transparent; /* body beige shows through */
+}
+
+.manifesto-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  padding: 0 8vw;
+}
+
+.manifesto-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.manifesto-text {
+  max-width: 22ch;
+  text-align: center;
+  font-size: clamp(1.6rem, 3.6vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.32;
+  color: var(--ink);
+}
+
+.manifesto-text .mword {
+  opacity: 0.5;
+  will-change: opacity;
+}
+
 @media (max-width: 720px) {
   .logo {
     width: 78vw;

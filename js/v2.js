@@ -19,6 +19,21 @@
   const scrollHint = document.querySelector('.scroll-hint');
   const whatwedo = document.getElementById('whatwedo');
   const track = document.querySelector('.track');
+  const manifesto = document.getElementById('manifesto');
+  const manifestoText = document.getElementById('manifestoText');
+
+  // Split the manifesto into word spans for the scroll-fill effect
+  const mwords = manifestoText.textContent.split(/\s+/).filter(Boolean).map((w) => {
+    const s = document.createElement('span');
+    s.className = 'mword';
+    s.textContent = w;
+    return s;
+  });
+  manifestoText.textContent = '';
+  mwords.forEach((s, i) => {
+    if (i) manifestoText.appendChild(document.createTextNode(' '));
+    manifestoText.appendChild(s);
+  });
 
   const clamp01 = (v) => Math.min(1, Math.max(0, v));
   // progress of p between a and b, eased
@@ -71,16 +86,29 @@
     track.style.transform = `translateX(${-p * overflow}px)`;
   }
 
+  // Manifesto — words fill from 0.5 to full opacity as you scroll
+  function updateManifesto() {
+    const total = manifesto.offsetHeight - innerHeight;
+    const p = clamp01(-manifesto.getBoundingClientRect().top / total);
+    // small lead-in/out so the fill happens comfortably mid-pin
+    const fill = seg(p, 0.08, 0.92) * mwords.length;
+    for (let i = 0; i < mwords.length; i++) {
+      mwords[i].style.opacity = 0.5 + 0.5 * clamp01(fill - i);
+    }
+  }
+
   function onScroll() {
     updateIntro();
     updateCarousel();
+    updateManifesto();
   }
 
   // Page background: beige everywhere, gold while the (transparent)
-  // "o que fazemos" section is on screen.
+  // "o que fazemos" section straddles the middle of the viewport —
+  // so it hands back to beige as soon as the manifesto arrives.
   const bgObserver = new IntersectionObserver(
     ([entry]) => document.body.classList.toggle('bg-gold', entry.isIntersecting),
-    { threshold: 0 }
+    { rootMargin: '-50% 0% -50% 0%', threshold: 0 }
   );
   bgObserver.observe(whatwedo);
 
