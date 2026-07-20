@@ -52,8 +52,8 @@
     ocean.style.transform = `translateY(${-lift * 100}vh)`;
 
     // Phrase sweeps in under the gold logo once the ocean has cleared it
-    if (p >= 0.86) phrase.classList.add('in');
-    else if (p < 0.7) phrase.classList.remove('in');
+    if (p >= 0.86) phrase._reveal?.play();
+    else if (p < 0.7) phrase._reveal?.reverse();
   }
 
   // Horizontal carousel — vertical scroll drives translateX
