@@ -77,11 +77,12 @@ export default function useHomeScroll(refs) {
 
       // Phase 2 · ocean alone (.25 → .35)
 
-      // Phase 3 · dark logo rises from the ocean (.35 → .55)
-      const rise = easeInOut(seg(p, 0.35, 0.55));
-      logoDark.style.transform =
-        `translate(-50%, -50%) translateY(${(1 - rise) * 45}vh)`;
-      logoDark.style.opacity = rise * (1 - seg(p, 0.68, 0.82));
+      // Phase 3 · dark logo sits fixed center-screen; scroll only
+      // controls its opacity, fading in quickly then back out again
+      // as the ocean lifts to reveal the gold logo underneath.
+      const fadeIn = easeInOut(seg(p, 0.3, 0.4));
+      const fadeOut = seg(p, 0.68, 0.82);
+      logoDark.style.opacity = fadeIn * (1 - fadeOut);
 
       // Phase 4 · ocean slides up revealing gold logo (.6 → .88)
       const lift = easeInOut(seg(p, 0.6, 0.88));
