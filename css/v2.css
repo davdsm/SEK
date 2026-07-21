@@ -29,7 +29,7 @@ body.is-home {
   /* Beige is the real page background; the intro's opaque layers
      (ocean video, room photo) hide it until the logo section
      (.base) arrives transparent and lets it show through. It
-     switches to gold while the "o que fazemos" section — also
+     switches to black while the "o que fazemos" section — also
      transparent — is on screen (see src/hooks/useHomeScroll.js). */
   background: var(--beige);
   color: var(--ink);
@@ -37,12 +37,12 @@ body.is-home {
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 
-body.is-home.bg-gold {
-  background: var(--gold);
+body.is-home.bg-dark {
+  background: #000;
   color: #fff;
 }
 
-body.is-home.bg-gold .logo {
+body.is-home.bg-dark .logo {
   fill: #fff;
   transition: fill 0.6s ease;
 }
@@ -53,9 +53,11 @@ body.is-home.is-loading {
 }
 
 /* ── Preloader ─────────────────────────────────────────────
-   "The palace under construction" — a colonnade + arch that
-   draws itself in like a blueprint, while the hero video and
-   image finish loading behind it. ─────────────────────────── */
+   1. White page
+   2. Icon fade-in from the right
+   3. When ready → icon fade-out to the right
+   4. White panel slides up, site revealed
+   ─────────────────────────────────────────────────────────── */
 .preloader {
   position: fixed;
   inset: 0;
@@ -65,15 +67,14 @@ body.is-home.is-loading {
   align-items: center;
   justify-content: center;
   gap: 2.6rem;
-  background: var(--cream);
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.7s ease, visibility 0.7s ease;
+  background: #fff;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
-.preloader.is-hidden {
-  opacity: 0;
-  visibility: hidden;
+.preloader.is-lifting {
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
   pointer-events: none;
 }
 
@@ -81,6 +82,25 @@ body.is-home.is-loading {
   width: min(30vw, 180px);
   height: auto;
   overflow: visible;
+  opacity: 0;
+  transform: translate3d(48px, 0, 0);
+  will-change: opacity, transform;
+}
+
+.preloader.is-icon-in .preloader-icon {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.preloader.is-icon-out .preloader-icon {
+  opacity: 0;
+  transform: translate3d(48px, 0, 0);
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 1, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 1, 1);
 }
 
 .preloader-icon line,
@@ -160,6 +180,21 @@ body.is-home.is-loading {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .preloader,
+  .preloader-icon {
+    transition: none !important;
+  }
+
+  .preloader.is-lifting {
+    opacity: 0;
+    transform: none;
+  }
+
+  .preloader.is-icon-in .preloader-icon,
+  .preloader.is-icon-out .preloader-icon {
+    transform: none;
+  }
+
   .pl-arch,
   .pl-roof,
   .pl-columns line {
@@ -171,7 +206,7 @@ body.is-home.is-loading {
 
 /* ── Scroll intro ─────────────────────────────────────────── */
 .scrolly {
-  height: 800vh;
+  height: 280vh;
   position: relative;
 }
 
@@ -317,7 +352,7 @@ body.is-home.is-loading {
 /* ── O que fazemos ───────────────────────────────────────── */
 .whatwedo {
   position: relative;
-  background: transparent; /* lets the body's gold show through */
+  background: transparent; /* lets the body's black show through */
 }
 
 .whatwedo-stage {
@@ -425,6 +460,198 @@ body.is-home.is-loading {
   will-change: opacity;
 }
 
+/* ── Home CTA · under the manifesto ──────────────────────── */
+.home-cta {
+  position: relative;
+  z-index: 1;
+  padding: 0 28px 100px;
+  background: var(--beige);
+}
+
+.home-cta__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 36px;
+  min-height: min(72vh, 620px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.home-cta__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.home-cta__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  will-change: transform;
+}
+
+.home-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(8, 8, 8, 0.72) 0%,
+      rgba(8, 8, 8, 0.35) 45%,
+      rgba(8, 8, 8, 0.28) 100%
+    );
+  pointer-events: none;
+}
+
+.home-cta__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+  padding: 72px 32px 64px;
+  color: #fff;
+}
+
+.home-cta__title {
+  font-size: clamp(2rem, 4.6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  max-width: 16ch;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
+}
+
+.home-cta__btn {
+  --btn-pad-x: 28px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px var(--btn-pad-x);
+  overflow: hidden;
+  border-radius: 0;
+  background: #fff;
+  color: #0a0a0a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  isolation: isolate;
+  transition: color 0.45s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-cta__btn-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-cta__btn-shine {
+  position: absolute;
+  inset: -20% auto -20% -40%;
+  width: 40%;
+  z-index: -1;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    transparent 100%
+  );
+  transform: translateX(-120%) skewX(-18deg);
+  animation: home-cta-shine 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.home-cta__btn-label {
+  position: relative;
+  z-index: 1;
+}
+
+.home-cta__btn-arrow {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-6px);
+  transition:
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-cta__btn:hover,
+.home-cta__btn:focus-visible {
+  color: #fff;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.home-cta__btn:hover .home-cta__btn-bg,
+.home-cta__btn:focus-visible .home-cta__btn-bg {
+  transform: scaleX(1);
+}
+
+.home-cta__btn:hover .home-cta__btn-arrow,
+.home-cta__btn:focus-visible .home-cta__btn-arrow {
+  width: 14px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.home-cta__btn:hover .home-cta__btn-shine,
+.home-cta__btn:focus-visible .home-cta__btn-shine {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes home-cta-shine {
+  0%,
+  55% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  80%,
+  100% {
+    transform: translateX(320%) skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-cta__btn,
+  .home-cta__btn-bg,
+  .home-cta__btn-arrow {
+    transition: none;
+  }
+
+  .home-cta__btn-shine {
+    animation: none;
+    display: none;
+  }
+
+  .home-cta__btn:hover,
+  .home-cta__btn:focus-visible {
+    transform: none;
+  }
+}
+
 @media (max-width: 720px) {
   .logo {
     width: 78vw;
@@ -442,5 +669,19 @@ body.is-home.is-loading {
 
   .track {
     padding-left: 20vw;
+  }
+
+  .home-cta {
+    padding: 0 16px 72px;
+  }
+
+  .home-cta__card {
+    border-radius: 24px;
+    min-height: 58vh;
+  }
+
+  .home-cta__content {
+    padding: 56px 22px 48px;
+    gap: 22px;
   }
 }

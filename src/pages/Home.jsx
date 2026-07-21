@@ -1,8 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import usePreloader from '../hooks/usePreloader.js';
 import useTextReveal from '../hooks/useTextReveal.js';
 import useHomeScroll from '../hooks/useHomeScroll.js';
+import useParallax from '../hooks/useParallax.js';
+import Footer from '../components/Footer.jsx';
 import '../../css/v2.css';
+import '../../css/footer.css';
 
 export default function Home() {
   const pageRef = useRef(null);
@@ -18,15 +22,16 @@ export default function Home() {
   const manifestoTextRef = useRef(null);
   const seaVideoRef = useRef(null);
 
-  const { hidden, removed } = usePreloader({ videoRef: seaVideoRef, imageRef: roomRef });
+  const { phase, removed } = usePreloader({ videoRef: seaVideoRef, imageRef: roomRef });
 
   useEffect(() => {
-    document.title = 'SEK · Construction & Development';
+    document.title = 'SEK · The art of inhabiting';
     document.body.classList.add('is-home');
-    return () => document.body.classList.remove('is-home', 'is-loading', 'bg-gold');
+    return () => document.body.classList.remove('is-home', 'is-loading', 'bg-dark');
   }, []);
 
   useTextReveal(pageRef);
+  useParallax([removed]);
   useHomeScroll({
     scrollyRef,
     roomRef,
@@ -41,11 +46,20 @@ export default function Home() {
     seaVideoRef,
   });
 
+  const preloaderClass = [
+    'preloader',
+    phase === 'icon' || phase === 'exit' || phase === 'lift' ? 'is-icon-in' : '',
+    phase === 'exit' || phase === 'lift' ? 'is-icon-out' : '',
+    phase === 'lift' || phase === 'done' ? 'is-lifting' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <div ref={pageRef}>
       {/* ══ Preloader ═════════════════════════════════════════ */}
       {!removed && (
-        <div className={`preloader${hidden ? ' is-hidden' : ''}`} role="status" aria-live="polite">
+        <div className={preloaderClass} role="status" aria-live="polite">
           <svg className="preloader-icon" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <line className="pl-ground" x1="8" y1="128" x2="152" y2="128"/>
             <g className="pl-columns">
@@ -63,28 +77,23 @@ export default function Home() {
       {/* ══ Scroll intro ══════════════════════════════════════ */}
       <div className="scrolly" ref={scrollyRef}>
         <div className="stage">
-          {/* Layer 1 · logo base — transparent, lets the beige body show through */}
           <div className="base">
             <svg className="logo logo-gold" viewBox="0 0 1080 291.68" xmlns="http://www.w3.org/2000/svg" aria-label="SEK">
               <use href="#sek-paths" />
             </svg>
-            <p className="phrase" data-reveal="manual" ref={phraseRef}>L&rsquo;Art de construire et de r&eacute;nover</p>
+            <p className="phrase" data-reveal="manual" ref={phraseRef}>Where architecture becomes emotion</p>
           </div>
 
-          {/* Layer 2 · ocean video (slides up at the end) */}
           <div className="ocean" ref={oceanRef}>
             <video className="sea" ref={seaVideoRef} src="/assets/manha-e-tarde.mp4" autoPlay muted loop playsInline />
           </div>
 
-          {/* Layer 3 · dark logo that rises from the ocean */}
           <svg className="logo logo-dark" ref={logoDarkRef} viewBox="0 0 1080 291.68" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <use href="#sek-paths" />
           </svg>
 
-          {/* Layer 4 · the room (zooms into the arch) */}
           <img className="room" ref={roomRef} src="/assets/room.png" alt="" />
 
-          {/* Scroll hint */}
           <div className="scroll-hint" ref={scrollHintRef} aria-hidden="true">
             <span className="scroll-hint-label">scroll</span>
             <span className="scroll-hint-line"></span>
@@ -96,8 +105,8 @@ export default function Home() {
       <section className="whatwedo" ref={whatwedoRef}>
         <div className="whatwedo-stage">
           <header className="whatwedo-head">
-            <h2 data-reveal>Selected<br />Works</h2>
-            <p data-reveal>A curated portfolio of residences, estates and landmark developments, with enduring architecture and refined interiors built to last and built to inspire.</p>
+            <h2 data-reveal>Spaces<br />Remembered</h2>
+            <p data-reveal>Each project is a quiet composition of light, material, and memory. Homes and landmarks shaped so they feel like art you can live inside.</p>
           </header>
           <div className="track" ref={trackRef}>
             <div className="card" style={{ '--h': '40vh' }}><img src="/assets/projects/01-facade-windows.jpg" alt="Residential façade detail" loading="lazy" /></div>
@@ -116,11 +125,41 @@ export default function Home() {
       <section className="manifesto" ref={manifestoRef}>
         <div className="manifesto-stage">
           <p className="manifesto-eyebrow">Our philosophy</p>
-          <p className="manifesto-text" ref={manifestoTextRef}>Great construction is invisible. You feel it in the silence of a door, the warmth of stone, the way light moves through a room.</p>
+          <p className="manifesto-text" ref={manifestoTextRef}>We believe a building should move you. In the hush of a closing door, the warmth of stone under your hand, the way morning light writes itself across a wall.</p>
         </div>
       </section>
 
-      {/* shared SEK logo paths */}
+      {/* ══ CTA · under the message ═══════════════════════════ */}
+      <section className="home-cta" aria-label="Begin a conversation">
+        <div className="home-cta__card">
+          <div className="home-cta__media" aria-hidden="true">
+            <img
+              src="/assets/projects/06-blueprint-detail.jpg"
+              alt=""
+              className="home-cta__img js-parallax"
+              data-parallax="0.16"
+              data-cover-scale="1.28"
+            />
+            <div className="home-cta__overlay"></div>
+          </div>
+          <div className="home-cta__content">
+            <h2 className="home-cta__title" data-reveal>
+              Dream of a home<br />that holds you?
+            </h2>
+            <Link to="/contact" className="home-cta__btn">
+              <span className="home-cta__btn-bg" aria-hidden="true"></span>
+              <span className="home-cta__btn-shine" aria-hidden="true"></span>
+              <span className="home-cta__btn-label">Book consultation</span>
+              <span className="home-cta__btn-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 7h9M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <g id="sek-paths">
@@ -131,6 +170,8 @@ export default function Home() {
           </g>
         </defs>
       </svg>
+
+      <Footer />
     </div>
   );
 }

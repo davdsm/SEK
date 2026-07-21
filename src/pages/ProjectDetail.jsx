@@ -11,7 +11,7 @@ import '../../css/footer.css';
 
 export default function ProjectDetail() {
   useEffect(() => {
-    document.title = 'The Meridian Residence · SEK Construction & Development';
+    document.title = 'The Meridian Residence · SEK';
   }, []);
 
   return (
@@ -22,7 +22,7 @@ export default function ProjectDetail() {
         <div className="project-banner__content">
           <span className="project-banner__code">R01</span>
           <h1 className="project-banner__title">The Meridian Residence</h1>
-          <span className="project-banner__badge">Private Estate</span>
+          <span className="project-banner__badge">A private poem</span>
         </div>
       </section>
 
@@ -53,13 +53,13 @@ export default function ProjectDetail() {
         <div className="inner-wrap">
           <div className="project-about__grid">
             <div>
-              <p className="project-about__label section-reveal">Overview</p>
-              <h2 className="project-about__title section-reveal">A hillside estate carved into the canyon</h2>
+              <p className="project-about__label section-reveal">The story</p>
+              <h2 className="project-about__title section-reveal">A hillside sanctuary written into the canyon</h2>
             </div>
             <div>
-              <p className="project-about__text section-reveal">The Meridian Residence is a 12,000 square foot private estate perched above Beverly Hills, where limestone cladding, floor to ceiling glass, and a cantilevered pool frame uninterrupted views of the canyon below.</p>
-              <p className="project-about__text section-reveal">SEK managed every phase of construction over 28 months, coordinating 14 specialist trades to deliver hand selected stone, custom bronze hardware, and a structural glass envelope that appears to float above the landscape.</p>
-              <p className="project-about__text section-reveal">The result is a home where material honesty and architectural ambition coexist: warm travertine underfoot, cool steel at the horizon, and light that moves through the interior from dawn to dusk.</p>
+              <p className="project-about__text section-reveal">The Meridian Residence rests above Beverly Hills like a quiet painting: limestone, glass, and a pool that seems to float toward the canyon. Twelve thousand square feet shaped for stillness, light, and the soft ritual of coming home.</p>
+              <p className="project-about__text section-reveal">For twenty eight months, SEK guided every gesture of the build. Fourteen specialist trades. Hand chosen stone. Custom bronze that catches the evening. A glass envelope that feels weightless against the landscape.</p>
+              <p className="project-about__text section-reveal">What remains is a dwelling you feel before you name it: warm travertine underfoot, cool steel at the horizon, and light that moves through the rooms from dawn until the last gold of dusk.</p>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function ProjectDetail() {
 
       <section className="project-gallery" data-section-reveal>
         <div className="inner-wrap">
-          <h2 className="project-gallery__title section-reveal">Project Gallery</h2>
+          <h2 className="project-gallery__title section-reveal">A visual diary</h2>
           <div className="project-gallery__grid">
             <figure className="project-gallery__item project-gallery__item--hero section-reveal">
               <img src="/sections/images/portfolio1.jpg" alt="Meridian Residence full exterior view" className="project-gallery__img js-parallax" data-parallax="0.1" />
@@ -100,9 +100,9 @@ export default function ProjectDetail() {
       <nav className="project-nav" aria-label="Project navigation" data-section-reveal>
         <div className="inner-wrap">
           <div className="project-nav__inner section-reveal">
-            <Link to="/projects" className="project-nav__back">All Projects</Link>
+            <Link to="/projects" className="project-nav__back">All works</Link>
             <Link to="/projects/the-meridian-residence" className="project-nav__link project-nav__link--next">
-              <span className="project-nav__label">Next Project</span>
+              <span className="project-nav__label">Continue the gallery</span>
               <span className="project-nav__name">Arcadia Tower</span>
             </Link>
           </div>

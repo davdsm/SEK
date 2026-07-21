@@ -22,19 +22,19 @@ const FILTERS = [
 const DETAIL_ROUTE = '/projects/the-meridian-residence';
 
 const PROJECTS = [
-  { img: '/sections/images/portfolio1.jpg', alt: 'The Meridian Residence', category: 'residential', code: 'R01', name: 'The Meridian Residence', badge: 'Private Estate' },
-  { img: '/sections/images/portfolio2.jpg', alt: 'Arcadia Tower', category: 'commercial', code: 'C08', name: 'Arcadia Tower', badge: 'Commercial' },
-  { img: '/sections/images/portfolio3.jpg', alt: 'Vale House', category: 'interiors', code: 'R14', name: 'Vale House', badge: 'Interior Build' },
-  { img: '/sections/images/portfolio4.jpg', alt: 'The Sterling Pavilion', category: 'cultural', code: 'C12', name: 'The Sterling Pavilion', badge: 'Cultural' },
-  { img: '/sections/images/master.jpg', alt: 'Hillside Estate', category: 'residential', code: 'R22', name: 'Hillside Estate', badge: 'Private Estate' },
-  { img: '/sections/images/detail.jpg', alt: 'Foundry Lofts', category: 'commercial', code: 'C19', name: 'Foundry Lofts', badge: 'Mixed Use' },
+  { img: '/sections/images/portfolio1.jpg', alt: 'The Meridian Residence', category: 'residential', code: 'R01', name: 'The Meridian Residence', badge: 'A private poem' },
+  { img: '/sections/images/portfolio2.jpg', alt: 'Arcadia Tower', category: 'commercial', code: 'C08', name: 'Arcadia Tower', badge: 'Urban sculpture' },
+  { img: '/sections/images/portfolio3.jpg', alt: 'Vale House', category: 'interiors', code: 'R14', name: 'Vale House', badge: 'Interior atelier' },
+  { img: '/sections/images/portfolio4.jpg', alt: 'The Sterling Pavilion', category: 'cultural', code: 'C12', name: 'The Sterling Pavilion', badge: 'Cultural canvas' },
+  { img: '/sections/images/master.jpg', alt: 'Hillside Estate', category: 'residential', code: 'R22', name: 'Hillside Estate', badge: 'A private poem' },
+  { img: '/sections/images/detail.jpg', alt: 'Foundry Lofts', category: 'commercial', code: 'C19', name: 'Foundry Lofts', badge: 'Living gallery' },
 ];
 
 export default function Projects() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    document.title = 'Projects · SEK Construction & Development';
+    document.title = 'Works · SEK';
   }, []);
 
   return (
@@ -43,7 +43,7 @@ export default function Projects() {
         <div className="inner-wrap">
           <header className="projects-intro__header">
             <h1 className="projects-intro__title section-reveal">Selected<br />Works</h1>
-            <p className="projects-intro__desc section-reveal">A curated portfolio of residences, estates, and landmark developments delivered with precision and craft.</p>
+            <p className="projects-intro__desc section-reveal">A gallery of homes, sanctuaries, and landmarks, each one a study in light, texture, and the feeling of belonging.</p>
           </header>
           <div className="projects-filters section-reveal">
             {FILTERS.map((f) => (

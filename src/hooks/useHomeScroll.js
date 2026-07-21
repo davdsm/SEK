@@ -8,7 +8,7 @@ const easeInOut = (t) => t * t * (3 - 2 * t);
 /**
  * Port of js/v2.js — the cinematic scroll intro (room zoom → ocean →
  * logo rise → gold reveal), the horizontal projects carousel, and the
- * manifesto word-fill, plus the gold/beige body background toggle.
+ * manifesto word-fill, plus the black/beige body background toggle.
  */
 export default function useHomeScroll(refs) {
   useEffect(() => {
@@ -65,31 +65,27 @@ export default function useHomeScroll(refs) {
       const total = scrolly.offsetHeight - innerHeight;
       const p = clamp01(-scrolly.getBoundingClientRect().top / total);
 
-      // Phase 1 · zoom into the arch (0 → .25), opacity decreasing while scrolling
-      const zoom = easeInOut(seg(p, 0, 0.25));
+      // Phase 1 · zoom into the arch (0 → .28)
+      const zoom = easeInOut(seg(p, 0, 0.28));
       const scale = 1 + zoom * 5.2;
       room.style.transform = `scale(${scale})`;
-      room.style.opacity = 1 - easeInOut(seg(p, 0.04, 0.26));
-      room.style.visibility = p > 0.28 ? 'hidden' : 'visible';
+      room.style.opacity = 1 - easeInOut(seg(p, 0.05, 0.32));
+      room.style.visibility = p > 0.34 ? 'hidden' : 'visible';
 
       // Scroll hint fades out as soon as scrolling starts
-      scrollHint.style.opacity = 1 - seg(p, 0.01, 0.06);
+      scrollHint.style.opacity = 1 - seg(p, 0.01, 0.08);
 
-      // Phase 2 · ocean alone (.25 → .35)
-
-      // Phase 3 · dark logo sits fixed center-screen; scroll only
-      // controls its opacity, fading in quickly then back out again
-      // as the ocean lifts to reveal the gold logo underneath.
-      const fadeIn = easeInOut(seg(p, 0.3, 0.4));
-      const fadeOut = seg(p, 0.68, 0.82);
+      // Phase 2 · dark logo fades in over the ocean (.26 → .4)
+      const fadeIn = easeInOut(seg(p, 0.26, 0.4));
+      const fadeOut = seg(p, 0.72, 0.88);
       logoDark.style.opacity = fadeIn * (1 - fadeOut);
 
-      // Phase 4 · ocean slides up revealing gold logo (.6 → .88)
-      const lift = easeInOut(seg(p, 0.6, 0.88));
+      // Phase 3 · ocean slides up revealing gold logo (.58 → .92)
+      const lift = easeInOut(seg(p, 0.58, 0.92));
       ocean.style.transform = `translateY(${-lift * 100}vh)`;
 
       // Phrase sweeps in under the gold logo once the ocean has cleared it
-      if (p >= 0.86) phrase._reveal?.play();
+      if (p >= 0.88) phrase._reveal?.play();
       else if (p < 0.7) phrase._reveal?.reverse();
     }
 
@@ -129,11 +125,11 @@ export default function useHomeScroll(refs) {
       onScroll();
     }
 
-    // Page background: beige everywhere, gold while the (transparent)
+    // Page background: beige everywhere, black while the (transparent)
     // "o que fazemos" section straddles the middle of the viewport —
     // so it hands back to beige as soon as the manifesto arrives.
     const bgObserver = new IntersectionObserver(
-      ([entry]) => document.body.classList.toggle('bg-gold', entry.isIntersecting),
+      ([entry]) => document.body.classList.toggle('bg-dark', entry.isIntersecting),
       { rootMargin: '-50% 0% -50% 0%', threshold: 0 }
     );
     bgObserver.observe(whatwedo);
@@ -156,7 +152,7 @@ export default function useHomeScroll(refs) {
       removeEventListener('pointerdown', tryPlay);
       bgObserver.disconnect();
       locomotive.destroy();
-      document.body.classList.remove('bg-gold');
+      document.body.classList.remove('bg-dark');
     };
     // Mount-once: ref objects are stable: identity across renders, and
     // their .current values are only needed at mount time here.
