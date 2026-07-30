@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import usePreloader from '../hooks/usePreloader.js';
 import useTextReveal from '../hooks/useTextReveal.js';
 import useHomeScroll from '../hooks/useHomeScroll.js';
@@ -6,9 +7,13 @@ import useParallax from '../hooks/useParallax.js';
 import useSectionReveal from '../hooks/useSectionReveal.js';
 import Footer from '../components/Footer.jsx';
 import PageEnter from '../components/PageEnter.jsx';
+import { PROJECTS } from '../data/projects.js';
 import '../../css/v2.css';
 import '../../css/footer.css';
 import '../../css/section-reveal.css';
+
+const HOME_CARD_HEIGHTS = ['40vh', '58vh', '34vh', '72vh', '48vh', '80vh', '56vh', '38vh'];
+const HOME_PROJECTS = PROJECTS.slice(0, 8);
 
 export default function Home() {
   const pageRef = useRef(null);
@@ -111,14 +116,17 @@ export default function Home() {
               <p data-reveal>Each project is a quiet composition of light, material, and memory. Homes and landmarks shaped so they feel like art you can live inside.</p>
             </header>
             <div className="track" ref={trackRef}>
-              <div className="card" style={{ '--h': '40vh' }}><img src="/assets/projects/01-facade-windows.jpg" alt="Residential façade detail" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '58vh' }}><img src="/assets/projects/02-site-cranes.jpg" alt="Tower cranes on an active site" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '34vh' }}><img src="/assets/projects/03-curved-tower.jpg" alt="Sculptural curved tower facade" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '72vh' }}><img src="/assets/projects/04-glass-cranes.jpg" alt="Glass tower rising under crane" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '48vh' }}><img src="/assets/projects/05-steel-frame.jpg" alt="Steel structural frame" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '80vh' }}><img src="/assets/projects/06-blueprint-detail.jpg" alt="Architect reviewing a blueprint" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '56vh' }}><img src="/assets/projects/07-rebar-crew.jpg" alt="Crew working on rebar at height" loading="lazy" /></div>
-              <div className="card" style={{ '--h': '38vh' }}><img src="/assets/projects/08-glass-spire.jpg" alt="Glass spire facade" loading="lazy" /></div>
+              {HOME_PROJECTS.map((p, i) => (
+                <Link
+                  key={p.slug}
+                  to={`/projects/${p.slug}`}
+                  className="card"
+                  style={{ '--h': HOME_CARD_HEIGHTS[i % HOME_CARD_HEIGHTS.length] }}
+                  aria-label={`View project ${p.name}`}
+                >
+                  <img src={p.img} alt={p.name} loading="lazy" />
+                </Link>
+              ))}
             </div>
           </div>
         </section>

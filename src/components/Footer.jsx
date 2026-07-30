@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="footer__wordmark section-reveal" role="img" aria-label="SEK">
           <img
-            src="/assets/projects/01-facade-windows.jpg"
+            src="/projects/roquebrune-cap-martin/cover.jpg"
             alt=""
             className="footer__wordmark-img js-parallax"
             data-parallax="0.18"

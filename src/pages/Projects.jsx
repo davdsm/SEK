@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { usePageTransition } from '../components/PageTransition.jsx';
+import { PROJECTS, CATEGORY_LABEL } from '../data/projects.js';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -16,76 +17,6 @@ const FILTERS = [
   { key: 'renovation', label: 'Renovation' },
   { key: 'historic-restoration', label: 'Historic Restoration' },
   { key: 'specialty-structure', label: 'Specialty Structure' },
-];
-
-const CATEGORY_LABEL = Object.fromEntries(FILTERS.filter((f) => f.key !== 'all').map((f) => [f.key, f.label]));
-
-const DETAIL_ROUTE = '/projects/the-meridian-residence';
-
-const PROJECTS = [
-  {
-    img: '/sections/images/portfolio1.jpg',
-    name: 'Blue Heath',
-    location: 'South Kingstown, RI',
-    category: 'new-construction',
-    year: '2024',
-  },
-  {
-    img: '/sections/images/portfolio2.jpg',
-    name: 'West Beach',
-    location: 'Charlestown, RI',
-    category: 'renovation',
-    year: '2023',
-  },
-  {
-    img: '/sections/images/portfolio3.jpg',
-    name: 'East Side Residence',
-    location: 'Providence, RI',
-    category: 'new-construction',
-    year: '2022',
-  },
-  {
-    img: '/sections/images/portfolio4.jpg',
-    name: 'The Meridian Residence',
-    location: 'Los Angeles, CA',
-    category: 'new-construction',
-    year: '2021',
-  },
-  {
-    img: '/sections/images/master.jpg',
-    name: 'Hillside Estate',
-    location: 'Bel Air, CA',
-    category: 'historic-restoration',
-    year: '2020',
-  },
-  {
-    img: '/sections/images/detail.jpg',
-    name: 'Foundry Lofts',
-    location: 'Brooklyn, NY',
-    category: 'specialty-structure',
-    year: '2023',
-  },
-  {
-    img: '/sections/images/time.jpg',
-    name: 'Vale House',
-    location: 'Malibu, CA',
-    category: 'renovation',
-    year: '2019',
-  },
-  {
-    img: '/sections/images/cta.jpg',
-    name: 'Sterling Pavilion',
-    location: 'Newport, RI',
-    category: 'specialty-structure',
-    year: '2024',
-  },
-  {
-    img: '/sections/images/portfolio1.jpg',
-    name: 'Ocean Avenue',
-    location: 'Narragansett, RI',
-    category: 'historic-restoration',
-    year: '2018',
-  },
 ];
 
 function padIndex(n) {
@@ -224,7 +155,7 @@ export default function Projects() {
           <ul className="portfolio__grid">
             {visible.map((p, i) => (
               <li
-                key={`${gridWave}-${p.name}-${p.location}`}
+                key={`${gridWave}-${p.slug}`}
                 className="portfolio__item portfolio__rise portfolio__rise--card"
                 style={{
                   '--stair':
@@ -232,9 +163,9 @@ export default function Projects() {
                   '--stair-mobile': (gridWave === 0 ? 1 : 0) + i,
                 }}
               >
-                <Link to={DETAIL_ROUTE} className="portfolio__card">
+                <Link to={`/projects/${p.slug}`} className="portfolio__card">
                   <div className="portfolio__media">
-                    <img src={p.img} alt="" className="portfolio__img" />
+                    <img src={p.img} alt={p.name} className="portfolio__img" />
                   </div>
 
                   <div className="portfolio__meta">
