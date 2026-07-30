@@ -8,7 +8,7 @@ export const PROJECTS = [
     year: '2026',
     tagline: 'Where the bay becomes the room',
     description: [
-      'Belle Rive opens itself to the Baie des Anges like a quiet invitation. Light arrives through floor-to-ceiling glass, settles on herringbone timber, and softens against classical mouldings — a dialogue between heritage proportion and contemporary calm.',
+      'Belle Rive opens itself to the Baie des Anges like a quiet invitation. Light arrives through floor-to-ceiling glass, settles on herringbone timber, and softens against classical mouldings, a dialogue between heritage proportion and contemporary calm.',
       'Every gesture was composed for the view: the quiet geometry of a pedestal table, the hush of linen chairs, the terrace tiled like a Mediterranean mosaic. Renovation here is not erasure, but a return to elegance that feels inevitable.',
     ],
     img: '/projects/belle-rive-nice/cover.jpg',
@@ -32,7 +32,7 @@ export const PROJECTS = [
     year: '2024',
     tagline: 'A sanctuary drawn in water and gold',
     description: [
-      "Beneath Cap d'Ail, a private spa unfolds as a study in stillness. Clear water holds the reflection of a botanical mural — leaves and birds rendered in gold and umber — while loungers wait in quiet symmetry beside a sphere of white stone.",
+      "Beneath Cap d'Ail, a private spa unfolds as a study in stillness. Clear water holds the reflection of a botanical mural, leaves and birds rendered in gold and umber, while loungers wait in quiet symmetry beside a sphere of white stone.",
       'Natural light slips through tall glass; stone and timber keep the temperature of the room soft. Renovation became ritual: a place to pause, breathe, and let the Côte d’Azur dissolve into atmosphere.',
     ],
     img: '/projects/cap-dail/cover.jpg',
@@ -50,8 +50,8 @@ export const PROJECTS = [
     year: '2025',
     tagline: 'Precision, polished to silence',
     description: [
-      'Eden is written in the language of detail. Fluted plaster, veined marble, and chrome that catches cove light like liquid silver — a bathroom conceived as jewel box, where every joint and curve earns its place.',
-      'In Monaco, space is precious; craftsmanship becomes the architecture. SEK shaped surfaces that feel both rigorous and sensual — a private Eden measured not in square metres, but in the quality of touch.',
+      'Eden is written in the language of detail. Fluted plaster, veined marble, and chrome that catches cove light like liquid silver, a bathroom conceived as jewel box, where every joint and curve earns its place.',
+      'In Monaco, space is precious; craftsmanship becomes the architecture. SEK shaped surfaces that feel both rigorous and sensual, a private Eden measured not in square metres, but in the quality of touch.',
     ],
     img: '/projects/eden-monaco/cover.jpg',
     images: [
@@ -68,7 +68,7 @@ export const PROJECTS = [
     year: '2025',
     tagline: 'Architecture carved into the mountain',
     description: [
-      'High above the coast, La Turbie rises from the slope as if the hillside itself had decided to become a home. Terraced concrete, precise engineering, and the patience of building against gravity — a new construction that listens to the land before it speaks.',
+      'High above the coast, La Turbie rises from the slope as if the hillside itself had decided to become a home. Terraced concrete, precise engineering, and the patience of building against gravity, a new construction that listens to the land before it speaks.',
       'Here the art is structural: foundations that hold the horizon, volumes that step with the contour, and a future residence already imagined in stone, light, and the blue of Provençal sky.',
     ],
     img: '/projects/la-turbie/cover.jpg',
@@ -89,7 +89,7 @@ export const PROJECTS = [
     year: '2024',
     tagline: 'A line of water drawn toward the villa',
     description: [
-      'In Mougins, the pool becomes the first room of the house — a long rectangle of deep blue mosaic, edged in pale stone, leading the eye to a white villa of clean horizontals and black-framed glass.',
+      'In Mougins, the pool becomes the first room of the house, a long rectangle of deep blue mosaic, edged in pale stone, leading the eye to a white villa of clean horizontals and black-framed glass.',
       'Specialty structure here means more than engineering: it is the craft of making water, deck, and architecture feel like one composition. Loungers, umbrellas, and the quiet geometry of leisure complete a Riviera stillness that never needs to raise its voice.',
     ],
     img: '/projects/mougins/cover.jpg',
@@ -109,8 +109,8 @@ export const PROJECTS = [
     year: '2024',
     tagline: 'A villa suspended between cliff and sea',
     description: [
-      'Peach plaster, soft blue shutters, and wrought-iron balconies curve above the rocks — a Mediterranean residence restored to its most cinematic self. From the garden, the bay opens wide; across the water, mountains hold the light like a painted backdrop.',
-      'Renovation meant honouring character: arched terraces, terracotta pots, bougainvillea against white stone. SEK returned the house to the cliff with care — not as a museum piece, but as a living belvedere for the Riviera.',
+      'Peach plaster, soft blue shutters, and wrought-iron balconies curve above the rocks, a Mediterranean residence restored to its most cinematic self. From the garden, the bay opens wide; across the water, mountains hold the light like a painted backdrop.',
+      'Renovation meant honouring character: arched terraces, terracotta pots, bougainvillea against white stone. SEK returned the house to the cliff with care, not as a museum piece, but as a living belvedere for the Riviera.',
     ],
     img: '/projects/roquebrune-cap-martin/cover.jpg',
     images: [
@@ -134,7 +134,7 @@ export const PROJECTS = [
     tagline: 'Warmth woven into every surface',
     description: [
       'Villa Les Rochers is a bedroom composed like a painting: dusty rose walls, a tiled ceiling soft as evening light, and a curved alcove of shutters opening toward the coast. Patterned textiles and pale timber hold the room in a quiet embrace.',
-      'Renovation here favoured atmosphere over spectacle — lamps that glow like embers, a chaise for long mornings, craft that you feel before you name it. A private world carved into the rocks, made for rest that feels luxurious and human.',
+      'Renovation here favoured atmosphere over spectacle, lamps that glow like embers, a chaise for long mornings, craft that you feel before you name it. A private world carved into the rocks, made for rest that feels luxurious and human.',
     ],
     img: '/projects/villa-les-rochers/cover.jpg',
     images: [
@@ -151,7 +151,7 @@ export const PROJECTS = [
     year: '2023',
     tagline: 'A garden that frames the Mediterranean',
     description: [
-      'Terraces of stone, cactus, and bird-of-paradise lean toward the cobalt sea. Roquebrune Jardins is landscape as architecture — a specialty structure of retaining walls, steps, and planted rooms that turn a cliff into a living theatre of green and blue.',
+      'Terraces of stone, cactus, and bird-of-paradise lean toward the cobalt sea. Roquebrune Jardins is landscape as architecture, a specialty structure of retaining walls, steps, and planted rooms that turn a cliff into a living theatre of green and blue.',
       'From this garden, yachts float like brushstrokes on the horizon. SEK shaped the ground so that nature leads: every path a pause, every view a revelation, every plant a deliberate note in a Mediterranean score.',
     ],
     img: '/projects/roquebrune-jardins/cover.jpg',
@@ -173,8 +173,8 @@ export const PROJECTS = [
     year: '2024',
     tagline: 'Heritage held in ivory and light',
     description: [
-      'On Cap-Ferrat, a neoclassical villa turns its curved facade toward the sun — stone base, ivory plaster, wrought-iron balconies, and a rooftop balustrade like a crown. Historic restoration here is a conversation across centuries: preserve the poetry, refine the life within.',
-      'Olive trees shade the gravel; shutters breathe with the sea air. SEK restored proportion and dignity so the house remains what it always was — a landmark of Riviera grace, renewed for the generations who will inhabit its light.',
+      'On Cap-Ferrat, a neoclassical villa turns its curved facade toward the sun, stone base, ivory plaster, wrought-iron balconies, and a rooftop balustrade like a crown. Historic restoration here is a conversation across centuries: preserve the poetry, refine the life within.',
+      'Olive trees shade the gravel; shutters breathe with the sea air. SEK restored proportion and dignity so the house remains what it always was, a landmark of Riviera grace, renewed for the generations who will inhabit its light.',
     ],
     img: '/projects/saint-jean-cap-ferrat/cover.jpg',
     images: [
@@ -191,8 +191,8 @@ export const PROJECTS = [
     year: '2023',
     tagline: 'Stone that remembers the fire',
     description: [
-      'In the heart of Provence, restoration begins at the hearth. Cream limestone rises in fluted pilasters and tiered mouldings — a neoclassical fireplace carved with the patience of old craft, destined to warm rooms that have known centuries of gathering.',
-      'Saint-Rémy asks for reverence: material honesty, quiet ornament, and hands that understand stone. SEK restored not only a mantel, but the soul of a house — where firelight and Provençal evenings meet again.',
+      'In the heart of Provence, restoration begins at the hearth. Cream limestone rises in fluted pilasters and tiered mouldings, a neoclassical fireplace carved with the patience of old craft, destined to warm rooms that have known centuries of gathering.',
+      'Saint-Rémy asks for reverence: material honesty, quiet ornament, and hands that understand stone. SEK restored not only a mantel, but the soul of a house, where firelight and Provençal evenings meet again.',
     ],
     img: '/projects/saint-remy-de-provence/cover.jpg',
     images: [
@@ -209,7 +209,7 @@ export const PROJECTS = [
     year: '2025',
     tagline: 'Craft in dialogue with the landscape',
     description: [
-      'Villa K lives between interior and garden: ochre plaster, timber beams, and glass that opens onto turquoise water. Renovation here is a careful recalibration — surfaces renewed, thresholds refined, the pool kept as the house’s luminous counterpart.',
+      'Villa K lives between interior and garden: ochre plaster, timber beams, and glass that opens onto turquoise water. Renovation here is a careful recalibration, surfaces renewed, thresholds refined, the pool kept as the house’s luminous counterpart.',
       'Every intervention respects the Riviera’s easy grandeur: warm walls, long light, and the discipline of finish work that disappears into beauty. A residence remade so life can unfold without interruption.',
     ],
     img: '/projects/villa-k/cover.jpg',
@@ -229,7 +229,7 @@ export const PROJECTS = [
     year: '2025',
     tagline: 'Born of rock, rooted in the bay',
     description: [
-      'Above Villefranche, new construction begins where pine roots meet the cliff. Rebar, formwork, and stone retaining walls — the invisible architecture that will one day hold terraces, rooms, and views of the deep blue harbour below.',
+      'Above Villefranche, new construction begins where pine roots meet the cliff. Rebar, formwork, and stone retaining walls, the invisible architecture that will one day hold terraces, rooms, and views of the deep blue harbour below.',
       'SEK builds with the hillside, not against it: structure woven into the land so permanence feels natural. What rises here will inherit the light of the bay and the quiet strength of the rock that shelters it.',
     ],
     img: '/projects/villefranche-sur-mer/cover.jpg',

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { usePageTransition } from '../components/PageTransition.jsx';
 import { PROJECTS, CATEGORY_LABEL } from '../data/projects.js';
+import { useSeo, breadcrumbJsonLd } from '../seo/useSeo.js';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -33,8 +34,18 @@ export default function Projects() {
   const skipGridWave = useRef(true);
   const { contentVisible } = usePageTransition();
 
+  useSeo({
+    title: 'Portfolio',
+    description:
+      'Explore SEK Construction projects across the French Riviera, new builds, renovations, historic restorations, and specialty structures from Nice to Monaco and beyond.',
+    path: '/projects',
+    jsonLd: breadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Portfolio', path: '/projects' },
+    ]),
+  });
+
   useEffect(() => {
-    document.title = 'Portfolio · SEK';
     document.body.classList.add('is-portfolio');
     return () => document.body.classList.remove('is-portfolio', 'bg-white');
   }, []);
@@ -165,7 +176,11 @@ export default function Projects() {
               >
                 <Link to={`/projects/${p.slug}`} className="portfolio__card">
                   <div className="portfolio__media">
-                    <img src={p.img} alt={p.name} className="portfolio__img" />
+                    <img
+                      src={p.img}
+                      alt={`${p.name}, ${p.location}`}
+                      className="portfolio__img"
+                    />
                   </div>
 
                   <div className="portfolio__meta">

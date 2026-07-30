@@ -1,0 +1,44 @@
+# SEK Construction
+> Luxury construction and renovation on the French Riviera. Private villas, historic restorations, and specialty structures shaped with quiet precision from Èze-sur-Mer across the Côte d'Azur.
+
+SEK Construction (SEK) is a construction and renovation atelier based in Èze, France. Slogan: L'art de construire et de rénover. The practice builds and restores high-end residences and landmarks along the French Riviera.
+
+## Site
+- Home: https://sek-iota.vercel.app/
+- Portfolio: https://sek-iota.vercel.app/projects
+- Vision / Culture: https://sek-iota.vercel.app/culture
+- Contact: https://sek-iota.vercel.app/contact
+- Sitemap: https://sek-iota.vercel.app/sitemap.xml
+- Robots: https://sek-iota.vercel.app/robots.txt
+- Open Graph image: https://sek-iota.vercel.app/og.jpg
+
+## Contact
+- Address: 585 Route de la Revère, 06360 Èze, France
+- Phone: +33 6 29 76 11 42
+- Email: contact@sek-construction.com
+
+## Services
+- New construction
+- Renovation
+- Historic restoration
+- Specialty structures (pools, gardens, complex hillside works)
+
+## Area served
+Èze, Nice, Monaco, Cap d'Ail, Roquebrune-Cap-Martin, Mougins, La Turbie, Saint-Jean-Cap-Ferrat, Villefranche-sur-Mer, Saint-Rémy-de-Provence, and the wider French Riviera / Côte d'Azur.
+
+## Projects
+- Belle Rive (Nice): https://sek-iota.vercel.app/projects/belle-rive-nice
+- Cap d'Ail: https://sek-iota.vercel.app/projects/cap-dail
+- Eden (Monaco): https://sek-iota.vercel.app/projects/eden-monaco
+- La Turbie: https://sek-iota.vercel.app/projects/la-turbie
+- Mougins: https://sek-iota.vercel.app/projects/mougins
+- Roquebrune Cap Martin: https://sek-iota.vercel.app/projects/roquebrune-cap-martin
+- Villa Les Rochers: https://sek-iota.vercel.app/projects/villa-les-rochers
+- Roquebrune Jardins: https://sek-iota.vercel.app/projects/roquebrune-jardins
+- Saint-Jean-Cap-Ferrat: https://sek-iota.vercel.app/projects/saint-jean-cap-ferrat
+- Saint-Rémy-de-Provence: https://sek-iota.vercel.app/projects/saint-remy-de-provence
+- Villa K: https://sek-iota.vercel.app/projects/villa-k
+- Villefranche-sur-Mer: https://sek-iota.vercel.app/projects/villefranche-sur-mer
+
+## Optional
+- Full AI summary: https://sek-iota.vercel.app/llms-full.txt

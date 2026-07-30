@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { PROJECTS, getProjectBySlug, CATEGORY_LABEL } from '../data/projects.js';
+import {
+  useSeo,
+  breadcrumbJsonLd,
+  projectJsonLd,
+} from '../seo/useSeo.js';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -46,15 +51,39 @@ function GalleryFigure({ src, alt, className = '' }) {
   );
 }
 
+function ProjectSeo({ project }) {
+  const description = useMemo(() => {
+    if (Array.isArray(project.description) && project.description[0]) {
+      return project.description[0];
+    }
+    return `${project.name} in ${project.location}, a SEK Construction project on the French Riviera.`;
+  }, [project]);
+
+  useSeo({
+    title: `${project.name} · ${project.location}`,
+    description,
+    path: `/projects/${project.slug}`,
+    image: project.img || '/og.jpg',
+    imageAlt: `${project.name} by SEK Construction in ${project.location}`,
+    type: 'article',
+    jsonLd: [
+      breadcrumbJsonLd([
+        { name: 'Home', path: '/' },
+        { name: 'Portfolio', path: '/projects' },
+        { name: project.name, path: `/projects/${project.slug}` },
+      ]),
+      projectJsonLd(project),
+    ],
+  });
+
+  return null;
+}
+
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
   const index = PROJECTS.findIndex((p) => p.slug === slug);
   const next = PROJECTS[(index + 1) % PROJECTS.length];
-
-  useEffect(() => {
-    if (project) document.title = `${project.name} · SEK`;
-  }, [project]);
 
   if (!project) {
     return <Navigate to="/projects" replace />;
@@ -65,10 +94,11 @@ export default function ProjectDetail() {
 
   return (
     <InnerPageLayout>
+      <ProjectSeo project={project} />
       <section className="project-banner" aria-label={project.name}>
         <img
           src={hero}
-          alt={project.name}
+          alt={`${project.name}, ${project.location}`}
           className="project-banner__img js-parallax"
           data-parallax="0.18"
         />

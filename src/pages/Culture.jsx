@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
+import { useSeo, breadcrumbJsonLd } from '../seo/useSeo.js';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -10,9 +10,16 @@ import '../../css/culture.css';
 import '../../css/footer.css';
 
 export default function Culture() {
-  useEffect(() => {
-    document.title = 'Vision · SEK';
-  }, []);
+  useSeo({
+    title: 'Vision',
+    description:
+      'The vision of SEK Construction, a French Riviera atelier devoted to the art of building and renovating homes that feel like living works of craft.',
+    path: '/culture',
+    jsonLd: breadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Vision', path: '/culture' },
+    ]),
+  });
 
   return (
     <InnerPageLayout>

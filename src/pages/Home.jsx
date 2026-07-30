@@ -8,6 +8,8 @@ import useSectionReveal from '../hooks/useSectionReveal.js';
 import Footer from '../components/Footer.jsx';
 import PageEnter from '../components/PageEnter.jsx';
 import { PROJECTS } from '../data/projects.js';
+import { useSeo, organizationJsonLd, websiteJsonLd } from '../seo/useSeo.js';
+import { SITE } from '../seo/site.js';
 import '../../css/v2.css';
 import '../../css/footer.css';
 import '../../css/section-reveal.css';
@@ -32,8 +34,15 @@ export default function Home() {
   const { phase, removed } = usePreloader({ videoRef: seaVideoRef, imageRef: roomRef });
   const contentReady = phase === 'lift' || phase === 'done' || removed;
 
+  useSeo({
+    title: `${SITE.name} · ${SITE.tagline}`,
+    description: SITE.description,
+    path: '/',
+    image: SITE.ogImage,
+    jsonLd: [organizationJsonLd(), websiteJsonLd()],
+  });
+
   useEffect(() => {
-    document.title = 'SEK · The art of inhabiting';
     document.body.classList.add('is-home');
     return () => document.body.classList.remove('is-home', 'is-loading', 'bg-dark', 'bg-white');
   }, []);
@@ -100,7 +109,12 @@ export default function Home() {
               <use href="#sek-paths" />
             </svg>
 
-            <img className="room" ref={roomRef} src="/assets/room.png" alt="" />
+            <img
+              className="room"
+              ref={roomRef}
+              src="/assets/room.png"
+              alt="Luxury Mediterranean villa interior by SEK Construction overlooking the French Riviera"
+            />
 
             <div className="scroll-hint" ref={scrollHintRef} aria-hidden="true">
               <span className="scroll-hint-label">scroll</span>
@@ -124,7 +138,11 @@ export default function Home() {
                   style={{ '--h': HOME_CARD_HEIGHTS[i % HOME_CARD_HEIGHTS.length] }}
                   aria-label={`View project ${p.name}`}
                 >
-                  <img src={p.img} alt={p.name} loading="lazy" />
+                  <img
+                    src={p.img}
+                    alt={`${p.name}, ${p.location}`}
+                    loading="lazy"
+                  />
                 </Link>
               ))}
             </div>

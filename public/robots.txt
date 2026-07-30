@@ -1,0 +1,57 @@
+# SEK Construction, AI and search crawlers
+# https://sek-iota.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Explicitly welcome major AI / answer-engine crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Discovery files
+Sitemap: https://sek-iota.vercel.app/sitemap.xml
+# AI-oriented site summary (llms.txt convention)
+# https://sek-iota.vercel.app/llms.txt
+# https://sek-iota.vercel.app/llms-full.txt

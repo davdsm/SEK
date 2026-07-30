@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
+import { useSeo, breadcrumbJsonLd } from '../seo/useSeo.js';
+import { SITE } from '../seo/site.js';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -10,12 +12,43 @@ import '../../css/footer.css';
 
 const SOCIALS = [
   { label: 'Instagram', href: 'https://www.instagram.com/sek.build/' },
-  { label: 'Email', href: 'mailto:contact@sek-construction.com' },
+  { label: 'Email', href: `mailto:${SITE.email}` },
 ];
 
 export default function Contact() {
+  useSeo({
+    title: 'Contact',
+    description:
+      'Contact SEK Construction in Èze-sur-Mer, 585 Route de la Revère, 06360 Èze. Call 06 29 76 11 42 or email contact@sek-construction.com for luxury builds and renovations on the French Riviera.',
+    path: '/contact',
+    jsonLd: [
+      breadcrumbJsonLd([
+        { name: 'Home', path: '/' },
+        { name: 'Contact', path: '/contact' },
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Contact SEK Construction',
+        url: 'https://www.sek-construction.com/contact',
+        mainEntity: {
+          '@type': 'HomeAndConstructionBusiness',
+          name: SITE.name,
+          telephone: SITE.phone,
+          email: SITE.email,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: SITE.address.street,
+            addressLocality: SITE.address.locality,
+            postalCode: SITE.address.postalCode,
+            addressCountry: SITE.address.country,
+          },
+        },
+      },
+    ],
+  });
+
   useEffect(() => {
-    document.title = 'Contact · SEK';
     document.body.classList.add('is-contact');
     return () => document.body.classList.remove('is-contact', 'bg-white');
   }, []);
@@ -73,7 +106,7 @@ export default function Contact() {
               </div>
 
               <p className="contact__manifesto">
-                Authorial, multi-referential, polytropic — these are the hallmarks for which SEK is recognized. Every home, sanctuary, and landmark is shaped so it feels like art you can live inside.
+                Authorial, multi-referential, polytropic, these are the hallmarks for which SEK is recognized. Every home, sanctuary, and landmark is shaped so it feels like art you can live inside.
               </p>
             </div>
 
