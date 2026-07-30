@@ -73,7 +73,7 @@ export default function Footer() {
             >
               Instagram
             </a>
-            <a href="mailto:hello@sek.build">Email</a>
+            <a href="mailto:contact@sek-construction.com">Email</a>
           </nav>
         </div>
       </div>
