@@ -9,10 +9,10 @@
   isolation: isolate;
   max-width: 1480px;
   margin: 0 auto;
-  border-radius: 40px;
+  border-radius: 0;
   padding: 72px 48px 36px;
   color: #0a0a0a;
-  background: #f3f2ee;
+  background: transparent;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -29,37 +29,29 @@
   margin-bottom: 56px;
 }
 
-.footer__mark {
-  display: block;
-  width: 36px;
-  height: 36px;
-  margin-bottom: 28px;
-}
-
-.footer__mark svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .footer__invite-title {
-  font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: clamp(2rem, 4.4vw, 3.35rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  font-family: inherit;
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: #0a0a0a;
   margin-bottom: 36px;
-  max-width: 16ch;
+  max-width: none;
+}
+
+.footer__invite-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .footer__invite-form {
   display: flex;
   align-items: stretch;
   width: min(100%, 460px);
-  background: #e8e7e2;
-  border-radius: 999px;
+  background: #f0efeb;
+  border-radius: 0;
   padding: 5px;
   gap: 0;
 }
@@ -74,7 +66,7 @@
   font-size: 15px;
   color: #0a0a0a;
   outline: none;
-  border-radius: 999px;
+  border-radius: 0;
 }
 
 .footer__invite-input::placeholder {
@@ -84,7 +76,7 @@
 .footer__invite-btn {
   flex-shrink: 0;
   border: none;
-  border-radius: 999px;
+  border-radius: 0;
   background: #0a0a0a;
   color: #fff;
   font-family: inherit;
@@ -101,15 +93,14 @@
   transform: translateY(-1px);
 }
 
-/* Giant SEK wordmark filled with imagery */
+/* Giant SEK wordmark filled with imagery + parallax */
 .footer__wordmark {
+  position: relative;
   width: min(92%, 1100px);
   aspect-ratio: 1080 / 292;
   margin: 8px auto 48px;
+  overflow: hidden;
   background-color: #cda15a;
-  background-size: cover;
-  background-position: center 40%;
-  background-repeat: no-repeat;
   -webkit-mask-image: url("/logo/SEK-BK.svg");
   mask-image: url("/logo/SEK-BK.svg");
   -webkit-mask-size: contain;
@@ -118,17 +109,21 @@
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  animation: footer-wordmark-drift 28s ease-in-out infinite alternate;
-  will-change: background-position;
 }
 
-@keyframes footer-wordmark-drift {
-  0% {
-    background-position: 30% 35%;
-  }
-  100% {
-    background-position: 70% 55%;
-  }
+.footer[data-section-reveal] .footer__wordmark.section-reveal {
+  transition-duration: 1s;
+}
+
+.footer__wordmark-img {
+  display: block;
+  position: absolute;
+  inset: -18% 0;
+  width: 100%;
+  height: 136%;
+  object-fit: cover;
+  object-position: center 40%;
+  will-change: transform;
 }
 
 .footer__bar {
@@ -167,10 +162,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .footer__wordmark {
-    animation: none;
-  }
-
   .footer__invite-btn:hover {
     transform: none;
   }
@@ -182,7 +173,7 @@
   }
 
   .footer__card {
-    border-radius: 28px;
+    border-radius: 0;
     padding: 52px 22px 28px;
   }
 
@@ -190,9 +181,13 @@
     margin-bottom: 40px;
   }
 
+  .footer__invite-title {
+    font-size: clamp(1.55rem, 7vw, 2.1rem);
+  }
+
   .footer__invite-form {
     flex-direction: column;
-    border-radius: 20px;
+    border-radius: 0;
     padding: 8px;
     gap: 8px;
   }
@@ -200,7 +195,7 @@
   .footer__invite-input,
   .footer__invite-btn {
     width: 100%;
-    border-radius: 14px;
+    border-radius: 0;
     text-align: center;
   }
 
@@ -216,6 +211,7 @@
   }
 
   .footer__legal {
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: 14px 18px;
   }
 }

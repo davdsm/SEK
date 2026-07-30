@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import SiteHeader from './SiteHeader.jsx';
 import Footer from './Footer.jsx';
+import PageEnter from './PageEnter.jsx';
 import useSmoothScroll from '../hooks/useSmoothScroll.js';
 import useParallax from '../hooks/useParallax.js';
 import useSectionReveal from '../hooks/useSectionReveal.js';
@@ -14,10 +14,9 @@ export default function InnerPageLayout({ children }) {
   useSectionReveal([pathname]);
 
   return (
-    <>
-      <SiteHeader />
+    <PageEnter key={pathname} className="page-enter--inner">
       <main className="inner-main">{children}</main>
       <Footer />
-    </>
+    </PageEnter>
   );
 }

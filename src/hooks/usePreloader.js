@@ -1,17 +1,29 @@
 import { useEffect, useState } from 'react';
 
+/** Survives SPA navigations; resets on a full page load. */
+let hasPlayedIntro = false;
+
 /**
  * Preloader sequence:
  * 1. White page
  * 2. Icon fade-in-right
  * 3. When ready → icon fade-out-right
  * 4. White panel slides up, site revealed
+ *
+ * Runs only on the first home visit of a page load — not when
+ * navigating back to home from another route.
  */
 export default function usePreloader({ videoRef, imageRef }) {
-  const [phase, setPhase] = useState('boot'); // boot | icon | exit | lift | done
-  const [removed, setRemoved] = useState(false);
+  const skip = hasPlayedIntro;
+  const [phase, setPhase] = useState(skip ? 'done' : 'boot'); // boot | icon | exit | lift | done
+  const [removed, setRemoved] = useState(skip);
 
   useEffect(() => {
+    if (skip) {
+      document.body.classList.remove('is-loading');
+      return undefined;
+    }
+
     const video = videoRef.current;
     const room = imageRef.current;
 
@@ -34,6 +46,10 @@ export default function usePreloader({ videoRef, imageRef }) {
       return id;
     };
 
+    function markPlayed() {
+      hasPlayedIntro = true;
+    }
+
     function beginExit() {
       if (cancelled || exitStarted) return;
       exitStarted = true;
@@ -47,6 +63,7 @@ export default function usePreloader({ videoRef, imageRef }) {
 
         later(() => {
           if (cancelled) return;
+          markPlayed();
           setPhase('done');
           setRemoved(true);
         }, LIFT_MS);
@@ -120,15 +137,20 @@ export default function usePreloader({ videoRef, imageRef }) {
       timers.forEach(clearTimeout);
       clearTimeout(fallbackTimer);
       document.body.classList.remove('is-loading');
+      // Leaving home after the intro has been seen (ignore Strict Mode remounts).
+      if (exitStarted || performance.now() - start > 400) {
+        markPlayed();
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    if (skip) return;
     if (phase === 'boot' || phase === 'icon' || phase === 'exit') {
       document.body.classList.add('is-loading');
     }
-  }, [phase]);
+  }, [phase, skip]);
 
   return { phase, removed };
 }

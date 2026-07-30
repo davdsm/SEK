@@ -7,6 +7,9 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (window.lenis?.scrollTo) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
   }, [pathname]);
 
   return null;

@@ -1,123 +1,111 @@
 import { useEffect } from 'react';
 
 /**
- * Port of js/site-header.js — header show/hide on scroll direction,
- * light/dark tone detection under the header, and the FR/EN toggle.
- * Nav active-link state is handled by React Router's NavLink instead.
+ * Header enter animation. On the homepage only: hide on scroll down,
+ * show on scroll up. On all other pages the header stays visible.
  */
-export default function useSiteHeader(headerRef) {
+export default function useSiteHeader(headerRef, { isHome } = {}) {
   useEffect(() => {
-    const pageHeader = headerRef.current;
-    if (!pageHeader) return undefined;
+    const header = headerRef.current;
+    if (!header) return undefined;
 
-    function markToneSections() {
-      document.querySelectorAll('main section, .footer').forEach((el) => {
-        el.dataset.headerTone = 'light';
-      });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let visible = false;
+    let ready = false;
+    let lastY = 0;
+    let ticking = false;
+    let lenisAttached = null;
+    let enterTimer = 0;
 
-      ['.hero', '.culture-hero', '.project-banner', '.contact-hero', '.portfolio__carousel'].forEach(
-        (selector) => {
-          document.querySelectorAll(selector).forEach((el) => {
-            el.dataset.headerTone = 'dark';
-          });
-        }
-      );
+    function getScrollY() {
+      return window.lenis?.scroll ?? window.scrollY ?? 0;
     }
 
-    function getToneAtPoint(x, y) {
-      const originalPointerEvents = pageHeader.style.pointerEvents;
-      pageHeader.style.pointerEvents = 'none';
-
-      const el = document.elementFromPoint(x, y);
-      const tone = el?.closest('[data-header-tone]')?.dataset.headerTone;
-
-      pageHeader.style.pointerEvents = originalPointerEvents || '';
-
-      return tone || 'light';
+    function setVisible(next) {
+      if (visible === next) return;
+      visible = next;
+      header.classList.toggle('is-visible', next);
+      document.body.classList.toggle('is-header-visible', next);
     }
 
-    function updateHeaderTone() {
-      if (!document.body.classList.contains('is-header-visible')) return;
+    function enter() {
+      if (ready) return;
+      if (isHome && document.body.classList.contains('is-loading')) return;
+      ready = true;
+      lastY = getScrollY();
 
-      const rect = pageHeader.getBoundingClientRect();
-      const x = window.innerWidth / 2;
-      const y = Math.min(rect.bottom + 6, window.innerHeight - 1);
-      const tone = getToneAtPoint(x, y);
-
-      pageHeader.classList.toggle('page-header--tone-dark', tone === 'dark');
-      pageHeader.classList.toggle('page-header--tone-light', tone === 'light');
-    }
-
-    function initHeaderScroll() {
-      const hasHero = document.querySelector('.hero');
-
-      if (!hasHero) {
-        document.body.classList.add('is-header-visible');
+      if (reduceMotion) {
+        setVisible(true);
+        return;
       }
 
-      function getScrollY() {
-        return window.lenis?.scroll ?? window.scrollY;
-      }
+      enterTimer = window.setTimeout(() => setVisible(true), 60);
+    }
 
-      let lastScrollY = getScrollY();
-      let ticking = false;
+    // Inner pages: always on after enter — no scroll hide/show.
+    if (!isHome) {
+      enter();
+      return () => {
+        window.clearTimeout(enterTimer);
+        header.classList.remove('is-visible');
+        document.body.classList.remove('is-header-visible');
+      };
+    }
 
-      function update() {
-        const currentScrollY = getScrollY();
+    function onScroll() {
+      if (!ready || ticking) return;
+      ticking = true;
 
-        if (hasHero && !document.body.classList.contains('is-past-hero')) {
-          lastScrollY = currentScrollY;
-          ticking = false;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const y = getScrollY();
+        const delta = y - lastY;
+
+        if (y <= 32) {
+          setVisible(true);
+          lastY = y;
           return;
         }
 
-        if (currentScrollY < lastScrollY) {
-          document.body.classList.add('is-header-visible');
-        } else if (currentScrollY > lastScrollY) {
-          document.body.classList.remove('is-header-visible');
-        }
+        if (delta > 6) setVisible(false);
+        else if (delta < -6) setVisible(true);
 
-        lastScrollY = currentScrollY;
-        ticking = false;
-      }
-
-      function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      if (window.lenis) window.lenis.on('scroll', onScroll);
-
-      return onScroll;
-    }
-
-    function initHeaderTone() {
-      markToneSections();
-      updateHeaderTone();
-
-      window.addEventListener('scroll', updateHeaderTone, { passive: true });
-      window.addEventListener('resize', updateHeaderTone);
-      if (window.lenis) window.lenis.on('scroll', updateHeaderTone);
-
-      const headerObserver = new MutationObserver(() => {
-        if (document.body.classList.contains('is-header-visible')) updateHeaderTone();
+        lastY = y;
       });
-      headerObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-
-      return headerObserver;
     }
 
-    const onScroll = initHeaderScroll();
-    const headerObserver = initHeaderTone();
+    function attachLenis() {
+      const lenis = window.lenis;
+      if (!lenis || lenis === lenisAttached) return;
+      if (lenisAttached?.off) lenisAttached.off('scroll', onScroll);
+      lenis.on('scroll', onScroll);
+      lenisAttached = lenis;
+    }
+
+    const loadingObserver = new MutationObserver(() => {
+      if (!document.body.classList.contains('is-loading')) enter();
+    });
+    loadingObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    if (!document.body.classList.contains('is-loading')) {
+      enter();
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    attachLenis();
+    const lenisPoll = window.setInterval(attachLenis, 400);
 
     return () => {
-      if (onScroll) window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('scroll', updateHeaderTone);
-      window.removeEventListener('resize', updateHeaderTone);
-      headerObserver?.disconnect();
-      document.body.classList.remove('is-header-visible', 'is-past-hero');
+      window.clearTimeout(enterTimer);
+      window.clearInterval(lenisPoll);
+      loadingObserver.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      if (lenisAttached?.off) lenisAttached.off('scroll', onScroll);
+      header.classList.remove('is-visible');
+      document.body.classList.remove('is-header-visible');
     };
-  }, [headerRef]);
+  }, [headerRef, isHome]);
 }

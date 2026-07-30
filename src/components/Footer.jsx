@@ -1,31 +1,39 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 export default function Footer() {
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const footer = footerRef.current;
+    if (!footer) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.body.classList.toggle('bg-white', entry.isIntersecting);
+      },
+      { rootMargin: '-30% 0% -30% 0%', threshold: 0 }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      observer.disconnect();
+      document.body.classList.remove('bg-white');
+    };
+  }, []);
+
   return (
-    <footer className="footer" aria-label="Footer">
+    <footer className="footer" ref={footerRef} aria-label="Footer" data-section-reveal>
       <div className="footer__card">
         <div className="footer__invite">
-          <span className="footer__mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" fill="#0a0a0a"/>
-              <path
-                d="M8 22V12.5C8 9.5 10.2 7 14 7C17.8 7 20 9.5 20 12.5V14.5H8.8"
-                stroke="#fff"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path d="M8 18H22" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/>
-              <path d="M8 22H24" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/>
-            </svg>
-          </span>
-
-          <h2 className="footer__invite-title">
-            Start shaping a home<br />that will hold your legacy.
+          <h2 className="footer__invite-title section-reveal">
+            <span className="footer__invite-line">Start shaping a home</span>
+            <span className="footer__invite-line">that will hold your legacy.</span>
           </h2>
 
           <form
-            className="footer__invite-form"
+            className="footer__invite-form section-reveal"
             action="#"
             method="post"
             onSubmit={(e) => e.preventDefault()}
@@ -43,18 +51,29 @@ export default function Footer() {
           </form>
         </div>
 
-        <div
-          className="footer__wordmark"
-          role="img"
-          aria-label="SEK"
-          style={{ backgroundImage: "url('/assets/projects/01-facade-windows.jpg')" }}
-        ></div>
+        <div className="footer__wordmark section-reveal" role="img" aria-label="SEK">
+          <img
+            src="/assets/projects/01-facade-windows.jpg"
+            alt=""
+            className="footer__wordmark-img js-parallax"
+            data-parallax="0.18"
+            data-cover-scale="1.35"
+          />
+        </div>
 
-        <div className="footer__bar">
-          <p className="footer__copy">SEK© 2025</p>
-          <nav className="footer__legal" aria-label="Legal">
+        <div className="footer__bar section-reveal">
+          <p className="footer__copy">SEK© 2026</p>
+          <nav className="footer__legal" aria-label="Footer links">
             <Link to="/contact">Terms of Service</Link>
             <Link to="/contact">Privacy Policy</Link>
+            <a
+              href="https://www.instagram.com/sek.build/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+            <a href="mailto:hello@sek.build">Email</a>
           </nav>
         </div>
       </div>

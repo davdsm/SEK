@@ -1,0 +1,26 @@
+/* ── Page enter · fade-in-up on route open ────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.page-enter.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-enter.is-in {
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

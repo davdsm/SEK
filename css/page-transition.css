@@ -1,0 +1,49 @@
+/* ── Page curtain transition ──────────────────────────────── */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.page-curtain.is-covering,
+.page-curtain.is-covered,
+.page-curtain.is-revealing {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.page-curtain__panel {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: translate3d(0, -101%, 0);
+  will-change: transform;
+}
+
+/* Curtain drops down to cover */
+.page-curtain.is-covering .page-curtain__panel,
+.page-curtain.is-covered .page-curtain__panel {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Curtain lifts away to reveal */
+.page-curtain.is-revealing .page-curtain__panel {
+  transform: translate3d(0, -101%, 0);
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+body.is-page-transitioning {
+  cursor: wait;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain,
+  .page-curtain__panel {
+    transition: none !important;
+    display: none;
+  }
+}
