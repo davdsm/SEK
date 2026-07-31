@@ -53,8 +53,8 @@ export default function Footer() {
 
         <div className="footer__wordmark section-reveal" role="img" aria-label="SEK">
           <img
-            src="/projects/roquebrune-cap-martin/cover.jpg"
-            alt=""
+            src="/assets/footer.jpg"
+            alt="Luxury Mediterranean interior overlooking the French Riviera"
             className="footer__wordmark-img js-parallax"
             data-parallax="0.18"
             data-cover-scale="1.35"
