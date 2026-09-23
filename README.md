@@ -1,2 +1,7 @@
-# SEK
-React and framer motion website for a construction company based in France
+# SEK Construction
+
+Luxury construction and renovation on the French Riviera.
+
+**Live:** [sek-construction.com](https://www.sek-construction.com/)
+
+React · motion · Vite
