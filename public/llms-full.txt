@@ -148,16 +148,6 @@ SEK shapes private villas, historic restorations, and specialty structures acros
 - In the heart of Provence, restoration begins at the hearth. Cream limestone rises in fluted pilasters and tiered mouldings, a neoclassical fireplace carved with the patience of old craft, destined to warm rooms that have known centuries of gathering.
 - Saint-Rémy asks for reverence: material honesty, quiet ornament, and hands that understand stone. SEK restored not only a mantel, but the soul of a house, where firelight and Provençal evenings meet again.
 
-### Villa K
-- Location: French Riviera
-- Type: Renovation
-- Year: 2025
-- Tagline: Craft in dialogue with the landscape
-- URL: https://sek-iota.vercel.app/projects/villa-k
-- Cover: https://sek-iota.vercel.app/projects/villa-k/cover.jpg
-- Villa K lives between interior and garden: ochre plaster, timber beams, and glass that opens onto turquoise water. Renovation here is a careful recalibration, surfaces renewed, thresholds refined, the pool kept as the house’s luminous counterpart.
-- Every intervention respects the Riviera’s easy grandeur: warm walls, long light, and the discipline of finish work that disappears into beauty. A residence remade so life can unfold without interruption.
-
 ### Villefranche-sur-Mer
 - Location: Villefranche-sur-Mer, France
 - Type: New Construction

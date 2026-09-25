@@ -10,6 +10,7 @@ import PageEnter from '../components/PageEnter.jsx';
 import { PROJECTS } from '../data/projects.js';
 import { useSeo, organizationJsonLd, websiteJsonLd } from '../seo/useSeo.js';
 import { SITE } from '../seo/site.js';
+import { useLocale } from '../i18n/LocaleContext.jsx';
 import '../../css/v2.css';
 import '../../css/footer.css';
 import '../../css/section-reveal.css';
@@ -18,6 +19,7 @@ const HOME_CARD_HEIGHTS = ['40vh', '58vh', '34vh', '72vh', '48vh', '80vh', '56vh
 const HOME_PROJECTS = PROJECTS.slice(0, 8);
 
 export default function Home() {
+  const { t } = useLocale();
   const pageRef = useRef(null);
   const scrollyRef = useRef(null);
   const roomRef = useRef(null);
@@ -73,6 +75,8 @@ export default function Home() {
     .filter(Boolean)
     .join(' ');
 
+  const whatwedoTitle = t('home.whatwedoTitle').split('\n');
+
   return (
     <div ref={pageRef}>
       {!removed && (
@@ -98,7 +102,7 @@ export default function Home() {
               <svg className="logo logo-gold" viewBox="0 0 1080 291.68" xmlns="http://www.w3.org/2000/svg" aria-label="SEK">
                 <use href="#sek-paths" />
               </svg>
-              <p className="phrase" data-reveal="manual" ref={phraseRef}>Where architecture becomes emotion</p>
+              <p className="phrase" data-reveal="manual" ref={phraseRef}>{t('home.phrase')}</p>
             </div>
 
             <div className="ocean" ref={oceanRef}>
@@ -117,7 +121,7 @@ export default function Home() {
             />
 
             <div className="scroll-hint" ref={scrollHintRef} aria-hidden="true">
-              <span className="scroll-hint-label">scroll</span>
+              <span className="scroll-hint-label">{t('home.scroll')}</span>
               <span className="scroll-hint-line"></span>
             </div>
           </div>
@@ -126,8 +130,12 @@ export default function Home() {
         <section className="whatwedo" ref={whatwedoRef}>
           <div className="whatwedo-stage">
             <header className="whatwedo-head">
-              <h2 data-reveal>Spaces<br />Remembered</h2>
-              <p data-reveal>Each project is a quiet composition of light, material, and memory. Homes and landmarks shaped so they feel like art you can live inside.</p>
+              <h2 data-reveal>
+                {whatwedoTitle[0]}
+                <br />
+                {whatwedoTitle[1]}
+              </h2>
+              <p data-reveal>{t('home.whatwedoText')}</p>
             </header>
             <div className="track" ref={trackRef}>
               {HOME_PROJECTS.map((p, i) => (
@@ -136,7 +144,7 @@ export default function Home() {
                   to={`/projects/${p.slug}`}
                   className="card"
                   style={{ '--h': HOME_CARD_HEIGHTS[i % HOME_CARD_HEIGHTS.length] }}
-                  aria-label={`View project ${p.name}`}
+                  aria-label={t('home.viewProject', { name: p.name })}
                 >
                   <img
                     src={p.img}
@@ -151,8 +159,8 @@ export default function Home() {
 
         <section className="manifesto" ref={manifestoRef}>
           <div className="manifesto-stage">
-            <p className="manifesto-eyebrow">Our philosophy</p>
-            <p className="manifesto-text" ref={manifestoTextRef}>We believe a building should move you. In the hush of a closing door, the warmth of stone under your hand, the way morning light writes itself across a wall.</p>
+            <p className="manifesto-eyebrow">{t('home.manifestoEyebrow')}</p>
+            <p className="manifesto-text" ref={manifestoTextRef}>{t('home.manifestoText')}</p>
           </div>
         </section>
 

@@ -40,7 +40,6 @@ SEK Construction (SEK) is a construction and renovation atelier based in Èze, F
 - Roquebrune Jardins: https://sek-iota.vercel.app/projects/roquebrune-jardins
 - Saint-Jean-Cap-Ferrat: https://sek-iota.vercel.app/projects/saint-jean-cap-ferrat
 - Saint-Rémy-de-Provence: https://sek-iota.vercel.app/projects/saint-remy-de-provence
-- Villa K: https://sek-iota.vercel.app/projects/villa-k
 - Villefranche-sur-Mer: https://sek-iota.vercel.app/projects/villefranche-sur-mer
 
 ## Optional

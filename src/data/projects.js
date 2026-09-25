@@ -285,26 +285,6 @@ export const PROJECTS = [
     ],
   },
   {
-    slug: 'villa-k',
-    name: 'Villa K',
-    location: 'French Riviera',
-    category: 'renovation',
-    year: '2025',
-    tagline: 'Craft in dialogue with the landscape',
-    description: [
-      'Villa K lives between interior and garden: ochre plaster, timber beams, and glass that opens onto turquoise water. Renovation here is a careful recalibration, surfaces renewed, thresholds refined, the pool kept as the house’s luminous counterpart.',
-      'Every intervention respects the Riviera’s easy grandeur: warm walls, long light, and the discipline of finish work that disappears into beauty. A residence remade so life can unfold without interruption.',
-    ],
-    img: '/projects/villa-k/cover.jpg',
-    images: [
-      '/projects/villa-k/cover.jpg',
-      '/projects/villa-k/gallery-01.jpg',
-      '/projects/villa-k/gallery-02.jpg',
-      '/projects/villa-k/gallery-03.jpg',
-      '/projects/villa-k/gallery-04.jpg',
-    ],
-  },
-  {
     slug: 'villefranche-sur-mer',
     name: 'Villefranche-sur-Mer',
     location: 'Villefranche-sur-Mer, France',

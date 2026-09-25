@@ -2,8 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { usePageTransition } from '../components/PageTransition.jsx';
-import { PROJECTS, CATEGORY_LABEL } from '../data/projects.js';
+import { PROJECTS } from '../data/projects.js';
 import { useSeo, breadcrumbJsonLd } from '../seo/useSeo.js';
+import { useLocale } from '../i18n/LocaleContext.jsx';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -12,12 +13,12 @@ import '../../css/inner-page.css';
 import '../../css/projects-list.css';
 import '../../css/footer.css';
 
-const FILTERS = [
-  { key: 'all', label: 'Show All' },
-  { key: 'new-construction', label: 'New Construction' },
-  { key: 'renovation', label: 'Renovation' },
-  { key: 'historic-restoration', label: 'Historic Restoration' },
-  { key: 'specialty-structure', label: 'Specialty Structure' },
+const FILTER_KEYS = [
+  'all',
+  'new-construction',
+  'renovation',
+  'historic-restoration',
+  'specialty-structure',
 ];
 
 function padIndex(n) {
@@ -25,6 +26,7 @@ function padIndex(n) {
 }
 
 export default function Projects() {
+  const { t } = useLocale();
   const [filter, setFilter] = useState('all');
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -34,14 +36,22 @@ export default function Projects() {
   const skipGridWave = useRef(true);
   const { contentVisible } = usePageTransition();
 
+  const filters = useMemo(
+    () =>
+      FILTER_KEYS.map((key) => ({
+        key,
+        label: t(`portfolio.filters.${key}`),
+      })),
+    [t]
+  );
+
   useSeo({
-    title: 'Portfolio',
-    description:
-      'Explore SEK Construction projects across the French Riviera, new builds, renovations, historic restorations, and specialty structures from Nice to Monaco and beyond.',
+    title: t('portfolio.seoTitle'),
+    description: t('portfolio.seoDescription'),
     path: '/projects',
     jsonLd: breadcrumbJsonLd([
       { name: 'Home', path: '/' },
-      { name: 'Portfolio', path: '/projects' },
+      { name: t('portfolio.title'), path: '/projects' },
     ]),
   });
 
@@ -99,19 +109,20 @@ export default function Projects() {
     <InnerPageLayout>
       <section
         className={`portfolio${ready ? ' is-ready' : ''}`}
-        aria-label="Portfolio"
+        aria-label={t('portfolio.aria')}
       >
         <div className="portfolio__wrap">
           <h1
             className="portfolio__heading portfolio__rise"
             style={{ '--stair': 0 }}
           >
-            Portfolio <span className="portfolio__heading-count">({visible.length})</span>
+            {t('portfolio.title')}{' '}
+            <span className="portfolio__heading-count">({visible.length})</span>
           </h1>
 
           <div className="portfolio__toolbar">
-            <div className="portfolio__filters" role="group" aria-label="Filter projects">
-              {FILTERS.map((f, i) => (
+            <div className="portfolio__filters" role="group" aria-label={t('portfolio.filterAria')}>
+              {filters.map((f, i) => (
                 <button
                   key={f.key}
                   type="button"
@@ -126,16 +137,16 @@ export default function Projects() {
 
             <div
               className={`portfolio__search portfolio__rise${searchOpen ? ' is-open' : ''}`}
-              style={{ '--stair': FILTERS.length + 1 }}
+              style={{ '--stair': filters.length + 1 }}
             >
               <label className="portfolio__search-field" htmlFor="portfolio-search">
-                <span className="visually-hidden">Search projects</span>
+                <span className="visually-hidden">{t('portfolio.searchAria')}</span>
                 <input
                   ref={searchRef}
                   id="portfolio-search"
                   type="search"
                   className="portfolio__search-input"
-                  placeholder="Search"
+                  placeholder={t('portfolio.search')}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onBlur={() => {
@@ -146,7 +157,9 @@ export default function Projects() {
               <button
                 type="button"
                 className="portfolio__search-btn"
-                aria-label={searchOpen ? 'Close search' : 'Search projects'}
+                aria-label={
+                  searchOpen ? t('portfolio.closeSearch') : t('portfolio.searchAria')
+                }
                 aria-expanded={searchOpen}
                 onClick={() => {
                   setSearchOpen((open) => {
@@ -170,7 +183,7 @@ export default function Projects() {
                 className="portfolio__item portfolio__rise portfolio__rise--card"
                 style={{
                   '--stair':
-                    (gridWave === 0 ? FILTERS.length + 2 : 0) + stairIndex(i),
+                    (gridWave === 0 ? filters.length + 2 : 0) + stairIndex(i),
                   '--stair-mobile': (gridWave === 0 ? 1 : 0) + i,
                 }}
               >
@@ -190,7 +203,7 @@ export default function Projects() {
                       <span className="portfolio__index">| {padIndex(i + 1)}</span>
                     </div>
                     <p className="portfolio__detail">
-                      {p.year} {CATEGORY_LABEL[p.category]}
+                      {p.year} {t(`portfolio.filters.${p.category}`)}
                     </p>
                     <p className="portfolio__location">{p.location}</p>
                   </div>
@@ -202,7 +215,7 @@ export default function Projects() {
           {visible.length === 0 && (
             <p
               className="portfolio__empty portfolio__rise"
-              style={{ '--stair': FILTERS.length + 2 }}
+              style={{ '--stair': filters.length + 2 }}
             >
               No projects match your search.
             </p>

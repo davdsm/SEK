@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { useSeo, breadcrumbJsonLd } from '../seo/useSeo.js';
 import { SITE } from '../seo/site.js';
+import { useLocale } from '../i18n/LocaleContext.jsx';
 import '../../css/hero.css';
 import '../../css/smooth-scroll.css';
 import '../../css/parallax.css';
@@ -10,27 +11,28 @@ import '../../css/inner-page.css';
 import '../../css/contact.css';
 import '../../css/footer.css';
 
-const SOCIALS = [
-  { label: 'Instagram', href: 'https://www.instagram.com/sek.build/' },
-  { label: 'Email', href: `mailto:${SITE.email}` },
-];
-
 export default function Contact() {
+  const { t } = useLocale();
+
+  const socials = [
+    { label: t('footer.instagram'), href: 'https://www.instagram.com/sek.build/' },
+    { label: t('contact.email'), href: `mailto:${SITE.email}` },
+  ];
+
   useSeo({
-    title: 'Contact',
-    description:
-      'Contact SEK Construction in Èze-sur-Mer, 585 Route de la Revère, 06360 Èze. Call 06 29 76 11 42 or email contact@sek-construction.com for luxury builds and renovations on the French Riviera.',
+    title: t('contact.seoTitle'),
+    description: t('contact.seoDescription'),
     path: '/contact',
     jsonLd: [
       breadcrumbJsonLd([
         { name: 'Home', path: '/' },
-        { name: 'Contact', path: '/contact' },
+        { name: t('contact.title'), path: '/contact' },
       ]),
       {
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         name: 'Contact SEK Construction',
-        url: 'https://www.sek-construction.com/contact',
+        url: `${SITE.url}/contact`,
         mainEntity: {
           '@type': 'HomeAndConstructionBusiness',
           name: SITE.name,
@@ -55,7 +57,7 @@ export default function Contact() {
 
   return (
     <InnerPageLayout>
-      <section className="contact" aria-label="Contact">
+      <section className="contact" aria-label={t('contact.aria')}>
         <div className="contact__wrap">
           <div className="contact__top">
             <div className="contact__info">
@@ -70,7 +72,7 @@ export default function Contact() {
 
               <div className="contact__col contact__col--enquiries">
                 <div className="contact__enquiry">
-                  <p className="contact__label">Email</p>
+                  <p className="contact__label">{t('contact.email')}</p>
                   <a
                     href="mailto:contact@sek-construction.com"
                     className="contact__link contact__link--underline"
@@ -79,7 +81,7 @@ export default function Contact() {
                   </a>
                 </div>
                 <div className="contact__enquiry">
-                  <p className="contact__label">Telephone</p>
+                  <p className="contact__label">{t('contact.telephone')}</p>
                   <a href="tel:+33629761142" className="contact__link contact__link--underline">
                     06 29 76 11 42
                   </a>
@@ -87,9 +89,9 @@ export default function Contact() {
               </div>
 
               <div className="contact__col contact__col--follow">
-                <p className="contact__label">Follow</p>
+                <p className="contact__label">{t('contact.follow')}</p>
                 <ul className="contact__socials">
-                  {SOCIALS.map((item) => (
+                  {socials.map((item) => (
                     <li key={item.label}>
                       <a
                         href={item.href}
@@ -105,9 +107,7 @@ export default function Contact() {
                 </ul>
               </div>
 
-              <p className="contact__manifesto">
-                Authorial, multi-referential, polytropic, these are the hallmarks for which SEK is recognized. Every home, sanctuary, and landmark is shaped so it feels like art you can live inside.
-              </p>
+              <p className="contact__manifesto">{t('contact.manifesto')}</p>
             </div>
 
             <div className="contact__visual">
@@ -120,8 +120,8 @@ export default function Contact() {
           </div>
 
           <div className="contact__bottom">
-            <h1 className="contact__wordmark" aria-label="Contact">
-              Contact
+            <h1 className="contact__wordmark" aria-label={t('contact.title')}>
+              {t('contact.title')}
             </h1>
           </div>
         </div>

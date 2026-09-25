@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
-import { PROJECTS, getProjectBySlug, CATEGORY_LABEL } from '../data/projects.js';
+import { PROJECTS, getProjectBySlug } from '../data/projects.js';
+import { useLocale } from '../i18n/LocaleContext.jsx';
 import {
   useSeo,
   breadcrumbJsonLd,
@@ -52,6 +53,7 @@ function GalleryFigure({ src, alt, className = '' }) {
 }
 
 function ProjectSeo({ project }) {
+  const { t } = useLocale();
   const description = useMemo(() => {
     if (Array.isArray(project.description) && project.description[0]) {
       return project.description[0];
@@ -69,7 +71,7 @@ function ProjectSeo({ project }) {
     jsonLd: [
       breadcrumbJsonLd([
         { name: 'Home', path: '/' },
-        { name: 'Portfolio', path: '/projects' },
+        { name: t('portfolio.title'), path: '/projects' },
         { name: project.name, path: `/projects/${project.slug}` },
       ]),
       projectJsonLd(project),
@@ -80,6 +82,7 @@ function ProjectSeo({ project }) {
 }
 
 export default function ProjectDetail() {
+  const { t } = useLocale();
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
   const index = PROJECTS.findIndex((p) => p.slug === slug);
@@ -106,7 +109,7 @@ export default function ProjectDetail() {
         <div className="project-banner__content">
           <span className="project-banner__code">{String(index + 1).padStart(2, '0')}</span>
           <h1 className="project-banner__title">{project.name}</h1>
-          <span className="project-banner__badge">{CATEGORY_LABEL[project.category]}</span>
+          <span className="project-banner__badge">{t(`portfolio.filters.${project.category}`)}</span>
         </div>
       </section>
 
@@ -114,19 +117,19 @@ export default function ProjectDetail() {
         <div className="inner-wrap">
           <dl className="project-meta__grid">
             <div className="project-meta__item section-reveal">
-              <dt className="project-meta__label">Location</dt>
+              <dt className="project-meta__label">{t('project.location')}</dt>
               <dd className="project-meta__value">{project.location}</dd>
             </div>
             <div className="project-meta__item section-reveal">
-              <dt className="project-meta__label">Completed</dt>
+              <dt className="project-meta__label">{t('project.completed')}</dt>
               <dd className="project-meta__value">{project.year}</dd>
             </div>
             <div className="project-meta__item section-reveal">
-              <dt className="project-meta__label">Type</dt>
-              <dd className="project-meta__value">{CATEGORY_LABEL[project.category]}</dd>
+              <dt className="project-meta__label">{t('project.type')}</dt>
+              <dd className="project-meta__value">{t(`portfolio.filters.${project.category}`)}</dd>
             </div>
             <div className="project-meta__item section-reveal">
-              <dt className="project-meta__label">Studio</dt>
+              <dt className="project-meta__label">{t('project.studio')}</dt>
               <dd className="project-meta__value">SEK</dd>
             </div>
           </dl>
@@ -137,7 +140,7 @@ export default function ProjectDetail() {
         <div className="inner-wrap">
           <div className="project-about__grid">
             <div>
-              <p className="project-about__label section-reveal">The story</p>
+              <p className="project-about__label section-reveal">{t('project.story')}</p>
               <h2 className="project-about__title section-reveal">
                 {project.tagline}
               </h2>
@@ -155,13 +158,13 @@ export default function ProjectDetail() {
 
       <section className="project-gallery" data-section-reveal>
         <div className="inner-wrap">
-          <h2 className="project-gallery__title section-reveal">A visual diary</h2>
+          <h2 className="project-gallery__title section-reveal">{t('project.gallery')}</h2>
           <div className="project-gallery__grid">
             {gallery.map((src, i) => (
               <GalleryFigure
                 key={src}
                 src={src}
-                alt={i === 0 ? `${project.name} main view` : `${project.name} ${i + 1}`}
+                alt={i === 0 ? t('project.mainView', { name: project.name }) : `${project.name} ${i + 1}`}
                 className="section-reveal"
               />
             ))}
@@ -169,18 +172,18 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      <nav className="project-nav" aria-label="Project navigation" data-section-reveal>
+      <nav className="project-nav" aria-label={t('project.navAria')} data-section-reveal>
         <div className="inner-wrap">
           <div className="project-nav__inner section-reveal">
             <Link to="/projects" className="project-nav__back">
-              All works
+              {t('project.allWorks')}
             </Link>
             {next && (
               <Link
                 to={`/projects/${next.slug}`}
                 className="project-nav__link project-nav__link--next"
               >
-                <span className="project-nav__label">Continue the gallery</span>
+                <span className="project-nav__label">{t('project.continue')}</span>
                 <span className="project-nav__name">{next.name}</span>
               </Link>
             )}
