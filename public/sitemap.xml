@@ -51,11 +51,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://sek-iota.vercel.app/projects/la-turbie</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://sek-iota.vercel.app/projects/mougins</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -77,16 +72,6 @@
   </url>
   <url>
     <loc>https://sek-iota.vercel.app/projects/saint-jean-cap-ferrat</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sek-iota.vercel.app/projects/saint-remy-de-provence</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://sek-iota.vercel.app/projects/villefranche-sur-mer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

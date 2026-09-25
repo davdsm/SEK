@@ -24,7 +24,7 @@ SEK Construction (SEK) is a construction and renovation atelier based in Èze, F
 - Specialty structures (pools, gardens, complex hillside works)
 
 ## Area served
-Èze, Nice, Monaco, Cap d'Ail, Roquebrune-Cap-Martin, Mougins, La Turbie, Saint-Jean-Cap-Ferrat, Villefranche-sur-Mer, Saint-Rémy-de-Provence, and the wider French Riviera / Côte d'Azur.
+Èze, Nice, Monaco, Cap d'Ail, Roquebrune-Cap-Martin, Mougins, Saint-Jean-Cap-Ferrat, and the wider French Riviera / Côte d'Azur.
 
 ## Projects
 - Villa Martine: https://sek-iota.vercel.app/projects/villa-martine
@@ -33,14 +33,11 @@ SEK Construction (SEK) is a construction and renovation atelier based in Èze, F
 - Belle Rive (Nice): https://sek-iota.vercel.app/projects/belle-rive-nice
 - Cap d'Ail: https://sek-iota.vercel.app/projects/cap-dail
 - Eden (Monaco): https://sek-iota.vercel.app/projects/eden-monaco
-- La Turbie: https://sek-iota.vercel.app/projects/la-turbie
 - Mougins: https://sek-iota.vercel.app/projects/mougins
 - Roquebrune Cap Martin: https://sek-iota.vercel.app/projects/roquebrune-cap-martin
 - Villa Les Rochers: https://sek-iota.vercel.app/projects/villa-les-rochers
 - Roquebrune Jardins: https://sek-iota.vercel.app/projects/roquebrune-jardins
 - Saint-Jean-Cap-Ferrat: https://sek-iota.vercel.app/projects/saint-jean-cap-ferrat
-- Saint-Rémy-de-Provence: https://sek-iota.vercel.app/projects/saint-remy-de-provence
-- Villefranche-sur-Mer: https://sek-iota.vercel.app/projects/villefranche-sur-mer
 
 ## Optional
 - Full AI summary: https://sek-iota.vercel.app/llms-full.txt
