@@ -10,10 +10,23 @@ export default function useSectionReveal(deps = []) {
     const BASE_DELAY_S = 0;
     const STAGGER_S = 0.1;
     const VISIBILITY_THRESHOLD = 0.3;
+    // Dense thresholds so tall sections (project galleries) still get
+    // callbacks as their visible ratio changes after images load.
+    const THRESHOLDS = Array.from({ length: 21 }, (_, i) => i / 20);
 
     function revealSection(section) {
       if (section.classList.contains('is-inview')) return;
       section.classList.add('is-inview');
+    }
+
+    function neededRatio(section) {
+      // A section taller than ~1/threshold of the viewport can never
+      // reach VISIBILITY_THRESHOLD of *its own* height on screen at
+      // once — recompute from live height so late-loading images don't
+      // leave the gallery stuck at opacity 0.
+      const height = Math.max(section.offsetHeight, 1);
+      const reachable = (window.innerHeight * 0.95) / height;
+      return Math.min(VISIBILITY_THRESHOLD, reachable);
     }
 
     const observers = [];
@@ -30,22 +43,16 @@ export default function useSectionReveal(deps = []) {
         return;
       }
 
-      // A section taller than ~1/threshold of the viewport can never
-      // reach VISIBILITY_THRESHOLD of *its own* height on screen at
-      // once — cap the target ratio to whatever's actually reachable
-      // so long sections (e.g. a tall project grid) still reveal.
-      const reachable = (window.innerHeight * 0.95) / section.offsetHeight;
-      const effectiveThreshold = Math.min(VISIBILITY_THRESHOLD, reachable);
-
       const observer = new IntersectionObserver(
         (entries) => {
           const entry = entries.find((item) => item.target === section);
-          if (entry && entry.isIntersecting && entry.intersectionRatio >= effectiveThreshold) {
+          if (!entry?.isIntersecting) return;
+          if (entry.intersectionRatio >= neededRatio(section)) {
             revealSection(section);
             observer.disconnect();
           }
         },
-        { threshold: effectiveThreshold }
+        { threshold: THRESHOLDS }
       );
 
       observer.observe(section);
