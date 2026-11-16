@@ -30,6 +30,23 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function scrollbarGap() {
+  return Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+}
+
+function lockPageScroll() {
+  document.documentElement.style.setProperty(
+    '--page-scroll-lock-gap',
+    `${scrollbarGap()}px`
+  );
+  document.body.classList.add('is-page-transitioning');
+}
+
+function unlockPageScroll() {
+  document.body.classList.remove('is-page-transitioning');
+  document.documentElement.style.removeProperty('--page-scroll-lock-gap');
+}
+
 function isInternalPath(href) {
   if (!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) {
     return null;
@@ -78,7 +95,7 @@ export function PageTransitionProvider({ children }) {
       revealScheduledRef.current = false;
       clearTimers();
       setPhase('covering');
-      document.body.classList.add('is-page-transitioning');
+      lockPageScroll();
     },
     [phase, locationKey, navigate, clearTimers]
   );
@@ -120,7 +137,7 @@ export function PageTransitionProvider({ children }) {
       const to = pendingRef.current;
       if (!to) {
         setPhase('idle');
-        document.body.classList.remove('is-page-transitioning');
+        unlockPageScroll();
         return;
       }
       coveredAtRef.current = performance.now();
@@ -150,7 +167,7 @@ export function PageTransitionProvider({ children }) {
     const id = setTimeout(() => {
       pendingRef.current = null;
       setPhase('idle');
-      document.body.classList.remove('is-page-transitioning');
+      unlockPageScroll();
     }, REVEAL_MS);
 
     return () => clearTimeout(id);
@@ -159,7 +176,7 @@ export function PageTransitionProvider({ children }) {
   useEffect(
     () => () => {
       clearTimers();
-      document.body.classList.remove('is-page-transitioning');
+      unlockPageScroll();
     },
     [clearTimers]
   );

@@ -27,16 +27,18 @@ SEK Construction (SEK) is a construction and renovation atelier based in Èze, F
 Èze, Nice, Monaco, Cap d'Ail, Roquebrune-Cap-Martin, Mougins, Saint-Jean-Cap-Ferrat, and the wider French Riviera / Côte d'Azur.
 
 ## Projects
-- Sur Mougins: https://sek-iota.vercel.app/projects/mougins
+- Sur Mougins: https://sek-iota.vercel.app/projects/sur-mougins
 - Villa Les Loupes: https://sek-iota.vercel.app/projects/villa-les-loupes
-- Villa Les Rochers: https://sek-iota.vercel.app/projects/villa-les-rochers
+- Les Rochers: https://sek-iota.vercel.app/projects/les-rochers
 - Villa Martine: https://sek-iota.vercel.app/projects/villa-martine
 - Villa Chabrette: https://sek-iota.vercel.app/projects/villa-chabrette
 - Villa Serangan: https://sek-iota.vercel.app/projects/villa-serangan
 - Belle Rive (Nice): https://sek-iota.vercel.app/projects/belle-rive-nice
 - Cap d'Ail: https://sek-iota.vercel.app/projects/cap-dail
 - Eden (Monaco): https://sek-iota.vercel.app/projects/eden-monaco
+- Mougins: https://sek-iota.vercel.app/projects/mougins
 - Roquebrune Cap Martin: https://sek-iota.vercel.app/projects/roquebrune-cap-martin
+- Villa Les Rochers: https://sek-iota.vercel.app/projects/villa-les-rochers
 - Roquebrune Jardins: https://sek-iota.vercel.app/projects/roquebrune-jardins
 - Saint-Jean-Cap-Ferrat: https://sek-iota.vercel.app/projects/saint-jean-cap-ferrat
 

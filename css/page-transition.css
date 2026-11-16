@@ -35,9 +35,16 @@
   transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+/* Lock scroll without the classic “page stretches then shrinks” jump:
+   padding/right offset replaces the scrollbar width that overflow:hidden removes. */
 body.is-page-transitioning {
   cursor: wait;
   overflow: hidden;
+  padding-right: var(--page-scroll-lock-gap, 0px);
+}
+
+body.is-page-transitioning .site-header {
+  right: var(--page-scroll-lock-gap, 0px);
 }
 
 @media (prefers-reduced-motion: reduce) {

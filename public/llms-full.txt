@@ -22,31 +22,31 @@ SEK shapes private villas, historic restorations, and specialty structures acros
 - Location: Mougins, France
 - Type: New Construction
 - Year: 2026
-- Tagline: A hillside villa composed for light and leisure
-- URL: https://sek-iota.vercel.app/projects/mougins
-- Cover: https://sek-iota.vercel.app/projects/mougins/cover.jpg
-- Sur Mougins rises in clean horizontals above terraced stone and lawn. Glass, pale facade, and cypress draw a quiet line across the slope, while a tennis court and infinity edge turn the grounds into rooms of open air.
-- SEK shaped structure and landscape as one gesture: retaining walls that hold the hill, decks that lead the eye to the horizon, and a residence that feels both monumental and at ease in the Provençal light.
+- Tagline: Stone, cypress, and a horizon held in quiet balance
+- URL: https://sek-iota.vercel.app/projects/sur-mougins
+- Cover: https://sek-iota.vercel.app/projects/sur-mougins/cover.jpg
+- Above Mougins, the villa settles into the hillside as if it had always belonged there. Pale volumes open to the light; dry-stone walls catch the Provençal sun; a slender cypress rises beside white cyclamen like a single brushstroke against the sky.
+- SEK composed the grounds as carefully as the house: an infinity edge that softens into the valley, lawns that breathe between terraces, a tennis court held in green. Architecture here is not a statement shouted from the ridge, but a measured conversation with stone, water, and air.
 
 ### Villa Les Loupes
 - Location: French Riviera, France
 - Type: Renovation
 - Year: 2026
-- Tagline: Stone, water, and a view held in quiet geometry
+- Tagline: A cantilever of calm above the sea
 - URL: https://sek-iota.vercel.app/projects/villa-les-loupes
 - Cover: https://sek-iota.vercel.app/projects/villa-les-loupes/cover.jpg
-- Villa Les Loupes lives between the terrace and the sea. Pale stone underfoot, a deep tiled pool, and striped loungers catching the Riviera sun, every surface tuned for stillness rather than display.
-- Renovation here favoured proportion and material honesty: sharp white volumes against bamboo and hillside green, architecture that frames the Mediterranean without competing with it.
+- Villa Les Loupes lives in the pause between stone and water. Two loungers cast soft shadows on pale paving; the pool runs deep teal beside a charcoal edge; beyond the bamboo, the Mediterranean lies still as silk.
+- Renovation favoured lightness over weight: white volumes that seem to float, a deck that reaches toward the blue, rooms of air where the Côte d’Azur is never far from touch. SEK shaped a home that feels suspended, intimate, and endlessly open to the horizon.
 
-### Villa Les Rochers
+### Les Rochers
 - Location: Roquebrune-Cap-Martin, France
 - Type: Renovation
 - Year: 2026
-- Tagline: A terrace suspended between rock and bay
-- URL: https://sek-iota.vercel.app/projects/villa-les-rochers
-- Cover: https://sek-iota.vercel.app/projects/villa-les-rochers/cover.jpg
-- Villa Les Rochers opens toward the coast like a belvedere: an infinity pool mirroring pale facades and terracotta roofs, a bronze figure at the water’s edge, and beyond, the dense silhouette of the Riviera against the mountains.
-- SEK restored the dialogue between house and cliff, interiors of calm white and terracotta stripe, exteriors of shutters, citrus, and stone, so the villa feels carved into the rocks yet open to the entire bay.
+- Tagline: Where the bay becomes a quiet companion
+- URL: https://sek-iota.vercel.app/projects/les-rochers
+- Cover: https://sek-iota.vercel.app/projects/les-rochers/cover.jpg
+- Les Rochers opens toward the coast like a held breath. An infinity pool mirrors pale façades and terracotta roofs; a bronze figure rests at the water’s edge; across the bay, the Riviera gathers against the mountains in soft grey light.
+- Inside, the house speaks in quieter tones: terracotta stripes in a white bath, peach linen wrapping a sloping ceiling, a dressing corridor of cream and rose that ends in daylight. SEK restored the dialogue between cliff and craft so every room, from terrace to textile, feels composed for living beside the sea.
 
 ### Villa Martine
 - Location: French Riviera, France
@@ -108,6 +108,16 @@ SEK shapes private villas, historic restorations, and specialty structures acros
 - Eden is written in the language of detail. Fluted plaster, veined marble, and chrome that catches cove light like liquid silver, a bathroom conceived as jewel box, where every joint and curve earns its place.
 - In Monaco, space is precious; craftsmanship becomes the architecture. SEK shaped surfaces that feel both rigorous and sensual, a private Eden measured not in square metres, but in the quality of touch.
 
+### Mougins
+- Location: Mougins, France
+- Type: Specialty Structure
+- Year: 2024
+- Tagline: A line of water drawn toward the villa
+- URL: https://sek-iota.vercel.app/projects/mougins
+- Cover: https://sek-iota.vercel.app/projects/mougins/cover.jpg
+- In Mougins, the pool becomes the first room of the house, a long rectangle of deep blue mosaic, edged in pale stone, leading the eye to a white villa of clean horizontals and black-framed glass.
+- Specialty structure here means more than engineering: it is the craft of making water, deck, and architecture feel like one composition. Loungers, umbrellas, and the quiet geometry of leisure complete a Riviera stillness that never needs to raise its voice.
+
 ### Roquebrune Cap Martin
 - Location: Roquebrune-Cap-Martin, France
 - Type: Renovation
@@ -117,6 +127,16 @@ SEK shapes private villas, historic restorations, and specialty structures acros
 - Cover: https://sek-iota.vercel.app/projects/roquebrune-cap-martin/cover.jpg
 - Peach plaster, soft blue shutters, and wrought-iron balconies curve above the rocks, a Mediterranean residence restored to its most cinematic self. From the garden, the bay opens wide; across the water, mountains hold the light like a painted backdrop.
 - Renovation meant honouring character: arched terraces, terracotta pots, bougainvillea against white stone. SEK returned the house to the cliff with care, not as a museum piece, but as a living belvedere for the Riviera.
+
+### Villa Les Rochers
+- Location: Roquebrune-Cap-Martin, France
+- Type: Renovation
+- Year: 2023
+- Tagline: Warmth woven into every surface
+- URL: https://sek-iota.vercel.app/projects/villa-les-rochers
+- Cover: https://sek-iota.vercel.app/projects/villa-les-rochers/cover.jpg
+- Villa Les Rochers is a bedroom composed like a painting: dusty rose walls, a tiled ceiling soft as evening light, and a curved alcove of shutters opening toward the coast. Patterned textiles and pale timber hold the room in a quiet embrace.
+- Renovation here favoured atmosphere over spectacle, lamps that glow like embers, a chaise for long mornings, craft that you feel before you name it. A private world carved into the rocks, made for rest that feels luxurious and human.
 
 ### Roquebrune Jardins
 - Location: Roquebrune-Cap-Martin, France

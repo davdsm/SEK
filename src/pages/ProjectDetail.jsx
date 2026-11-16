@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { PROJECTS, getProjectBySlug } from '../data/projects.js';
@@ -16,32 +16,9 @@ import '../../css/inner-page.css';
 import '../../css/project.css';
 import '../../css/footer.css';
 
-function orientationFromSize(width, height) {
-  if (!width || !height) return 'landscape';
-  const ratio = width / height;
-  if (ratio < 0.9) return 'portrait';
-  if (ratio > 1.1) return 'landscape';
-  return 'square';
-}
-
 function GalleryFigure({ src, alt, className = '' }) {
-  const [orientation, setOrientation] = useState('landscape');
-
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      setOrientation(orientationFromSize(img.naturalWidth, img.naturalHeight));
-    };
-    img.src = src;
-    if (img.complete && img.naturalWidth) {
-      setOrientation(orientationFromSize(img.naturalWidth, img.naturalHeight));
-    }
-  }, [src]);
-
   return (
-    <figure
-      className={`project-gallery__item project-gallery__item--${orientation} ${className}`.trim()}
-    >
+    <figure className={`project-gallery__item ${className}`.trim()}>
       <img
         src={src}
         alt={alt}
