@@ -140,15 +140,15 @@ export default function ProjectDetail() {
           <div data-section-reveal>
             <h2 className="project-gallery__title section-reveal">{t('project.gallery')}</h2>
           </div>
-          <div className="project-gallery__grid">
-            {gallery.map((src, i) => (
-              <GalleryFigure
-                key={src}
-                src={src}
-                alt={i === 0 ? t('project.mainView', { name: project.name }) : `${project.name} ${i + 1}`}
-              />
-            ))}
-          </div>
+        </div>
+        <div className="project-gallery__grid">
+          {gallery.map((src, i) => (
+            <GalleryFigure
+              key={src}
+              src={src}
+              alt={i === 0 ? t('project.mainView', { name: project.name }) : `${project.name} ${i + 1}`}
+            />
+          ))}
         </div>
       </section>
 

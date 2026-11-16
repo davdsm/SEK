@@ -148,19 +148,24 @@
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
+/* Full-bleed masonry — edge to edge of the window */
 .project-gallery__grid {
   columns: 2;
-  column-gap: 12px;
+  column-gap: 8px;
+  width: 100%;
+  max-width: none;
+  padding: 0 8px;
+  box-sizing: border-box;
 }
 
 .project-gallery__item {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   width: 100%;
   overflow: hidden;
   line-height: 0;
@@ -245,11 +250,12 @@
   }
 
   .project-gallery__grid {
-    column-gap: 10px;
+    column-gap: 6px;
+    padding: 0 6px;
   }
 
   .project-gallery__item {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 }
 
@@ -257,10 +263,11 @@
   .project-gallery__grid {
     columns: 1;
     column-gap: 0;
+    padding: 0;
   }
 
   .project-gallery__item {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 
   .project-banner__content {
