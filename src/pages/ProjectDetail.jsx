@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
-import { PROJECTS, getProjectBySlug } from '../data/projects.js';
+import { PROJECTS, getProjectBySlug, localizeProject } from '../data/projects.js';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import {
   useSeo,
@@ -35,7 +35,7 @@ function ProjectSeo({ project }) {
     if (Array.isArray(project.description) && project.description[0]) {
       return project.description[0];
     }
-    return `${project.name} in ${project.location}, a SEK Construction project on the French Riviera.`;
+    return `${project.name} · ${project.location}`;
   }, [project]);
 
   useSeo({
@@ -43,7 +43,7 @@ function ProjectSeo({ project }) {
     description,
     path: `/projects/${project.slug}`,
     image: project.img || '/og.jpg',
-    imageAlt: `${project.name} by SEK Construction in ${project.location}`,
+    imageAlt: `${project.name} · ${project.location}`,
     type: 'article',
     jsonLd: [
       breadcrumbJsonLd([
@@ -59,16 +59,18 @@ function ProjectSeo({ project }) {
 }
 
 export default function ProjectDetail() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const { slug } = useParams();
-  const project = getProjectBySlug(slug);
+  const raw = getProjectBySlug(slug);
   const index = PROJECTS.findIndex((p) => p.slug === slug);
-  const next = PROJECTS[(index + 1) % PROJECTS.length];
+  const nextRaw = PROJECTS[(index + 1) % PROJECTS.length];
 
-  if (!project) {
+  if (!raw) {
     return <Navigate to="/projects" replace />;
   }
 
+  const project = localizeProject(raw, locale);
+  const next = nextRaw ? localizeProject(nextRaw, locale) : null;
   const gallery = project.images || [project.img];
   const hero = gallery[0];
 
@@ -133,16 +135,17 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      <section className="project-gallery" data-section-reveal>
+      <section className="project-gallery">
         <div className="inner-wrap">
-          <h2 className="project-gallery__title section-reveal">{t('project.gallery')}</h2>
+          <div data-section-reveal>
+            <h2 className="project-gallery__title section-reveal">{t('project.gallery')}</h2>
+          </div>
           <div className="project-gallery__grid">
             {gallery.map((src, i) => (
               <GalleryFigure
                 key={src}
                 src={src}
                 alt={i === 0 ? t('project.mainView', { name: project.name }) : `${project.name} ${i + 1}`}
-                className="section-reveal"
               />
             ))}
           </div>

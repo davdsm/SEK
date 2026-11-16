@@ -1,15 +1,22 @@
 /* ── Section reveal — fade-in-up stagger on viewport entry ── */
 [data-section-reveal] .section-reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(24px);
   transition:
-    opacity 0.65s ease var(--reveal-delay, 0s),
-    transform 0.65s ease var(--reveal-delay, 0s);
+    opacity 0.55s ease var(--reveal-delay, 0s),
+    transform 0.55s ease var(--reveal-delay, 0s);
 }
 
 [data-section-reveal].is-inview .section-reveal {
   opacity: 1;
   transform: none;
+}
+
+/* Gallery photos must never depend on reveal animations */
+.project-gallery__item,
+.project-gallery__img {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

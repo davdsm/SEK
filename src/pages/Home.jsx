@@ -7,7 +7,7 @@ import useParallax from '../hooks/useParallax.js';
 import useSectionReveal from '../hooks/useSectionReveal.js';
 import Footer from '../components/Footer.jsx';
 import PageEnter from '../components/PageEnter.jsx';
-import { PROJECTS } from '../data/projects.js';
+import { PROJECTS, localizeProject } from '../data/projects.js';
 import { useSeo, organizationJsonLd, websiteJsonLd } from '../seo/useSeo.js';
 import { SITE } from '../seo/site.js';
 import { useLocale } from '../i18n/LocaleContext.jsx';
@@ -16,10 +16,10 @@ import '../../css/footer.css';
 import '../../css/section-reveal.css';
 
 const HOME_CARD_HEIGHTS = ['40vh', '58vh', '34vh', '72vh', '48vh', '80vh', '56vh', '38vh'];
-const HOME_PROJECTS = PROJECTS.slice(0, 8);
 
 export default function Home() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+  const HOME_PROJECTS = PROJECTS.slice(0, 8).map((p) => localizeProject(p, locale));
   const pageRef = useRef(null);
   const scrollyRef = useRef(null);
   const roomRef = useRef(null);

@@ -153,14 +153,14 @@
 
 .project-gallery__grid {
   columns: 2;
-  column-gap: 10px;
+  column-gap: 12px;
 }
 
 .project-gallery__item {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   width: 100%;
   overflow: hidden;
   line-height: 0;
@@ -245,19 +245,11 @@
   }
 
   .project-gallery__grid {
-    columns: 2;
-    column-gap: 8px;
+    column-gap: 10px;
   }
 
   .project-gallery__item {
-    margin-bottom: 8px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .project-gallery__grid {
-    columns: 3;
-    column-gap: 10px;
+    margin-bottom: 10px;
   }
 }
 
@@ -268,7 +260,7 @@
   }
 
   .project-gallery__item {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .project-banner__content {

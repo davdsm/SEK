@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import InnerPageLayout from '../components/InnerPageLayout.jsx';
 import { usePageTransition } from '../components/PageTransition.jsx';
-import { PROJECTS } from '../data/projects.js';
+import { PROJECTS, localizeProject } from '../data/projects.js';
 import { useSeo, breadcrumbJsonLd } from '../seo/useSeo.js';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import '../../css/hero.css';
@@ -26,7 +26,7 @@ function padIndex(n) {
 }
 
 export default function Projects() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const [filter, setFilter] = useState('all');
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -43,6 +43,11 @@ export default function Projects() {
         label: t(`portfolio.filters.${key}`),
       })),
     [t]
+  );
+
+  const localizedProjects = useMemo(
+    () => PROJECTS.map((p) => localizeProject(p, locale)),
+    [locale]
   );
 
   useSeo({
@@ -83,7 +88,7 @@ export default function Projects() {
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return PROJECTS.filter((p) => {
+    return localizedProjects.filter((p) => {
       const matchesFilter = filter === 'all' || p.category === filter;
       const matchesQuery =
         !q ||
@@ -91,7 +96,7 @@ export default function Projects() {
         p.location.toLowerCase().includes(q);
       return matchesFilter && matchesQuery;
     });
-  }, [filter, query]);
+  }, [filter, query, localizedProjects]);
 
   useEffect(() => {
     if (skipGridWave.current) {
