@@ -6,6 +6,7 @@ import {
   PageTransitionProvider,
   PageReadySignal,
 } from './components/PageTransition.jsx';
+import '../css/scrollbar.css';
 
 // Lazy-loaded so each page's CSS (which assumes it owns the document,
 // same as when these were separate static HTML pages) is only ever
